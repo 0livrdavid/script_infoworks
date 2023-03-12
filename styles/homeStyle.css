@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  margin: 0;
+  padding: 0;
+  background: #fffafa ;
+  height: 100vh;
+  overflow: auto;
+}
+
+.anuncios {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  background-color: rgb(130, 179, 243);
+  padding: 0;
+  margin-top: 50px;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+  max-width: 1660px; /* largura máxima da div pai */
+  margin: 0 auto; /* centraliza a div pai na página */
+}
+
+.button-value {
+  border: 2px solid #3b2b83;
+  padding: 0.5em 1em;
+  border-radius: 3em;
+  background-color: transparent;
+  color: #3b2b83;
+  cursor: pointer;
+}
+.active {
+  background-color: #3b2b83;
+  color: #ffffff;
+}
+
+.cabecalho{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+  background-color: rgb(130, 179, 243);
+  max-width: 1660px;
+  border-radius: 15px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 10px;
+}
+
+.img_logo img{
+  margin-left: 50px;
+  height: 50px;
+}
+
+.filtro{
+  justify-content: center;
+  max-width: 1660px;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.botao-noti{
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+  border: none;
+  align-items: center;
+}
+
+.caixa-busca {
+  display: flex;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+
+.caixa-busca input[type="text"] {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 25px 0 0 25px;
+  font-size: 16px;
+  outline: none;
+}
+
+.caixa-busca button[type="submit"] {
+  padding: 10px 20px;
+  border: none;
+  background-color: #3b2b83;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.caixa-busca button[type="submit"]:hover {
+  background-color: #3b2b83;
+}
+
+
+.botao-noti img{
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.botao-circular {
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.botao-circular img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center bottom; /* ajusta a posição da imagem dentro do botão */
+}
+
+.perfil{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.notifica{
+  justify-content: center;
+  align-items: center;
+  margin-right: 15px;
+}
+
+.logo{
+  margin-left: 5px;
+}
+
+.pesquisa{
+  margin-left: 30px;
+}
+
+.cabecalho-p1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cabecalho-p2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.filtro{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.center {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
+  margin: 7.5px;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 100%;
+  flex: 1 0 calc((1660px - 60px) / 4); /* largura de (largura máxima da div pai - margens laterais) / 4 */
+  max-width: calc((1660px - 60px) / 4); /* largura de (largura máxima da div pai - margens laterais) / 4 */
+}
+
+.cargo {
+  display: flex; /* adiciona display flex para alinhar os elementos na mesma linha */
+  justify-content: space-between; /* alinha os elementos para a esquerda e direita da div pai */
+  align-items: center; /* centraliza os elementos verticalmente */
+  margin: 0;
+}
+
+.cargoNome {
+  margin-left: 26px; /* adiciona 26px de margem à esquerda do elemento */
+}
+
+.cargoPreco {
+  margin-right: 26px; /* adiciona 26px de margem à direita do elemento */
+}
+
+.avaliacao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0;
+    margin: 0;
+}
+
+.avaliacao h4{
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+
+.center h3{
+  text-align: left;
+  padding-left: 26px;
+  padding-bottom: 5px;
+}
+
+.imagem {
+    height: 230px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+  
+.imgCargo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    padding: 10px;
+}
+
+input[type="submit"]{
+    width: 70%;
+    height: 50px;
+    border: 1px solid;
+    background: #3b2b83;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    outline: none;
+}
+
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 0;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+input[type="submit"]:hover{
+    border-color: #3b2b83;
+    transition: .5s;
+}
+
