@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
 *{
-  margin: 0;
+  /* margin: 0; */
   padding: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 body{
   margin: 0;
   padding: 0;
@@ -13,17 +15,30 @@ body{
   overflow: auto;
 }
 
-.anuncios {
+.content {
+     width: 100%;
+     height: 100%;
+     background: #fffafa;
+     position: relative;
+}
+
+
+.container {
+     width: 90%;
+     margin: 0 auto;
+     height: 100%;
+}
+
+.adverts {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   background-color: rgb(130, 179, 243);
-  padding: 0;
-  margin-top: 50px;
+  padding: 30px;
+  gap: 1vw;
+  justify-content: center;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
-  max-width: 1660px; /* largura máxima da div pai */
-  margin: 0 auto; /* centraliza a div pai na página */
 }
 
 .button-value {
@@ -33,22 +48,22 @@ body{
   background-color: transparent;
   color: #3b2b83;
   cursor: pointer;
+  font-size: 1.1rem;
 }
 .active {
   background-color: #3b2b83;
   color: #ffffff;
 }
 
-.cabecalho{
+.header{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 auto;
+  margin: 2rem 0;
   background-color: rgb(130, 179, 243);
-  max-width: 1660px;
   border-radius: 15px;
+  height: 6rem;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
-  margin-top: 10px;
 }
 
 .img_logo img{
@@ -58,7 +73,7 @@ body{
 
 .filtro{
   justify-content: center;
-  max-width: 1660px;
+  /* max-width: 1660px; */
   align-items: center;
   margin: 0 auto;
   margin-top: 15px;
@@ -90,7 +105,7 @@ body{
   padding: 10px;
   border: none;
   border-radius: 25px 0 0 25px;
-  font-size: 16px;
+  font-size: 1.1rem;
   outline: none;
 }
 
@@ -99,7 +114,7 @@ body{
   border: none;
   background-color: #3b2b83;
   color: #fff;
-  font-size: 16px;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.2s;
 }
@@ -145,7 +160,7 @@ body{
   margin-right: 15px;
 }
 
-.notifica{
+.botao-notificao{
   justify-content: center;
   align-items: center;
   margin-right: 15px;
@@ -159,35 +174,34 @@ body{
   margin-left: 30px;
 }
 
-.cabecalho-p1{
+.header-logo{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.cabecalho-p2{
+.header-menu{
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.filtro{
+.filter{
   display: flex;
   justify-content: space-between;
+  margin: 2rem 0;
   align-items: center;
 }
 
-.center {
-  position: relative;
+.card {
+  /* position: relative; */
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
-  margin: 7.5px;
   padding: 10px;
   box-sizing: border-box;
   height: 100%;
-  flex: 1 0 calc((1660px - 60px) / 4); /* largura de (largura máxima da div pai - margens laterais) / 4 */
-  max-width: calc((1660px - 60px) / 4); /* largura de (largura máxima da div pai - margens laterais) / 4 */
+  width: 19vw;
 }
 
 .cargo {
@@ -220,14 +234,14 @@ body{
     padding-bottom: 10px;
 }
 
-.center h3{
+.card h3{
   text-align: left;
   padding-left: 26px;
   padding-bottom: 5px;
 }
 
 .imagem {
-    height: 230px;
+    height: 10vw;
     box-sizing: border-box;
     border-radius: 10px;
 }
@@ -240,6 +254,7 @@ body{
     padding: 0;
     margin: 0;
     padding: 10px;
+    max-width: 100%;
 }
 
 input[type="submit"]{
