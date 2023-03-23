@@ -199,11 +199,12 @@ body{
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
-  padding: 10px;
+  padding: 15px 15px;
   box-sizing: border-box;
   height: 100%;
   width: 19vw;
-}
+  max-height: 76vh;
+}s
 
 .cargo {
   display: flex; /* adiciona display flex para alinhar os elementos na mesma linha */
@@ -217,7 +218,7 @@ body{
 }
 
 .cargoPreco {
-  margin-right: 26px; /* adiciona 26px de margem à direita do elemento */
+  margin-left: 26px; /* adiciona 26px de margem à direita do elemento */
 }
 
 .avaliacao{
