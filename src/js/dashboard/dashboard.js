@@ -1,3 +1,7 @@
+$(document).ready(function() {
+    $("#filter_todos").addClass("active")
+});
+
 function filterProduct(value) {
     //Button class code
     let buttons = document.querySelectorAll(".button-value");
