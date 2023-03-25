@@ -201,10 +201,46 @@ body{
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.05);
   padding: 15px 15px;
   box-sizing: border-box;
-  height: 100%;
-  width: 19vw;
-  max-height: 76vh;
-}s
+  width: 20vw;
+  height: 78vh;
+}
+
+@media screen and (min-width: 1900px) and (max-width: 2150px) {
+  .card {
+    width: 18vw;
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (min-width: 1500px) and (max-width: 1900px) {
+  .card {
+    width: 20vw;
+  }
+}
+
+@media screen and (min-width: 1250px) and (max-width: 1500px) {
+  .card {
+    width: 25vw;
+  }
+}
+
+@media screen and (min-width: 901px) and (max-width: 1250px) {
+  .card {
+    width: 30vw;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 900px) {
+  .card {
+    width: 50vw;
+  }
+}
+
+@media screen and (max-device-width: 480px) {
+  .card {
+    width: 80vw;
+  }
+}
 
 .cargo {
   display: flex; /* adiciona display flex para alinhar os elementos na mesma linha */

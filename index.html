@@ -1,284 +1,282 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - youtube.com/codingnepal -->
 <html lang="pt-br" dir="ltr">
-
-<head>
-     <meta charset="utf-8">
-     <title>InfoWorks</title>
-     <link rel="stylesheet" href="styles/homeStyle.css">
-     <script src="scripts/homeScript.js"></script>
-     <link rel="icon" type="image/x-icon" href="pictures/InfoWorks_logo_fundo.ico">
-</head>
-
-<body>
-     <div class="content">
-          <div class="container">
-               <div class="header">
-                    <div class="header-logo">
-                         <div class="logo">
-                              <div class="img_logo">
-                                   <img src="pictures/InfoWorks_logo.png" alt="" srcset="">
+     <head>
+          <meta charset="utf-8">
+          <title>InfoWorks</title>
+          <link rel="stylesheet" href="styles/homeStyle.css">
+          <script src="scripts/homeScript.js"></script>
+          <link rel="icon" type="image/x-icon" href="pictures/InfoWorks_logo_fundo.ico">
+     </head>
+     <body>
+          <div class="content">
+               <div class="container">
+                    <div class="header">
+                         <div class="header-logo">
+                              <div class="logo">
+                                   <div class="img_logo">
+                                        <img src="pictures/InfoWorks_logo.png" alt="" srcset="">
+                                   </div>
+                              </div>
+                              <div class="pesquisa">
+                                   <div class="caixa-busca">
+                                        <input type="text" placeholder="Digite sua pesquisa...">
+                                        <button type="submit">Pesquisar</button>
+                                   </div>
                               </div>
                          </div>
-                         <div class="pesquisa">
-                              <div class="caixa-busca">
-                                   <input type="text" placeholder="Digite sua pesquisa...">
-                                   <button type="submit">Pesquisar</button>
-                              </div>
-                         </div>
-                    </div>
-                    <div class="header-menu">
-                         <div class="botao-notificao">
-                              <button class="botao-noti">
-                                   <img src="pictures/notification.png" alt="Notificações">
-                              </button>
-                         </div>
-                         <div class="perfil">
-                              <div class="fotoPerfil">
-                                   <button class="botao-circular">
-                                        <a href="login.html"><img src="pictures/pessoa.jfif" alt="Perfil"></a>
+                         <div class="header-menu">
+                              <div class="botao-notificao">
+                                   <button class="botao-noti">
+                                        <img src="pictures/notification.png" alt="Notificações">
                                    </button>
                               </div>
-                         </div>
-                    </div>
-               </div>
-
-               <div class="filter">
-                    <div id="buttons">
-                         <button class="button-value" onclick="filterProduct('Todos')">
-                              Todos
-                         </button>
-                         <button class="button-value" onclick="filterProduct('Mais Relevantes')">
-                              Mais Relevantes
-                         </button>
-                         <button class="button-value" onclick="filterProduct('Menor Preço')">
-                              Menor Preço
-                         </button>
-                         <button class="button-value" onclick="filterProduct('Mais Próximos')">
-                              Mais Próximos
-                         </button>
-                    </div>
-               </div>
-
-               <div class="adverts">
-                    <div class="card">
-                         <div class="imgCargo">
-                              <img class="imagem" src="pictures/motorista.jpg" alt="Motorista" srcset="">
-                         </div>
-                         <div class="cargo">
-                              <div class="cargoNome">
-                                   <h2 id="txt1">Motorista</h2>
+                              <div class="perfil">
+                                   <div class="fotoPerfil">
+                                        <button class="botao-circular">
+                                             <a href="login.html"><img src="pictures/pessoa.jfif" alt="Perfil"></a>
+                                        </button>
+                                   </div>
                               </div>
-                              <div class="cargoPreco">
-                                   <h2 id="txt2">R$10/Km</h2>
-                              </div>
-                         </div>
-                         <div class="nome">
-                              <h3>Carlos Henrique, 29 anos</h3>
-                         </div>
-                         <div class="cidade">
-                              <h3>Itajubá - MG</h3>
-                         </div>
-                         <div class="avaliacao">
-                              <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
-                              <h4>4,5 - 33 Avaliações</h4>
-                         </div>
-                         <div class="button">
-                              <input type="submit" value="Mais Detalhes">
                          </div>
                     </div>
 
-                    <div class="card">
-                         <div class="imgCargo">
-                              <img class="imagem" src="pictures/pintor.jpg" alt="Motorista" srcset="">
-                         </div>
-                         <div class="cargo">
-                              <div class="cargoNome">
-                                   <h2 id="txt1">Pintor</h2>
-                              </div>
-                              <div class="cargoPreco">
-                                   <h2 id="txt2">R$100/Dia</h2>
-                              </div>
-                         </div>
-                         <div class="nome">
-                              <h3>Pedro Paulo, 35 anos</h3>
-                         </div>
-                         <div class="cidade">
-                              <h3>Piranguinho - MG</h3>
-                         </div>
-                         <div class="avaliacao">
-                              <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
-                              <h4>3,7 - 74 Avaliações</h4>
-                         </div>
-                         <div class="button">
-                              <input type="submit" value="Mais Detalhes">
+                    <div class="filter">
+                         <div id="buttons">
+                              <button class="button-value" onclick="filterProduct('Todos')">
+                                   Todos
+                              </button>
+                              <button class="button-value" onclick="filterProduct('Mais Relevantes')">
+                                   Mais Relevantes
+                              </button>
+                              <button class="button-value" onclick="filterProduct('Menor Preço')">
+                                   Menor Preço
+                              </button>
+                              <button class="button-value" onclick="filterProduct('Mais Próximos')">
+                                   Mais Próximos
+                              </button>
                          </div>
                     </div>
 
-                    <div class="card">
-                         <div class="imgCargo">
-                              <img class="imagem" src="pictures/diarista.jpg" alt="Motorista" srcset="">
-                         </div>
-                         <div class="cargo">
-                              <div class="cargoNome">
-                                   <h2 id="txt1">Diarista</h2>
+                    <div class="adverts">
+                         <div class="card">
+                              <div style="height: 100%; width: 100%;">
+                                   <div class="imgCargo">
+                                        <img class="imagem" src="pictures/motorista.jpg" alt="Motorista" srcset="">
+                                   </div>
+                                   <div class="cargo">
+                                        <div class="cargoNome">
+                                             <h2 id="txt1">Motorista</h2>
+                                        </div>
+                                        <div class="cargoPreco">
+                                             <h2 id="txt2">R$10/Km</h2>
+                                        </div>
+                                   </div>
+                                   <div class="nome">
+                                        <h3>Carlos Henrique, 29 anos</h3>
+                                   </div>
+                                   <div class="cidade">
+                                        <h3>Itajubá - MG</h3>
+                                   </div>
+                                   <div class="avaliacao">
+                                        <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                                        <h4>4,5 - 33 Avaliações</h4>
+                                   </div>
+                                   <div class="button">
+                                        <input type="submit" value="Mais Detalhes">
+                                   </div>
                               </div>
-                              <div class="cargoPreco">
-                                   <h2 id="txt2">R$20/Hora</h2>
-                              </div>
                          </div>
-                         <div class="nome">
-                              <h3>Maria da Penha, 40 anos</h3>
-                         </div>
-                         <div class="cidade">
-                              <h3>Pedralva - MG</h3>
-                         </div>
-                         <div class="avaliacao">
-                              <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
-                              <h4>4,1 - 15 Avaliações</h4>
-                         </div>
-                         <div class="button">
-                              <input type="submit" value="Mais Detalhes">
-                         </div>
-                    </div>
 
-                    <div class="card">
-                         <div class="imgCargo">
-                              <img class="imagem" src="pictures/entregadora.png" alt="Motorista" srcset="">
-                         </div>
-                         <div class="cargo">
-                              <div class="cargoNome">
-                                   <h2 id="txt1">Entregadora</h2>
+                         <div class="card">
+                              <div class="imgCargo">
+                                   <img class="imagem" src="pictures/pintor.jpg" alt="Motorista" srcset="">
                               </div>
-                              <div class="cargoPreco">
-                                   <h2 id="txt2">R$150/Dia</h2>
+                              <div class="cargo">
+                                   <div class="cargoNome">
+                                        <h2 id="txt1">Pintor</h2>
+                                   </div>
+                                   <div class="cargoPreco">
+                                        <h2 id="txt2">R$100/Dia</h2>
+                                   </div>
+                              </div>
+                              <div class="nome">
+                                   <h3>Pedro Paulo, 35 anos</h3>
+                              </div>
+                              <div class="cidade">
+                                   <h3>Piranguinho - MG</h3>
+                              </div>
+                              <div class="avaliacao">
+                                   <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                                   <h4>3,7 - 74 Avaliações</h4>
+                              </div>
+                              <div class="button">
+                                   <input type="submit" value="Mais Detalhes">
                               </div>
                          </div>
-                         <div class="nome">
-                              <h3>Tamires Silva, 39 anos</h3>
-                         </div>
-                         <div class="cidade">
-                              <h3>Piranguinho - MG</h3>
-                         </div>
-                         <div class="avaliacao">
-                              <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
-                              <h4>4,1 - 12 Avaliações</h4>
-                         </div>
-                         <div class="button">
-                              <input type="submit" value="Mais Detalhes">
-                         </div>
-                    </div>
 
-                    <div class="card">
-                         <div class="imgCargo">
-                              <img class="imagem" src="pictures/baba.jpg" alt="Baba" srcset="">
-                         </div>
-                         <div class="cargo">
-                              <div class="cargoNome">
-                                   <h2 id="txt1">Babá</h2>
+                         <div class="card">
+                              <div class="imgCargo">
+                                   <img class="imagem" src="pictures/diarista.jpg" alt="Motorista" srcset="">
                               </div>
-                              <div class="cargoPreco">
-                                   <h2 id="txt2">R$30/Dia</h2>
+                              <div class="cargo">
+                                   <div class="cargoNome">
+                                        <h2 id="txt1">Diarista</h2>
+                                   </div>
+                                   <div class="cargoPreco">
+                                        <h2 id="txt2">R$20/Hora</h2>
+                                   </div>
+                              </div>
+                              <div class="nome">
+                                   <h3>Maria da Penha, 40 anos</h3>
+                              </div>
+                              <div class="cidade">
+                                   <h3>Pedralva - MG</h3>
+                              </div>
+                              <div class="avaliacao">
+                                   <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                                   <h4>4,1 - 15 Avaliações</h4>
+                              </div>
+                              <div class="button">
+                                   <input type="submit" value="Mais Detalhes">
                               </div>
                          </div>
-                         <div class="nome">
-                              <h3>Juliana Pereira, 27 anos</h3>
-                         </div>
-                         <div class="cidade">
-                              <h3>Pedralva - MG</h3>
-                         </div>
-                         <div class="avaliacao">
-                              <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
-                              <h4>2,3 - 55 Avaliações</h4>
-                         </div>
-                         <div class="button">
-                              <input type="submit" value="Mais Detalhes">
-                         </div>
-                    </div>
 
-                    <div class="card">
-                         <div class="imgCargo">
-                              <img class="imagem" src="pictures/motoboy.webp" alt="Baba" srcset="">
-                         </div>
-                         <div class="cargo">
-                              <div class="cargoNome">
-                                   <h2 id="txt1">Motoboy</h2>
+                         <div class="card">
+                              <div class="imgCargo">
+                                   <img class="imagem" src="pictures/entregadora.png" alt="Motorista" srcset="">
                               </div>
-                              <div class="cargoPreco">
-                                   <h2 id="txt2">R$15/km</h2>
+                              <div class="cargo">
+                                   <div class="cargoNome">
+                                        <h2 id="txt1">Entregadora</h2>
+                                   </div>
+                                   <div class="cargoPreco">
+                                        <h2 id="txt2">R$150/Dia</h2>
+                                   </div>
+                              </div>
+                              <div class="nome">
+                                   <h3>Tamires Silva, 39 anos</h3>
+                              </div>
+                              <div class="cidade">
+                                   <h3>Piranguinho - MG</h3>
+                              </div>
+                              <div class="avaliacao">
+                                   <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                                   <h4>4,1 - 12 Avaliações</h4>
+                              </div>
+                              <div class="button">
+                                   <input type="submit" value="Mais Detalhes">
                               </div>
                          </div>
-                         <div class="nome">
-                              <h3>Yuri Ramos, 20 anos</h3>
-                         </div>
-                         <div class="cidade">
-                              <h3>Maria da Fé - MG</h3>
-                         </div>
-                         <div class="avaliacao">
-                              <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
-                              <h4>4,7 - 63 Avaliações</h4>
-                         </div>
-                         <div class="button">
-                              <input type="submit" value="Mais Detalhes">
-                         </div>
-                    </div>
 
-                    <div class="card">
-                         <div class="imgCargo">
-                              <img class="imagem" src="pictures/jardineiro.png" alt="Baba" srcset="">
-                         </div>
-                         <div class="cargo">
-                              <div class="cargoNome">
-                                   <h2 id="txt1">Jardineiro</h2>
+                         <div class="card">
+                              <div class="imgCargo">
+                                   <img class="imagem" src="pictures/baba.jpg" alt="Baba" srcset="">
                               </div>
-                              <div class="cargoPreco">
-                                   <h2 id="txt2">R$30/Hora</h2>
+                              <div class="cargo">
+                                   <div class="cargoNome">
+                                        <h2 id="txt1">Babá</h2>
+                                   </div>
+                                   <div class="cargoPreco">
+                                        <h2 id="txt2">R$30/Dia</h2>
+                                   </div>
                               </div>
-                         </div>
-                         <div class="nome">
-                              <h3>Pedro Silva, 32 anos</h3>
-                         </div>
-                         <div class="cidade">
-                              <h3>Itajubá - MG</h3>
-                         </div>
-                         <div class="avaliacao">
-                              <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
-                              <h4>2,5 - 12 Avaliações</h4>
-                         </div>
-                         <div class="button">
-                              <input type="submit" value="Mais Detalhes">
-                         </div>
-                    </div>
-                    
-                    <div class="card">
-                         <div class="imgCargo">
-                              <img class="imagem" src="pictures/carpinteiro.png" alt="Baba" srcset="">
-                         </div>
-                         <div class="cargo">
-                              <div class="cargoNome">
-                                   <h2 id="txt1">Carpinteiro</h2>
+                              <div class="nome">
+                                   <h3>Juliana Pereira, 27 anos</h3>
                               </div>
-                              <div class="cargoPreco">
-                                   <h2 id="txt2">R$120/Dia</h2>
+                              <div class="cidade">
+                                   <h3>Pedralva - MG</h3>
+                              </div>
+                              <div class="avaliacao">
+                                   <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                                   <h4>2,3 - 55 Avaliações</h4>
+                              </div>
+                              <div class="button">
+                                   <input type="submit" value="Mais Detalhes">
                               </div>
                          </div>
-                         <div class="nome">
-                              <h3>Sérgio Alcantara, 50 anos</h3>
+
+                         <div class="card">
+                              <div class="imgCargo">
+                                   <img class="imagem" src="pictures/motoboy.webp" alt="Baba" srcset="">
+                              </div>
+                              <div class="cargo">
+                                   <div class="cargoNome">
+                                        <h2 id="txt1">Motoboy</h2>
+                                   </div>
+                                   <div class="cargoPreco">
+                                        <h2 id="txt2">R$15/km</h2>
+                                   </div>
+                              </div>
+                              <div class="nome">
+                                   <h3>Yuri Ramos, 20 anos</h3>
+                              </div>
+                              <div class="cidade">
+                                   <h3>Maria da Fé - MG</h3>
+                              </div>
+                              <div class="avaliacao">
+                                   <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                                   <h4>4,7 - 63 Avaliações</h4>
+                              </div>
+                              <div class="button">
+                                   <input type="submit" value="Mais Detalhes">
+                              </div>
                          </div>
-                         <div class="cidade">
-                              <h3>Itajubá - MG</h3>
+
+                         <div class="card">
+                              <div class="imgCargo">
+                                   <img class="imagem" src="pictures/jardineiro.png" alt="Baba" srcset="">
+                              </div>
+                              <div class="cargo">
+                                   <div class="cargoNome">
+                                        <h2 id="txt1">Jardineiro</h2>
+                                   </div>
+                                   <div class="cargoPreco">
+                                        <h2 id="txt2">R$30/Hora</h2>
+                                   </div>
+                              </div>
+                              <div class="nome">
+                                   <h3>Pedro Silva, 32 anos</h3>
+                              </div>
+                              <div class="cidade">
+                                   <h3>Itajubá - MG</h3>
+                              </div>
+                              <div class="avaliacao">
+                                   <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                                   <h4>2,5 - 12 Avaliações</h4>
+                              </div>
+                              <div class="button">
+                                   <input type="submit" value="Mais Detalhes">
+                              </div>
                          </div>
-                         <div class="avaliacao">
-                              <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
-                              <h4>3,9 - 28 Avaliações</h4>
-                         </div>
-                         <div class="button">
-                              <input type="submit" value="Mais Detalhes">
+                         
+                         <div class="card">
+                              <div class="imgCargo">
+                                   <img class="imagem" src="pictures/carpinteiro.png" alt="Baba" srcset="">
+                              </div>
+                              <div class="cargo">
+                                   <div class="cargoNome">
+                                        <h2 id="txt1">Carpinteiro</h2>
+                                   </div>
+                                   <div class="cargoPreco">
+                                        <h2 id="txt2">R$120/Dia</h2>
+                                   </div>
+                              </div>
+                              <div class="nome">
+                                   <h3>Sérgio Alcantara, 50 anos</h3>
+                              </div>
+                              <div class="cidade">
+                                   <h3>Itajubá - MG</h3>
+                              </div>
+                              <div class="avaliacao">
+                                   <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                                   <h4>3,9 - 28 Avaliações</h4>
+                              </div>
+                              <div class="button">
+                                   <input type="submit" value="Mais Detalhes">
+                              </div>
                          </div>
                     </div>
                </div>
           </div>
-     </div>
-</body>
-
+     </body>
 </html>
