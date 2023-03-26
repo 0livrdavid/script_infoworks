@@ -1,12 +1,15 @@
 <?php
 require_once '../../config.php';
 require_once '../../layout/start.php';
+//echo $_SERVER["PHP_SELF"];
+//echo realpath('../../layout/start.php');
+echo obterCaminhoParaOutraPagina('start.php');
 
 if (!isset($_GET['filtro'])) $_GET['filtro'] = "todos";
 $filter = $_GET['filtro'];
 ?>
 
-<div id="div-dashboard" class="container-fluid" style="padding: 0 5%;">
+<div id="div-dashboard" class="container-fluid" style="margin: 0 auto; width: 90vw; height: 100vh">
     <?php include "./header.php" ?>
     <?php include "./filter.php" ?>
 
