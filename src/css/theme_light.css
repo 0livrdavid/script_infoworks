@@ -6,8 +6,24 @@
     color: #000000;
 }
 
+*{
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    color: #000000;
+}
+
+html{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
 body{
-    background: #fffafa ;
-    height: 100vh;
+    box-sizing: border-box;
+    background: #fffafa;
+    width: 100%;
+    height: 100%;
     overflow: auto;
 }

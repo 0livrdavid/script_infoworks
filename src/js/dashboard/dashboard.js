@@ -1,5 +1,7 @@
 $(document).ready(function() {
-    $("#filter_todos").addClass("active")
+    $("#filter_todos").addClass("active");
+
+
 });
 
 function filterProduct(value) {
