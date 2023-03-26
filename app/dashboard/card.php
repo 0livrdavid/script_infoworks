@@ -1,5 +1,5 @@
 <div class="card">
-    <div style="">
+    <div style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
         <div class="imgCargo">
             <img class="imagem" src="<?php echo URL_BASE_ASSETS_PICTURES; ?>motorista.jpg" alt="Motorista" srcset="">
         </div>
