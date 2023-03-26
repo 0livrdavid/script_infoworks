@@ -338,3 +338,34 @@ function sanitize_array($arrays) {
     }
     return $array_aux;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function getCards() {
+    $query = "SELECT ts.*, 
+            JOIN `user` AS tu ON tu.id = ts.fk_idUsuario
+            JOIN `categoria` AS tc ON c.id = ts.fk_idCategoria
+            FROM `service` AS ts";
+    return bd_fetch_assoc(bd_query($query, $_SESSION['conexao'], 1));
+}

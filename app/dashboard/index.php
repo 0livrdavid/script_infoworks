@@ -1,6 +1,8 @@
 <?php
 require_once '../../config.php';
 require_once '../../layout/start.php';
+
+$cards = getCards();
 ?>
 
 <div id="div-dashboard" class="container-fluid" style="padding: 0 5%;">
@@ -9,8 +11,10 @@ require_once '../../layout/start.php';
 
     <div class="adverts">
         <?php
-        include "./card.php"
-        //include "./cards.php"
+        foreach ($cards as $card){
+            //include "./card.php";
+        }
+        include "./cards.php"
         ?>
     </div>
 </div>
