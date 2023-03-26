@@ -20,7 +20,7 @@ require_once '../../layout/start.php';
             <div class="card">
                 <div style="">
                     <div class="imgCargo">
-                        <img class="imagem" src="../../src/pictures/motorista.jpg" alt="Motorista" srcset="">
+                        <img class="imagem" src="<?php echo URL_BASE_ASSETS_PICTURES; ?>motorista.jpg" alt="Motorista" srcset="">
                     </div>
                     <div class="cargo">
                         <div class="cargoNome">
@@ -37,7 +37,7 @@ require_once '../../layout/start.php';
                         <h3>Itajubá - MG</h3>
                     </div>
                     <div class="avaliacao">
-                        <img src="../../src/pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                        <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>estrela.png" alt="estrela" srcset="" height="25px">
                         <h4>4,5 - 33 Avaliações</h4>
                     </div>
                     <div class="button">
@@ -48,7 +48,7 @@ require_once '../../layout/start.php';
 
             <div class="card">
                 <div class="imgCargo">
-                    <img class="imagem" src="../../src/pictures/pintor.jpg" alt="Motorista" srcset="">
+                    <img class="imagem" src="<?php echo URL_BASE_ASSETS_PICTURES; ?>pintor.jpg" alt="Motorista" srcset="">
                 </div>
                 <div class="cargo">
                     <div class="cargoNome">
@@ -65,7 +65,7 @@ require_once '../../layout/start.php';
                     <h3>Piranguinho - MG</h3>
                 </div>
                 <div class="avaliacao">
-                    <img src="../../src/pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                    <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>estrela.png" alt="estrela" srcset="" height="25px">
                     <h4>3,7 - 74 Avaliações</h4>
                 </div>
                 <div class="button">
@@ -75,7 +75,7 @@ require_once '../../layout/start.php';
 
             <div class="card">
                 <div class="imgCargo">
-                    <img class="imagem" src="../../src/pictures/diarista.jpg" alt="Motorista" srcset="">
+                    <img class="imagem" src="<?php echo URL_BASE_ASSETS_PICTURES; ?>diarista.jpg" alt="Motorista" srcset="">
                 </div>
                 <div class="cargo">
                     <div class="cargoNome">
@@ -92,7 +92,7 @@ require_once '../../layout/start.php';
                     <h3>Pedralva - MG</h3>
                 </div>
                 <div class="avaliacao">
-                    <img src="../../src/pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                    <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>estrela.png" alt="estrela" srcset="" height="25px">
                     <h4>4,1 - 15 Avaliações</h4>
                 </div>
                 <div class="button">
@@ -102,7 +102,7 @@ require_once '../../layout/start.php';
 
             <div class="card">
                 <div class="imgCargo">
-                    <img class="imagem" src="../../src/pictures/entregadora.png" alt="Motorista" srcset="">
+                    <img class="imagem" src="<?php echo URL_BASE_ASSETS_PICTURES; ?>entregadora.png" alt="Motorista" srcset="">
                 </div>
                 <div class="cargo">
                     <div class="cargoNome">
@@ -119,7 +119,7 @@ require_once '../../layout/start.php';
                     <h3>Piranguinho - MG</h3>
                 </div>
                 <div class="avaliacao">
-                    <img src="../../src/pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                    <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>estrela.png" alt="estrela" srcset="" height="25px">
                     <h4>4,1 - 12 Avaliações</h4>
                 </div>
                 <div class="button">
@@ -129,7 +129,7 @@ require_once '../../layout/start.php';
 
             <div class="card">
                 <div class="imgCargo">
-                    <img class="imagem" src="../../src/pictures/baba.jpg" alt="Baba" srcset="">
+                    <img class="imagem" src="<?php echo URL_BASE_ASSETS_PICTURES; ?>baba.jpg" alt="Baba" srcset="">
                 </div>
                 <div class="cargo">
                     <div class="cargoNome">
@@ -146,7 +146,7 @@ require_once '../../layout/start.php';
                     <h3>Pedralva - MG</h3>
                 </div>
                 <div class="avaliacao">
-                    <img src="../../src/pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                    <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>estrela.png" alt="estrela" srcset="" height="25px">
                     <h4>2,3 - 55 Avaliações</h4>
                 </div>
                 <div class="button">
@@ -156,7 +156,7 @@ require_once '../../layout/start.php';
 
             <div class="card">
                 <div class="imgCargo">
-                    <img class="imagem" src="../../src/pictures/motoboy.webp" alt="Baba" srcset="">
+                    <img class="imagem" src="<?php echo URL_BASE_ASSETS_PICTURES; ?>motoboy.webp" alt="Baba" srcset="">
                 </div>
                 <div class="cargo">
                     <div class="cargoNome">
@@ -173,7 +173,7 @@ require_once '../../layout/start.php';
                     <h3>Maria da Fé - MG</h3>
                 </div>
                 <div class="avaliacao">
-                    <img src="../../src/pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                    <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>estrela.png" alt="estrela" srcset="" height="25px">
                     <h4>4,7 - 63 Avaliações</h4>
                 </div>
                 <div class="button">
@@ -183,7 +183,7 @@ require_once '../../layout/start.php';
 
             <div class="card">
                 <div class="imgCargo">
-                    <img class="imagem" src="../../src/pictures/jardineiro.png" alt="Baba" srcset="">
+                    <img class="imagem" src="<?php echo URL_BASE_ASSETS_PICTURES; ?>jardineiro.png" alt="Baba" srcset="">
                 </div>
                 <div class="cargo">
                     <div class="cargoNome">
@@ -200,7 +200,7 @@ require_once '../../layout/start.php';
                     <h3>Itajubá - MG</h3>
                 </div>
                 <div class="avaliacao">
-                    <img src="../../src/pictures/estrela.png" alt="estrela" srcset="" height="25px">
+                    <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>estrela.png" alt="estrela" srcset="" height="25px">
                     <h4>2,5 - 12 Avaliações</h4>
                 </div>
                 <div class="button">
@@ -210,7 +210,7 @@ require_once '../../layout/start.php';
 
             <div class="card">
                 <div class="imgCargo">
-                    <img class="imagem" src="../../src/pictures/carpinteiro.png" alt="Baba" srcset="">
+                    <img class="imagem" src="<?php echo URL_BASE_ASSETS_PICTURES; ?>carpinteiro.png" alt="Baba" srcset="">
                 </div>
                 <div class="cargo">
                     <div class="cargoNome">
@@ -238,8 +238,8 @@ require_once '../../layout/start.php';
     </div>
 </div>
 
-<script src="../../src/js/dashboard/dashboard.js"></script>
+<script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>dashboard/dashboard.js"></script>
 
 <?php
-require '../../layout/end.php';
+require PATH_ASSETS_END;
 ?>

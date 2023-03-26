@@ -11,7 +11,7 @@
   <body>
     <div class="logo">
       <div class="img_logo">
-         <img src="pictures/InfoWorks_logo.png" alt="" srcset="">
+         <img src="../../src/pictures/InfoWorks_logo.png" alt="" srcset="">
       </div>
     </div>
     <div class="center">

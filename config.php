@@ -53,9 +53,14 @@ define("PATH", "/");
 define("URL_BASE", URL."/");
 define("URL_BASE_LAYOUT", URL_BASE."layout/");
 define("URL_BASE_APP", URL_BASE."app/");
+define("URL_BASE_ASSETS_CSS", URL_BASE."src/css/");
 define("PATH_ASSETS_CSS", PATH."src/css/");
+define("URL_BASE_ASSETS_JAVASCRIPT", URL_BASE."src/js/");
 define("PATH_ASSETS_JAVASCRIPT", PATH."src/js/");
+define("URL_BASE_ASSETS_PICTURES", URL_BASE."src/pictures/");
 define("PATH_ASSETS_PICTURES", PATH."src/pictures/");
+
+define("PATH_ASSETS_END", "../../layout/end.php");
 
 $_SESSION['url_site']=URL_BASE;
 

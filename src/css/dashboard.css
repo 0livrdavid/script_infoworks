@@ -1,20 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
-
-*{
-  /* margin: 0; */
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body{
-  margin: 0;
-  padding: 0;
-  background: #fffafa ;
-  height: 100vh;
-  overflow: auto;
-}
-
 .content {
      width: 100%;
      height: 100%;
@@ -54,9 +37,18 @@ body{
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
 }
 
-.img_logo img{
-  margin-left: 50px;
-  height: 50px;
+.img_logo_dashboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    height: 4em;
+}
+
+.img_logo_dashboard img{
+    width: 100%;
+    height: 100%;
 }
 
 .filtro{
@@ -70,8 +62,8 @@ body{
 
 .botao-noti{
   cursor: pointer;
-  width: 25px;
-  height: 25px;
+  width: 100%;
+  height: 100%;
   background-color: transparent;
   display: flex;
   justify-content: center;
@@ -113,16 +105,16 @@ body{
 
 
 .botao-noti img{
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   object-position: center bottom;
 }
 
 .botao-circular {
   cursor: pointer;
-  width: 50px;
-  height: 50px;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   border: none;
   display: flex;
@@ -134,32 +126,35 @@ body{
 }
 
 .botao-circular img {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   border-radius: 50%;
   object-fit: cover;
   object-position: center bottom; /* ajusta a posição da imagem dentro do botão */
 }
 
 .perfil{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    height: 5em;
 }
 
-.botao-notificao{
-  justify-content: center;
-  align-items: center;
-  margin-right: 15px;
+.notificao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    height: 2em;
 }
 
-.logo{
+.logo-dashboard{
   margin-left: 5px;
 }
 
 .pesquisa{
-  margin-left: 30px;
+  margin-left: 15px;
 }
 
 .header-logo{
@@ -232,49 +227,6 @@ body{
   margin-left: 26px; /* adiciona 26px de margem à direita do elemento */
 }
 
-@media screen and (min-width: 1900px) and (max-width: 2150px) {
-     .card {
-          width: 18vw;
-          height: 55vh;
-          font-size: 1.2rem;
-     }
-
-     .imagem {
-          height: 11vw;
-     }
-}
-
-@media screen and (min-width: 1500px) and (max-width: 1900px) {
-     .card {
-          width: 20vw;
-     }
-}
-
-@media screen and (min-width: 1250px) and (max-width: 1500px) {
-     .card {
-          width: 25vw;
-     }
-}
-
-@media screen and (min-width: 901px) and (max-width: 1250px) {
-     .card {
-          width: 30vw;
-     }
-}
-
-@media screen and (min-width: 481px) and (max-width: 900px) {
-     .card {
-          width: 50vw;
-     }
-}
-
-@media screen and (max-device-width: 480px) {
-     .card {
-          width: 80vw;
-     }
-}
-
-
 
 .avaliacao{
     display: flex;
@@ -325,5 +277,49 @@ input[type="submit"]{
 input[type="submit"]:hover{
     border-color: #3b2b83;
     transition: .5s;
+}
+
+
+
+@media screen and (min-width: 1900px) and (max-width: 2150px) {
+    .card {
+        width: 18vw;
+        height: 55vh;
+        font-size: 1.2rem;
+    }
+
+    .imagem {
+        height: 11vw;
+    }
+}
+
+@media screen and (min-width: 1500px) and (max-width: 1900px) {
+    .card {
+        width: 20vw;
+    }
+}
+
+@media screen and (min-width: 1250px) and (max-width: 1500px) {
+    .card {
+        width: 25vw;
+    }
+}
+
+@media screen and (min-width: 901px) and (max-width: 1250px) {
+    .card {
+        width: 30vw;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 900px) {
+    .card {
+        width: 50vw;
+    }
+}
+
+@media screen and (max-device-width: 480px) {
+    .card {
+        width: 80vw;
+    }
 }
 

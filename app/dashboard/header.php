@@ -1,8 +1,8 @@
 <div class="header">
     <div class="header-logo">
-        <div class="logo">
-            <div class="img_logo">
-                <img src="../../src/pictures/InfoWorks_logo.png" alt="" srcset="">
+        <div class="logo-dashboard">
+            <div class="img_logo_dashboard">
+                <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>InfoWorks_logo.png" alt="logo">
             </div>
         </div>
         <div class="pesquisa">
@@ -13,17 +13,15 @@
         </div>
     </div>
     <div class="header-menu">
-        <div class="botao-notificao">
+        <div class="notificao">
             <button class="botao-noti">
-                <img src="../../src/pictures/notification.png" alt="Notificações">
+                <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>notification.png" alt="Notificações">
             </button>
         </div>
         <div class="perfil">
-            <div class="fotoPerfil">
-                <button class="botao-circular">
-                    <a href="../login_cadastro/"><img src="../../src/pictures/pessoa.jfif" alt="Perfil"></a>
-                </button>
-            </div>
+            <button class="botao-circular">
+                <a href="../login_cadastro/"><img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>pessoa.jfif" alt="Perfil"></a>
+            </button>
         </div>
     </div>
 </div>
