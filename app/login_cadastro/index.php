@@ -7,9 +7,8 @@ require_once '../../layout/start.php';
 
 <div class="div-login-cadastrar">
     <?php include "./login.php" ?>
+    <?php include "./cadastro.php" ?>
 </div>
-
-
 
 <script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>login_cadastro/login.js"></script>
 
