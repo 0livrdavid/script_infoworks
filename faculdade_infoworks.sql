@@ -15,7 +15,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Banco de dados: `faculdade_infoworks`
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `cidades` (
   `fk_estado` char(2) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_estado` (`fk_estado`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `cidades`
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `estados` (
   `sigla` varchar(2) NOT NULL,
   `nome` varchar(50) NOT NULL,
   PRIMARY KEY (`sigla`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Extraindo dados da tabela `estados`
