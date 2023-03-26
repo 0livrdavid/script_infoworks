@@ -1,9 +1,6 @@
 <?php
 require_once '../../config.php';
 require_once '../../layout/start.php';
-//echo $_SERVER["PHP_SELF"];
-//echo realpath('../../layout/start.php');
-echo obterCaminhoParaOutraPagina('start.php');
 
 if (!isset($_GET['filtro'])) $_GET['filtro'] = "todos";
 $filter = $_GET['filtro'];
