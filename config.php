@@ -25,7 +25,7 @@ header("X-XSS-Protection: 1");
 header('X-Frame-Options: deny');
 header("Strict-Transport-Security:max-age=63072000");
 header("X-Content-Type-Options: nosniff");
-define("URL", "http://infoworks.faculdade");
+define("URL", "http://infoworks.site");
 if (isset($_SERVER['HTTP_ORIGIN']) && $_SERVER['HTTP_ORIGIN'] != URL)
 {
     echo "Acesso negado";die;
