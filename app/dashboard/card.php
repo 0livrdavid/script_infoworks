@@ -1,7 +1,7 @@
 <div class="card">
     <div style="">
         <div class="imgCargo">
-            <img class="imagem" src="pictures/motorista.jpg" alt="Motorista" srcset="">
+            <img class="imagem" src="<?php echo URL_BASE_ASSETS_PICTURES; ?>motorista.jpg" alt="Motorista" srcset="">
         </div>
         <div class="cargo">
             <div class="cargoNome">
@@ -18,7 +18,7 @@
             <h3>Itajubá - MG</h3>
         </div>
         <div class="avaliacao">
-            <img src="pictures/estrela.png" alt="estrela" srcset="" height="25px">
+            <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>estrela.png" alt="estrela" srcset="" height="25px">
             <h4>4,5 - 33 Avaliações</h4>
         </div>
         <div class="button">
