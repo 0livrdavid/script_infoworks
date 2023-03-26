@@ -639,10 +639,17 @@ function find_user($email, $password) {
             return "<font color='red'>".lang('login_msg_6',1)."</font>";
             break;
     }
+
+    return null;
 }
 
 
-
+function calcularIdade($dataNascimento) {
+    $dataAtual = new DateTime();
+    $dataNasc = new DateTime($dataNascimento);
+    $intervalo = $dataAtual->diff($dataNasc);
+    return $intervalo->y;
+}
 
 
 

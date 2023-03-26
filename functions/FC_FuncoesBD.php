@@ -41,6 +41,10 @@ function bd_fetch_assoc($res) {
     return htmlspecialchars_recursive(mysqli_fetch_assoc($res));
 }
 
+function htmlspecialchars_recursive ($input, $flags = ENT_COMPAT | ENT_HTML401, $encoding = 'UTF-8', $double_encode = false) {
+    return sanitize_array($input);
+}
+
 function bd_fetch_array_assoc($res) {
     return mysqli_fetch_assoc($res);
 }
@@ -355,17 +359,15 @@ function sanitize_array($arrays) {
 
 
 
-
-
-
-
-
-
-
-function getCards() {
-    $query = "SELECT ts.*, 
-            JOIN `user` AS tu ON tu.id = ts.fk_idUsuario
-            JOIN `categoria` AS tc ON c.id = ts.fk_idCategoria
-            FROM `service` AS ts";
-    return bd_fetch_assoc(bd_query($query, $_SESSION['conexao'], 1));
+function getCards($filter) {
+    $query = "SELECT s.fk_idCategoria AS categoria, s.valor, s.tipoValor, u.nome, u.idade
+            FROM `service` AS s
+            JOIN `user` AS u ON u.id = s.fk_idUsuario
+            JOIN `categoria` AS c ON c.nome = s.fk_idCategoria
+            WHERE s.status = 1";
+    $dados = bd_query($query, $_SESSION['conexao'], 0);
+    while ($dado = bd_fetch_assoc($dados)) {
+        $cards[] = $dado;
+    }
+    return $cards;
 }

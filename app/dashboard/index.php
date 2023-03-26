@@ -2,7 +2,8 @@
 require_once '../../config.php';
 require_once '../../layout/start.php';
 
-$cards = getCards();
+if (!isset($_GET['filtro'])) $_GET['filtro'] = "todos";
+$filter = $_GET['filtro'];
 ?>
 
 <div id="div-dashboard" class="container-fluid" style="padding: 0 5%;">
@@ -11,10 +12,16 @@ $cards = getCards();
 
     <div class="adverts">
         <?php
+        $cards = sanitize_array(getCards($filter));
         foreach ($cards as $card){
-            //include "./card.php";
+            $dado['nome'] = resume_nome($card['nome']);
+            $dado['idade'] = calcularIdade($card['idade']);
+            $dado['categoria'] = $card['categoria'];
+            $dado['valor'] = $card['valor'];
+            $dado['tipoValor'] = $card['tipoValor'];
+            include "./card.php";
         }
-        include "./cards.php"
+        //include "./cards.php"
         ?>
     </div>
 </div>

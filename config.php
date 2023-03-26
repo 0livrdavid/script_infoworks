@@ -78,4 +78,3 @@ $database_port = '0';
 
 require_once 'functions/FC_FuncoesBD.php';
 require_once 'functions/FC_Sistema.php';
-?>
