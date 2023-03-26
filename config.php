@@ -50,6 +50,8 @@ if($_SESSION["token"]==''){
 
 define("PATH", "/");
 
+define('CWD', getcwd());
+
 define("URL_BASE", URL."/");
 define("URL_BASE_LAYOUT", URL_BASE."layout/");
 define("URL_BASE_APP", URL_BASE."app/");
@@ -65,27 +67,15 @@ define("PATH_ASSETS_END", "../../layout/end.php");
 $_SESSION['url_site']=URL_BASE;
 
 // BASE DE DADOS
-$_SESSION['database_desc'][2] = 'Produção';
-$_SESSION['database_vers'][2] = '001';
-$database_server[2] = '127.0.0.1';
-$database_type[2] = 'mysql';
-$database_username[2] = 'root';
-$database_password[2] = '';
-$database_name[2] = 'faculdade_infoworks';
-$database_port[2] = '0';
+$_SESSION['database_desc'] = 'Produção';
+$_SESSION['database_vers'] = '001';
+$database_server = '127.0.0.1';
+$database_type = 'mysql';
+$database_username = 'root';
+$database_password = '';
+$database_name = 'faculdade_infoworks';
+$database_port = '0';
 
-//BASE DE DADOS EM USO
-if (isset($_SESSION['banco_em_uso'])) {
-    $idx = $_SESSION['banco_em_uso'];
-} else {
-    $idx = 1;
-}
-
-$database_server = $database_server[$idx];
-$database_type = $database_type[$idx];
-$database_username = $database_username[$idx];
-$database_password = $database_password[$idx];
-$database_name = $database_name[$idx];
-$database_port = $database_port[$idx];
-$GLOBALS['db'] = $database_type;
+require_once 'functions/FC_FuncoesBD.php';
+require_once 'functions/FC_Sistema.php';
 ?>

@@ -14,7 +14,7 @@ require_once '../../layout/start.php';
     </div>
 </div>
 
-<script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>login_cadastro/login_dashboard.js"></script>
+<script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>login_cadastro/login_cadastro.js"></script>
 
 <?php
 require PATH_ASSETS_END;
