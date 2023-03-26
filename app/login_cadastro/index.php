@@ -6,11 +6,15 @@ require_once '../../layout/start.php';
 ?>
 
 <div class="div-login-cadastrar">
-    <?php include "./login.php" ?>
-    <?php include "./cadastro.php" ?>
+    <div id="div-login">
+        <?php include "./login.php" ?>
+    </div>
+    <div id="div-cadastro">
+        <?php include "./cadastro.php" ?>
+    </div>
 </div>
 
-<script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>login_cadastro/login.js"></script>
+<script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>login_cadastro/login_dashboard.js"></script>
 
 <?php
 require PATH_ASSETS_END;
