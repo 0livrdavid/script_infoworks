@@ -8,8 +8,6 @@ $(document).ready(function() {
 });
 
 function switchLogin (page) {
-    console.log(page);
-
     if (page == "" || page == "login") {
         $("#div-login").css("display", "block");
         $("#div-cadastro").css("display", "none");

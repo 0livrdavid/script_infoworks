@@ -1,10 +1,8 @@
 <?php
+var_dump($_POST);
+
 require_once '../../config.php';
 require_once '../../layout/start.php';
-
-if (isset($_GET['page'])) $page = $_GET['page'];
-if (isset($_POST['page'])) $page = $_POST['page'];
-$msg = (string) $_SESSION['login_msg'];
 
 require_once '../../ajax/login_cadastro/login.php';
 require_once '../../ajax/login_cadastro/cadastro.php';

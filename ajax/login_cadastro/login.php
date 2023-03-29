@@ -1,4 +1,7 @@
 <?php
+$page = (string) $_POST['page'];
+$msg = (string) $_SESSION['login_msg'];
+
 $acao = (string) seguro(seguro_array($_POST)['tipo']);
 $cpf = (string) seguro(seguro_array($_POST)['cpf']);
 $password = (string) seguro(seguro_array($_POST)['password']);
@@ -9,7 +12,7 @@ if (isset($_POST['tipo'])) {
         $_SESSION['session_id']=session_id();
         session_start();
     
-        $user = find_user($cpf, $password);
+        $user = find_user($cpf);
 
         if (is_array($user['user'])) {
             $user = $user['user'];

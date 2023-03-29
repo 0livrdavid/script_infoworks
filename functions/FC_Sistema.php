@@ -592,9 +592,8 @@ if (!function_exists('recuperaSenha')) {
     }
 }
 
-function find_user($cpf, $password) {
+function find_user($cpf) {
     $cpf = seguro((string) $cpf);
-    $password = seguro((string) $password);
     $data['msg'] = "";
     
     $user = bd_fetch_array_assoc(bd_query("SELECT * FROM user WHERE cpf = '$cpf'", $_SESSION['conexao'], 0));
