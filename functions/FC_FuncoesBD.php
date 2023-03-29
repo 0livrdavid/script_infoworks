@@ -301,6 +301,47 @@ function encrypt_password($password, $salt){
     return base64_encode(pbkdf2_calc('sha1', $password, $salt, 10000, 1));
 }
 
+if (!function_exists('pbkdf2_calc')) {
+    function pbkdf2_calc($hash, $password, $salt, $iterations, $length)
+    {
+        $num = ceil($length / output_size_hmac($hash, true));
+        $result = '';
+        for ($block = 1; $block <= $num; $block++) {
+            $hmac = hash_hmac($hash, $salt . pack('N', $block), $password, true);
+            $mix = $hmac;
+            for ($i = 1; $i < $iterations; $i++) {
+                $hmac = hash_hmac($hash, $hmac, $password, true);
+                $mix ^= $hmac;
+            }
+            $result .= $mix;
+        }
+
+        return substr($result, 0, $length);
+    }
+}
+
+if (!function_exists('output_size_hmac')) {
+    function output_size_hmac($hash, $output = false)
+    {
+        return strlen(compute_hmac('key', $hash, 'data', $output));
+    }
+}
+
+if (!function_exists('compute_hmac')) {
+    function compute_hmac($key, $hash, $data, $output = false)
+    {
+        if (empty($key)) {
+            echo "chave nula ou vazia";
+
+            return null;
+        }
+
+        return hash_hmac($hash, $data, $key, $output);
+    }
+}
+
+
+
 function sanitize_string($string){ # limpa a string removendo XSS injection
     return html_entity_decode(htmlspecialchars($string, ENT_QUOTES, 'UTF-8'));
 }

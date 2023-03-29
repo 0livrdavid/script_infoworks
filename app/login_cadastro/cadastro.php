@@ -5,9 +5,8 @@
 </div>
 <div class="center">
     <h1>Não possui uma conta?</h1>
-    <form method="post" action="../../ajax/login_cadastro.php">
+    <form method="post" action="">
         <p id="msg_login" class="msg_login"><?php echo $msg ?></p>
-        <input name="tipo" type="hidden" value="cadastro">
         <div class="txt_field">
             <input name="cpf" type="text" oninput="formatarCPF(this)" minlength="11" maxlength="14">
             <span></span>

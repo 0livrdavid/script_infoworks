@@ -1,5 +1,6 @@
 <?php
 $GLOBALS['_SENHA_GERAL'] = "infoworks";
+$GLOBALS['_SENHA_GERAL'] = "infoworks";
 
 $flagError=true;
 if($flagError){

@@ -12,35 +12,16 @@ function switchLogin (page) {
         $("#div-login").css("display", "block");
         $("#div-cadastro").css("display", "none");
         $("#div-esqueceu-senha").css("display", "none");
-
-        var data = {
-            page: 'login',
-            flag_unset_login_msg: 'false'
-        };
-
-        $.post( "index.php", data);
     } else if (page == "cadastro") {
         $("#div-login").css("display", "none");
         $("#div-cadastro").css("display", "block");
         $("#div-esqueceu-senha").css("display", "none");
-
-        var data = {
-            page: 'cadastro',
-            flag_unset_login_msg: 'true'
-        };
-
-        $.post( "index.php", data);
+        $(".msg_login").html("");
     } else if (page == "esqueceu_senha") {
         $("#div-login").css("display", "none");
         $("#div-cadastro").css("display", "none");
         $("#div-esqueceu-senha").css("display", "block");
-
-        var data = {
-            page: 'esqueceu_senha',
-            flag_unset_login_msg: 'true'
-        };
-
-        $.post( "index.php", data);
+        $(".msg_login").html("");
     }
 }
 

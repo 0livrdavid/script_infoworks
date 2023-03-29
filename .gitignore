@@ -1,6 +1,7 @@
 /.vscode
 /.user.ini
 /config.php
+config.php
 /php.ini
 /.htaccess
 /.idea
@@ -8,4 +9,5 @@
 file
 /.DS_Store
 .DS_Store
-.idea
+/.idea
+workspace.xml

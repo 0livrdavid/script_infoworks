@@ -5,7 +5,7 @@
 </div>
 <div class="center">
     <h1>Entrar</h1>
-    <form method="post" action="../../app/login_cadastro/">
+    <form method="post" action="">
         <p id="msg_login" class="msg_login"><?php echo $msg ?></p>
         <div class="txt_field">
             <input name="cpf" type="text" oninput="formatarCPF(this)" minlength="11" maxlength="14">
