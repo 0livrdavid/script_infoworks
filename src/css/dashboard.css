@@ -64,6 +64,106 @@
   align-items: center;
 }
 
+.loginBTN {
+  background-color: #332cda;
+  color: white;
+  padding: 9px 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-right: 11px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.modal {
+  display: none;
+  /* oculta a modal por padrão */
+  position: fixed;
+  /* posiciona a modal no topo da página */
+  z-index: 1;
+  /* define a ordem de empilhamento da modal */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* cobre toda a largura da página */
+  height: 100%;
+  /* cobre toda a altura da página */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* define a cor de fundo da modal */
+}
+
+.modalMeio {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.tituloModal h1 {
+  color: #ffffff !important;
+}
+
+.imgModal {
+  display: flex;
+  width: 40%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.imgModal img{
+  height: 20vh;
+}
+
+.paragrafoModal {
+  color: #ffffff !important;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 15px;
+  font-size: 30px;
+}
+
+.paragrafoModal p {
+    color: #ffffff !important;
+}
+
+.rodapeModal {
+  color: white;
+}
+
+.rodapeModal a {
+  color: #2b1d5e;
+}
+
+.div-modal-content {
+  background-image: linear-gradient(#354b60, #3b68bc);
+  /* define a cor de fundo do conteúdo da modal */
+  margin: 15% auto;
+  /* centraliza a modal na página verticalmente */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 45%;
+  /* define a largura do conteúdo da modal */
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
+.close {
+  color: #aaa;
+  float: right !important;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .caixa-busca {
   display: flex;
   border-radius: 25px;

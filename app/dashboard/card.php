@@ -17,6 +17,6 @@
             <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>estrela.png" alt="estrela" srcset="" height="25px">
             <h4>4,5 - 33 Avaliações</h4>
         </div>
-        <a href="#" class="button">Mais Detalhes</a>
+        <a href="#" class="button" onclick="abrirModal()">Mais Detalhes</a>
     </div>
 </div>

@@ -1,7 +1,4 @@
 <?php
-$page = (string) $_POST['page'];
-$msg = (string) $_SESSION['login_msg'];
-
 $acao = (string) seguro(seguro_array($_POST)['tipo']);
 $cpf = (string) seguro(seguro_array($_POST)['cpf']);
 $password = (string) seguro(seguro_array($_POST)['password']);
@@ -34,9 +31,5 @@ if (isset($_POST['tipo'])) {
             $_SESSION['login_msg'] = $user['msg'];
             header('Location: ../../app/login_cadastro/');
         }
-    } else if ($acao == "cadastro") {
-
-    } else if ($acao == "esqueceu_senha") {
-
     }
 }
