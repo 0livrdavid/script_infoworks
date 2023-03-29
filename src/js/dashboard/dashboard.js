@@ -10,7 +10,7 @@ $(document).ready(function() {
 function switchLoginDashboard(user) {
   console.log(user);
 
-  if (user != 'null') {
+  if (user != null) {
       $(".header-menu-logged").css("display", "flex");
       $(".header-menu-logout").css("display", "none");
   } else {
