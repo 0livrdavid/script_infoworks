@@ -12,8 +12,5 @@
         <button id="filter_mais_proximo" name="filter_mais_proximo" class="button-value" onclick="filterProduct('Mais Próximos')">
             Mais Próximos
         </button>
-        <button id="filter_teste" name="filter_teste" class="button-value" onclick="filterProduct('Teste Mesmo')">
-            Teste
-        </button>
     </div>
 </div>

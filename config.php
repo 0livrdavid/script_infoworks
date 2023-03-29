@@ -1,5 +1,7 @@
 <?php
 
+$GLOBALS['_SENHA_GERAL'] = "infoworks";
+
 $flagError=true;
 if($flagError){
     ini_set('error_reporting', E_ALL); // mesmo resultado de: error_reporting(E_ALL);

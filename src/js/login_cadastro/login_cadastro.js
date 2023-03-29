@@ -1,21 +1,47 @@
+if (window.navigator.userAgent.indexOf("Trident/") > 0) {
+    alert("Internet Explorer não é mais suportado.\n\n Por favor utilize outro navegador.");
+    location.href = servidor + "app/acesso/not_supported";
+}
+
 $(document).ready(function() {
     $("#div-cadastro").css("display", "none");
 });
 
-function switchLogin () {
-    if ($("#div-cadastro").css("display") == "none") {
-        $("#div-login").css("display", "none");
-        $("#div-cadastro").css("display", "block");
-    } else if ($("#div-cadastro").css("display") == "block") {
+function switchLogin (page) {
+    if (page == "" || page == "login") {
         $("#div-login").css("display", "block");
         $("#div-cadastro").css("display", "none");
+        $("#div-esqueceu-senha").css("display", "none");
+    } else if (page == "cadastrar") {
+        $("#div-login").css("display", "none");
+        $("#div-cadastro").css("display", "block");
+        $("#div-esqueceu-senha").css("display", "none");
+    } else if (page == "esqueceu-senha") {
+        $("#div-login").css("display", "none");
+        $("#div-cadastro").css("display", "none");
+        $("#div-esqueceu-senha").css("display", "block");
     }
 }
 
+function login_switch() {
+    if ($("#box-login-login").hasClass('hidde')) {
+        $("#box-login-recupera").fadeOut(320);
+        $("#box-login-login").removeClass('hidde');
+        setTimeout(function () {
+            $("#box-login-login").fadeIn(320);
+        }, 325);
+    } else {
+        $("#box-login-login").addClass('hidde');
+        $("#box-login-login").fadeOut(320);
+        setTimeout(function () {
+            $("#box-login-recupera").fadeIn(320);
+        }, 325);
+    }
+}
 
-$('input[type="password"]').keyup(function() {
-    senhaValida(this.value, this);
-});
+// $('input[type="password"]').keyup(function() {
+//     senhaValida(this.value, this);
+// });
 
 function senhaValida(s, input = false){
     var retorno = false,

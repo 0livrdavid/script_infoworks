@@ -1,8 +1,9 @@
 <?php
 require_once '../../config.php';
-//require_once '../../funcoes/FC_FuncoesBD.php';
-//require_once '../../funcoes/FC_Sistema.php';
 require_once '../../layout/start.php';
+
+$page = (string) $_POST['page'];
+$msg = (string) $_POST['msg'];
 ?>
 
 <div class="div-login-cadastrar">
@@ -12,9 +13,15 @@ require_once '../../layout/start.php';
     <div id="div-cadastro">
         <?php include "./cadastro.php" ?>
     </div>
+    <div id="div-esqueceu-senha">
+        <?php include "./esqueceu_senha.php" ?>
+    </div>
 </div>
 
 <script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>login_cadastro/login_cadastro.js"></script>
+<script type="text/javascript" defer>
+    switchLogin("<?php echo $page ?>");
+</script>
 
 <?php
 require PATH_ASSETS_END;

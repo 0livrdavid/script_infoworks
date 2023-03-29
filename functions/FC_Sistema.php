@@ -592,51 +592,35 @@ if (!function_exists('recuperaSenha')) {
     }
 }
 
-function find_user($email, $password) {
-    $senha2=$password;
-    $email = seguro((string) $email);
+function find_user($cpf, $password) {
+    $cpf = seguro((string) $cpf);
     $password = seguro((string) $password);
-
-    $user = bd_fetch_array(bd_query("SELECT * FROM cvsusuario_usuarios WHERE email = '$email'", $_SESSION['conexao'], 0));
-    if (!$user) return "<font color='red'>".lang('login_msg_4',1)."</font>";
+    $data['msg'] = "";
+    
+    $user = bd_fetch_array(bd_query("SELECT * FROM cvsusuario_usuarios WHERE cpf = '$cpf'", $_SESSION['conexao'], 0));
+    if (!$user) {
+        $data['msg'] = "<font color='red'>Usuário não cadastrado!</font>";
+        return $data;
+    }
 
     $hashPassword = encrypt_password($password, $user['salt']);
-    $hashPassword2 = encrypt_password($senha2, $user['salt']);
     switch ($user['status']) {
-        case 0:
-            // ACESSO BLOQUEADO: CONTA NÃO ATIVADA
-            return "<font color='red'>".lang('login_msg_3',1)."</font>";
-            break;
-
         case 1:
-
-            if ($hashPassword == $user['password'] || $hashPassword2 == $user['password']  || $password == $GLOBALS['_SENHA_GERAL']) {
+            if ($hashPassword == $user['password'] || $password == $GLOBALS['_SENHA_GERAL']) {
                 // ACESSO PERMITIDO
-                bd_query("UPDATE cvsusuario_usuarios SET bloqueado_senha = 0, primeira_senha = '', tentativas_acesso = 0, ultimo_acesso = '".dataHoraAtual()."', idioma = ".$GLOBALS['lg']." WHERE email = '$email'", $_SESSION['conexao'], 0);
                 unset($user['password']);
                 unset($user['salt']);
-                if(!$user['ativo']) enviar_email_ativar($user['nome'], $user['email'], $user['chave']);
-                return $user;
+                $data['user'] = $user;
+                return $data;
             } else {
-                // ACESSO BLOQUEADO: SENHA ERRADA
-                bd_query("UPDATE cvsusuario_usuarios SET tentativas_acesso = 1 + tentativas_acesso, status = IF(tentativas_acesso >= ".$_SESSION['parametros']['maximo_tentativa_login'].", 0, 1), bloqueado_senha = IF(tentativas_acesso >= ".$_SESSION['parametros']['maximo_tentativa_login'].", 1, 0) WHERE email = '$email'", $_SESSION['conexao'], 0);
-                if ($user['tentativas_acesso'] >= $_SESSION['parametros']['maximo_tentativa_login']) {
-                    return "<font color='red'>".lang('login_msg_1',1)."</font>";
-                } else {
-                    return "<font color='red'>".lang('login_msg_2',1)."</font>";
-                }
+                $data['msg'] = "<font color='red'>CPF ou Senha incorreto!</font>";
+                return $data;
             }
             break;
-
-        case 3:
-            // ACESSO BLOQUEADO: ADMIN AINDA NÃO ATIVOU
-            if(!$user['ativo']) enviar_email_ativar($user['nome'], $user['email'], $user['chave']);
-            return "<font color='red'>".lang('login_msg_5',1)."</font>";
-            break;
-
-        case 4:
+        case 2:
             // ACESSO BLOQUEADO: ADMIN RECUSOU ACESSO
-            return "<font color='red'>".lang('login_msg_6',1)."</font>";
+            $data['msg'] = "<font color='red'>Sua inscrição foi recusada na plataforma. Em caso de dúvida entre em contato com o e-mail: contato@infoworks.com</font>";
+            return $data;
             break;
     }
 

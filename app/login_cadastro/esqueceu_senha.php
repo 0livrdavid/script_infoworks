@@ -4,19 +4,14 @@
     </div>
 </div>
 <div class="center">
-    <h1>Não possui uma conta?</h1>
+    <h1>Esqueceu a senha?</h1>
     <form method="post" action="../../ajax/login_cadastro.php">
         <p id="msg_login"></p>
-        <input name="tipo" type="hidden" value="cadastro">
+        <input name="tipo" type="hidden" value="esqueceu_senha">
         <div class="txt_field">
             <input name="cpf" type="text" oninput="formatarCPF(this)" minlength="11" maxlength="14">
             <span></span>
             <label>CPF</label>
-        </div>
-        <div class="txt_field">
-            <input name="password" type="password">
-            <span></span>
-            <label>Senha</label>
         </div>
         <input type="submit" value="Entrar">
         <div id="signup_link">
