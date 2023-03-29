@@ -2,6 +2,10 @@
 require_once '../../config.php';
 require_once '../../layout/start.php';
 
+if (isset($_GET['page'])) $page = $_GET['page'];
+if (isset($_POST['page'])) $page = $_POST['page'];
+$msg = (string) $_SESSION['login_msg'];
+
 require_once '../../ajax/login_cadastro/login.php';
 require_once '../../ajax/login_cadastro/cadastro.php';
 require_once '../../ajax/login_cadastro/esqueceu_senha.php';
@@ -21,7 +25,9 @@ require_once '../../ajax/login_cadastro/esqueceu_senha.php';
 
 <script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>login_cadastro/login_cadastro.js"></script>
 <script type="text/javascript" defer>
-    switchLogin("<?php echo $page ?>");
+    window.onload = function() {
+        switchLogin("<?php echo $page ?>");
+    };
 </script>
 
 <?php
