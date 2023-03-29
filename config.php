@@ -1,5 +1,4 @@
 <?php
-
 $GLOBALS['_SENHA_GERAL'] = "infoworks";
 
 $flagError=true;
@@ -12,7 +11,6 @@ if($flagError){
     ini_set('display_errors', 0);
     error_reporting(0);
 }
-
 
 ob_start();
 session_cache_expire(525600);

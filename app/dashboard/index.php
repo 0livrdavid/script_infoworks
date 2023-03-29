@@ -1,9 +1,7 @@
 <?php
 require_once '../../config.php';
 require_once '../../layout/start.php';
-
-if (!isset($_GET['filtro'])) $_GET['filtro'] = "todos";
-$filter = $_GET['filtro'];
+require_once '../../ajax/dashboard/dashboard.php';
 ?>
 
 <div id="div-dashboard" class="container-fluid" style="margin: 0 auto; width: 90vw; height: 100vh">

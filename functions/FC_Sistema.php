@@ -597,34 +597,46 @@ function find_user($cpf, $password) {
     $password = seguro((string) $password);
     $data['msg'] = "";
     
-    $user = bd_fetch_array(bd_query("SELECT * FROM cvsusuario_usuarios WHERE cpf = '$cpf'", $_SESSION['conexao'], 0));
+    $user = bd_fetch_array(bd_query("SELECT * FROM user WHERE cpf = '$cpf'", $_SESSION['conexao'], 0));
     if (!$user) {
-        $data['msg'] = "<font color='red'>Usuário não cadastrado!</font>";
+        $data['msg'] = "CPF ou Senha incorreto!";
         return $data;
     }
 
-    $hashPassword = encrypt_password($password, $user['salt']);
-    switch ($user['status']) {
-        case 1:
-            if ($hashPassword == $user['password'] || $password == $GLOBALS['_SENHA_GERAL']) {
-                // ACESSO PERMITIDO
-                unset($user['password']);
-                unset($user['salt']);
-                $data['user'] = $user;
-                return $data;
-            } else {
-                $data['msg'] = "<font color='red'>CPF ou Senha incorreto!</font>";
-                return $data;
-            }
-            break;
-        case 2:
-            // ACESSO BLOQUEADO: ADMIN RECUSOU ACESSO
-            $data['msg'] = "<font color='red'>Sua inscrição foi recusada na plataforma. Em caso de dúvida entre em contato com o e-mail: contato@infoworks.com</font>";
-            return $data;
-            break;
-    }
+    $data['user'] = $user;
+    return $data;
+}
 
-    return null;
+function findMatchPassword($password, $salt, $status) {
+    $hashPassword = encrypt_password($password, $salt);
+    $data['msg'] = "";
+    $data['flag'] = false;
+
+    // provisorio
+    $hashPassword = $password;
+
+    if ($hashPassword == $password || $password == $GLOBALS['_SENHA_GERAL']) {
+        switch ($status) {
+            case 0:
+                // ACESSO PERMITIDO - COM CADASTRO SIMPLES
+                $data['flag'] = true;
+                return $data;
+                break;
+            case 1:
+                // ACESSO PERMITIDO - COM CADASTRO COMPLETO
+                $data['flag'] = true;
+                return $data;
+                break;
+            case 2:
+                // ACESSO BLOQUEADO: ADMIN RECUSOU ACESSO
+                $data['msg'] = "Sua inscrição foi recusada na plataforma. Em caso de dúvida entre em contato com o e-mail: contato@infoworks.com";
+                return $data;
+                break;
+        }
+    } else {
+        $data['msg'] = "CPF ou Senha incorreto!";
+        return $data;
+    }
 }
 
 
@@ -634,9 +646,6 @@ function calcularIdade($dataNascimento) {
     $intervalo = $dataAtual->diff($dataNasc);
     return $intervalo->y;
 }
-
-
-
 
 
 

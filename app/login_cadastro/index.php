@@ -2,8 +2,9 @@
 require_once '../../config.php';
 require_once '../../layout/start.php';
 
-$page = (string) $_POST['page'];
-$msg = (string) $_POST['msg'];
+require_once '../../ajax/login_cadastro/login.php';
+require_once '../../ajax/login_cadastro/cadastro.php';
+require_once '../../ajax/login_cadastro/esqueceu_senha.php';
 ?>
 
 <div class="div-login-cadastrar">
