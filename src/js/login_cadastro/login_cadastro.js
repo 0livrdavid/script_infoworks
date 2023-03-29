@@ -1,6 +1,6 @@
 if (window.navigator.userAgent.indexOf("Trident/") > 0) {
     alert("Internet Explorer não é mais suportado.\n\n Por favor utilize outro navegador.");
-    location.href = servidor + "app/acesso/not_supported";
+    location.href = servidor + "../../not_support.php";
 }
 
 $(document).ready(function() {

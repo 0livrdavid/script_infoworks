@@ -597,7 +597,7 @@ function find_user($cpf, $password) {
     $password = seguro((string) $password);
     $data['msg'] = "";
     
-    $user = bd_fetch_array(bd_query("SELECT * FROM user WHERE cpf = '$cpf'", $_SESSION['conexao'], 0));
+    $user = bd_fetch_array_assoc(bd_query("SELECT * FROM user WHERE cpf = '$cpf'", $_SESSION['conexao'], 0));
     if (!$user) {
         $data['msg'] = "CPF ou Senha incorreto!";
         return $data;
@@ -647,8 +647,7 @@ function calcularIdade($dataNascimento) {
     return $intervalo->y;
 }
 
-
-
+  
 
 
 
