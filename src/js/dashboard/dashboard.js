@@ -29,20 +29,3 @@ function filterProduct(value) {
       }
     });
 }
-
-function abrirModal() {
-    var modal = document.getElementById("myModal"); // obtém a modal
-    var span = document.getElementsByClassName("close")[0]; // obtém o botão de fechar
-
-    modal.style.display = "block"; // exibe a modal quando o botão é clicado
-
-    span.onclick = function() {
-        modal.style.display = "none"; // esconde a modal quando o botão de fechar é clicado
-    };
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none"; // esconde a modal quando o usuário clica fora dela
-        }
-    }
-}

@@ -1,8 +1,7 @@
-<div id="myModal" class="modal">
+<div id="modal-sem-cadastro" class="modal">
     <div class="div-modal-content">
-        <span class="close">&times;</span>
         <div class="tituloModal">
-            <h1>Você não está conectado!</h1>
+            <h1 style="font-size: 1.6rem;">Você não está conectado!</h1><span class="close">&times;</span>
         </div>
         <div class="modalMeio">
             <div class="paragrafoModal">
