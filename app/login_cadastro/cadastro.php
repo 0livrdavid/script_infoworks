@@ -17,9 +17,49 @@
             <span></span>
             <label>Senha</label>
         </div>
+        <div class="txt_field">
+            <input name="password" type="password">
+            <span></span>
+            <label>Senha</label>
+        </div>
+        <div class="txt_field">
+            <input name="password" type="password">
+            <span></span>
+            <label>Senha</label>
+        </div>
+        <div class="txt_field">
+            <input name="password" type="password">
+            <span></span>
+            <label>Senha</label>
+        </div>
+        <div class="txt_field">
+            <input name="password" type="password">
+            <span></span>
+            <label>Senha</label>
+        </div>
+        <div class="txt_field">
+            <input name="password" type="password">
+            <span></span>
+            <label>Senha</label>
+        </div>
+        <div class="txt_field">
+            <input name="password" type="password">
+            <span></span>
+            <label>Senha</label>
+        </div>
+        <div class="txt_field">
+            <input name="password" type="password">
+            <span></span>
+            <label>Senha</label>
+        </div>
+        <div class="txt_field">
+            <input name="password" type="password">
+            <span></span>
+            <label>Senha</label>
+        </div>
         <input name="tipo" type="submit" value="cadastro">
         <div id="signup_link">
-            <p>Voltar para o <a href="#" id="button_cadastrar" onclick="switchLogin('login')">Login</a>.</p>
+            <p>Voltar para o <a href="#" id="button_cadastrar" onclick="location.href='?page=login'">Login</a>.</p>
             <p><a href="../dashboard/">Voltar</a> à Página Inicial.</p>
         </div>
     </form>

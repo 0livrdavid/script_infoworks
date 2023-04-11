@@ -1,19 +1,25 @@
-.div-login-cadastrar{
-  background: linear-gradient(120deg,#83b2d8, #3a4880);
-  height: 100vh;
-  width: 100vw;
+body{
+  background: linear-gradient(120deg,#83b2d8, #3a4880) !important;
+  margin: 0 !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+}
+
+#div-cadastro {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  row-gap: 2.5rem;
+  margin-top: 2.5rem;
 }
 
 .logo-login-cadastro {
-  /* position: relative; */
   height: 12vh;
-  position: absolute;
   display: flex;
-  flex-direction: row;
   width: 100%;
   justify-content: center;
-  /* align-items: center; */
-  margin-top: 6px;
 }
 
 .img_logo img {
@@ -21,12 +27,10 @@
   height: 100px;
 }
 
-.center{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 400px;
+.center {
+  padding: 0 30px;
+  width: 30vw;
+  margin-bottom: 2.5rem;
   background: white;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
@@ -39,7 +43,6 @@
 }
 
 .center form{
-  padding: 0 40px;
   box-sizing: border-box;
 }
 
@@ -93,8 +96,9 @@ form .txt_field{
 }
 
 .pass{
-  margin: -5px 0 20px 5px;
+  margin: 20px auto;
   color: #a6a6a6;
+  text-align: center;
   cursor: pointer;
 }
 

@@ -6,6 +6,9 @@ require_once '../../ajax/login_cadastro/login.php';
 require_once '../../ajax/login_cadastro/cadastro.php';
 require_once '../../ajax/login_cadastro/esqueceu_senha.php';
 
+$page = (string) $_POST['page'];
+$msg = (string) $_SESSION['login_msg'];
+
 if (isset($_GET['page'])) $page = $_GET['page'];
 ?>
 

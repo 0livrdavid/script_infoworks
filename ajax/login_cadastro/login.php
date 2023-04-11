@@ -1,6 +1,5 @@
 <?php
-$page = (string) $_POST['page'];
-$msg = (string) $_SESSION['login_msg'];
+
 
 $acao = (string) seguro(seguro_array($_POST)['tipo']);
 $cpf = (string) seguro(seguro_array($_POST)['cpf']);

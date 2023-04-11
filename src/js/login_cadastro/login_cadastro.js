@@ -14,7 +14,7 @@ function switchLogin (page) {
         $("#div-esqueceu-senha").css("display", "none");
     } else if (page == "cadastro") {
         $("#div-login").css("display", "none");
-        $("#div-cadastro").css("display", "block");
+        $("#div-cadastro").css("display", "flex");
         $("#div-esqueceu-senha").css("display", "none");
         $(".msg_login").html("");
     } else if (page == "esqueceu_senha") {
