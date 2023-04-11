@@ -4,12 +4,12 @@ TaskFinder is a web and mobile application that allows users to find service pro
 # Technologies
 TaskFinder is built using the following technologies:  
 
-HTML
-CSS
-Bootstrap
-JavaScript
-jQuery
-AJAX
+* HTML  
+* CSS  
+* Bootstrap  
+* JavaScript  
+* jQuery  
+* AJAX  
 
 # Features
 TaskFinder offers the following features:  
