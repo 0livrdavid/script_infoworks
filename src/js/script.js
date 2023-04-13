@@ -46,3 +46,35 @@ function abrirModal(class_name) {
         }
     }
 }
+
+function isValidBirthdayDate(birthday) {
+    // check if the input is a valid date string
+    if (!/^\d{2}\/\d{2}\/\d{4}$/.test(birthday)) {
+        return false;
+    }
+  
+    // convert the string to a Date object
+    const date = new Date(birthday);
+  
+    // check if the date is valid
+    if (isNaN(date.getTime())) {
+      return false;
+    }
+  
+    // check if the date is in the past
+    const now = new Date();
+    if (date.getTime() > now.getTime()) {
+      return false;
+    }
+  
+    // check if the date is more than 150 years ago
+    const minDate = new Date();
+    minDate.setFullYear(minDate.getFullYear() - 150);
+    if (date.getTime() < minDate.getTime()) {
+      return false;
+    }
+  
+    // if all checks pass, the date is valid
+    return true;
+  }
+  

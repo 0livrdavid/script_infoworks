@@ -18,7 +18,7 @@
             <label>Senha</label>
         </div>
         <div class="pass" onclick="location.href='?page=esqueceu_senha'">Esqueceu sua senha?</div>
-        <input name="tipo" type="submit" value="login">
+        <input name="tipo" type="submit" value="Login">
         <div id="signup_link">
             <p>Ainda não possui uma conta? <a href="#" id="button_cadastrar" onclick="location.href='?page=cadastro'">Cadastrar</a>.</p>
             <p><a href="../dashboard/">Voltar</a> à Página Inicial.</p>

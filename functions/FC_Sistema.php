@@ -594,16 +594,13 @@ if (!function_exists('recuperaSenha')) {
 
 function find_user($cpf) {
     $cpf = seguro((string) $cpf);
-    $data['msg'] = "";
     
     $user = bd_fetch_array_assoc(bd_query("SELECT * FROM user WHERE cpf = '$cpf'", $_SESSION['conexao'], 0));
-    if (!$user) {
-        $data['msg'] = "CPF ou Senha incorreto!";
-        return $data;
+    if (!is_array($user)) {
+        return null;
     }
 
-    $data['user'] = $user;
-    return $data;
+    return $user;
 }
 
 function findMatchPassword($password, $salt, $status) {
@@ -633,7 +630,7 @@ function findMatchPassword($password, $salt, $status) {
                 break;
         }
     } else {
-        $data['msg'] = "CPF ou Senha incorreto!";
+        $data['msg'] = "<span style='color: red;'>CPF ou Senha incorreto!</span>";
         return $data;
     }
 }

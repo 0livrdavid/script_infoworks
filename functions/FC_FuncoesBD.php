@@ -412,3 +412,10 @@ function getCards($filter) {
     }
     return $cards;
 }
+
+function createUser($user) {
+    $query = "INSERT INTO `user`(`status`, `tipo`, `autorizado`, `cpf`, `email`, `nome`, `senha`, `salt`, `idade`, `cep`, `fk_estado`, `fk_cidade`, `bairro`, `rua`, `numero`, `telefone`, `whatsapp`) VALUES 
+                                 (1,3,0, ".$user['cpf'].",'[value-6]','[value-7]','[value-8]', '[value-9]','[value-10]','[value-11]','[value-12]', '[value-13]','[value-14]','[value-15]','[value-16]', '[value-17]','[value-18]')";
+    $dados = bd_query($query, $_SESSION['conexao'], 0);
+    return $dados;
+}

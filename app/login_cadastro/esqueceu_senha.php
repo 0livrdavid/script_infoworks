@@ -13,7 +13,7 @@
             <span></span>
             <label>CPF</label>
         </div>
-        <input name="tipo" type="submit" value="esqueceu_senha">
+        <input name="tipo" type="submit" value="Esqueceu a Senha">
         <div id="signup_link">
             <p>Voltar para o <a href="#" id="button_cadastrar" onclick="location.href='?page=login'">Login</a>.</p>
             <p><a href="../dashboard/">Voltar</a> à Página Inicial.</p>
