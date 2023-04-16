@@ -5,7 +5,7 @@
 </div>
 <div class="center">
     <h1>Esqueceu a senha?</h1>
-    <form method="post" action="../../ajax/login_cadastro.php">
+    <div id="form" class="form_esqueceu_senha">
         <p id="msg_esqueceu_senha" class="msg_esqueceu_senha"></p>
         <div class="txt_field">
             <input name="cpf" type="text" oninput="formatarCPF(this)" minlength="11" maxlength="14">
@@ -17,5 +17,5 @@
             <p>Voltar para o <a href="#" id="button_cadastrar" onclick="location.href='?page=login'">Login</a>.</p>
             <p><a href="../dashboard/">Voltar</a> à Página Inicial.</p>
         </div>
-    </form>
+    </div>
 </div>

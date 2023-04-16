@@ -5,7 +5,7 @@
 </div>
 <div class="center">
     <h1>Entrar</h1>
-    <form method="post" action="">
+    <div id="form" class="form_login">
         <p id="msg_login" class="msg_login"></p>
         <div class="txt_field">
             <input name="cpf" type="text" oninput="formatarCPF(this)" minlength="11" maxlength="14">
@@ -23,6 +23,6 @@
             <p>Ainda não possui uma conta? <a href="#" id="button_cadastrar" onclick="location.href='?page=cadastro'">Cadastrar</a>.</p>
             <p><a href="../dashboard/">Voltar</a> à Página Inicial.</p>
         </div>
-    </form>
+    </div>
 </div>
 
