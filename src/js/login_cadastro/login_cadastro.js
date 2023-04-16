@@ -12,23 +12,14 @@ function switchLogin (page) {
         $("#div-login").css("display", "flex");
         $("#div-cadastro").css("display", "none");
         $("#div-esqueceu-senha").css("display", "none");
-
-        $(".msg_cadastro").html("");
-        $(".msg_esqueceu_senha").html("");
     } else if (page == "cadastro") {
         $("#div-login").css("display", "none");
         $("#div-cadastro").css("display", "flex");
         $("#div-esqueceu-senha").css("display", "none");
-
-        $(".msg_login").html("");
-        $(".msg_esqueceu_senha").html("");
     } else if (page == "esqueceu_senha") {
         $("#div-login").css("display", "none");
         $("#div-cadastro").css("display", "none");
         $("#div-esqueceu-senha").css("display", "flex");
-
-        $(".msg_login").html("");
-        $(".msg_cadastro").html("");
     }
 }
 
@@ -55,9 +46,6 @@ function createUser(div_form) {
 
     function validateFormCadastro(form) {
         const requiredFields = form.querySelectorAll('[required]');
-
-
-        console.log(requiredFields);
         let passwordValue = null;
         let confirmPasswordValue = null;
 
@@ -107,21 +95,24 @@ function createUser(div_form) {
 
     if (!validateFormCadastro(form)) {
         toastr.error("Suas informações de cadastro não estão corretas e/ou está faltando informação!");
-        event.preventDefault();
         return null;
     } else {
-        console.log("cheguei aq");
-        console.log(fields);
         $.ajax({
             method: "POST",
             datatype: "json",
             url: "../../ajax/login_cadastro/cadastro.php",
             data: fields,
             success: function (response) {
-                console.log(response);
+                console.log(typeof response);
+                if (response.flag) {
+                    toastr.success(response['flag']);
+                    switchLogin('Login');
+                } else {
+                    toastr.warning(response.msg);
+                }
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                console.error(textStatus, errorThrown);
+                toastr.error(textStatus, errorThrown);
             }
         });
     }

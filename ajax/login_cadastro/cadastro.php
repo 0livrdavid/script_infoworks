@@ -1,12 +1,9 @@
 <?php
-
-var_dump($_POST);
+require_once '../../config.php';
 
 $acao = (string) $_POST['acao'];
 
-
 if ($acao == "Cadastro") {
-    echo "aq2<br>";
     $user = [
         'nome' => (string) seguro(seguro_array($_POST)['nome']),
         'data_nascimento' => (string) seguro(seguro_array($_POST)['data_nascimento']),
@@ -17,31 +14,29 @@ if ($acao == "Cadastro") {
     ];
 
     if (!is_array(find_user($user['cpf']))) {
-        echo "aq3<br>";
         if ($user['nome'] != "" && $user['data_nascimento'] != "" &&
         $user['email'] != "" && $user['cpf'] != "" &&
         $user['password'] != "" && $user['confirm_password'] != "") {
-            echo "aq4<br>";
             if ($user['password'] == $user['confirm_password']) {
-                echo "aq5<br>";
-//                    if (createUser($user)) {
-//                        echo "aq6<br>";
-//                        $_SESSION['login_cadastro_msg'] = "<span style='color: green;'>Cadastro de usuário com sucesso!</span>";
-//                        header('Location: ../../app/login_cadastro/?page=cadastro');
-//                    } else {
-//                        $_SESSION['login_cadastro_msg'] = "<span style='color: red;'>	&#9888 Houve um erro ao cadastrar o usuário!</span>";
-//                        header('Location: ../../app/login_cadastro/?page=cadastro');
-//                    }
+                if (createUser($user)) {
+                    $response['flag'] = true;
+                    $response['msg'] = "Cadastro de usuário com sucesso!";
+                } else {
+                    $response['flag'] = false;
+                    $response['msg'] = "&#9940; Houve um erro ao cadastrar o usuário!";
+                }
             } else {
-                $_SESSION['login_cadastro_msg'] = "<span style='color: red;'>&warning Senha e confimação de senha diferentes!</span>";
-                header('Location: ../../app/login_cadastro/?page=cadastro');
+                $response['flag'] = false;
+                $response['msg'] = "&#9888; Senha e confimação de senha diferentes!";
             }
         } else {
-            $_SESSION['login_cadastro_msg'] = "<span style='color: red;'>&warning Preencha os campos obrigatórios!</span>";
-            header('Location: ../../app/login_cadastro/?page=cadastro');
+            $response['flag'] = false;
+            $response['msg'] = "&#9888; Preencha os campos obrigatórios!";
         }
     } else {
-        $_SESSION['login_cadastro_msg'] = "<span style='color: red;'>&warning CPF já existe!</span>";
-        header('Location: ../../app/login_cadastro/?page=cadastro');
+        $response['flag'] = false;
+        $response['msg'] = "&#9888; CPF já existe!";
     }
+
+    echo json_encode($response);
 }

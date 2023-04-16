@@ -415,18 +415,45 @@ function getCards($filter) {
 
 function createUser($user) {
     $encrypt = (array) encryptPassword($user['password']);
-    
-    $query = "INSERT INTO `user`(`status`, `tipo`, `autorizado`, 
-                                `cpf`, `email`, `nome`, 
-                                `senha`, `salt`) VALUES 
-                                 (1,3,0, 
-                                 '".$user['cpf']."','".$user['email']."','".$user['nome']."',
-                                 '".$encrypt['password']."', '".$encrypt['salt']."','[value-10]','[value-11]','[value-12]', '[value-13]','[value-14]','[value-15]','[value-16]', '[value-17]','[value-18]')";
-    $dados = bd_query($query, $_SESSION['conexao'], 1);
+
+    $query = "INSERT INTO `user`(`status`, `tipo`, `autorizado`,
+                                `cpf`, `email`, `idade`,
+                                `nome`, `senha`, `salt`) VALUES
+                                 (1,3,0,
+                                 '".$user['cpf']."','".$user['email']."','".corrigirData($user['data_nascimento'])."',
+                                 '".$user['nome']."', '".$encrypt['password']."', '".$encrypt['salt']."')";
+    //$dados = bd_query($query, $_SESSION['conexao'], 0);
+
+    $dados = true;
     return $dados;
 }
 
-function encryptPassword() {
-    $data = array();
-    return $data;
+function encryptPassword($password) {
+    // Gerando salt aleatório
+    $options = [
+        'cost' => 12, // número de iterações de hash
+    ];
+    $salt = password_hash('', PASSWORD_BCRYPT, $options);
+
+    // Criptografando a senha com o salt
+    $hash = password_hash($password . $salt, PASSWORD_BCRYPT, $options);
+
+    return ["password"=> $hash, "salt"=> $salt];
+}
+
+
+function corrigirData($data) {
+    // Verificando se a data está no formato correto
+    if (!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $data)) {
+        throw new Exception('Data inválida!');
+    }
+
+    // Convertendo a data para formato datetime
+    $data_formatada = DateTime::createFromFormat('d/m/Y', $data);
+
+    if (!$data_formatada) {
+        throw new Exception('Data inválida!');
+    }
+
+    return $data_formatada->format('Y-m-d');
 }
