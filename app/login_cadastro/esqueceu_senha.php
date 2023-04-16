@@ -6,8 +6,7 @@
 <div class="center">
     <h1>Esqueceu a senha?</h1>
     <form method="post" action="../../ajax/login_cadastro.php">
-        <p id="msg_login" class="msg_login"><?php echo $msg ?></p>
-        <input name="tipo" type="hidden" value="esqueceu_senha">
+        <p id="msg_esqueceu_senha" class="msg_esqueceu_senha"></p>
         <div class="txt_field">
             <input name="cpf" type="text" oninput="formatarCPF(this)" minlength="11" maxlength="14">
             <span></span>

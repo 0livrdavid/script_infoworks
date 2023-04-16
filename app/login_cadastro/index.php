@@ -2,18 +2,8 @@
 require_once '../../config.php';
 require_once '../../layout/start.php';
 
-require_once '../../ajax/login_cadastro/login.php';
-require_once '../../ajax/login_cadastro/cadastro.php';
-require_once '../../ajax/login_cadastro/esqueceu_senha.php';
-
 $page = (string) $_POST['page'];
-$msg = (string) $_SESSION['login_cadastro_msg'];
-$acao = (string) $_POST['tipo'];
-var_dump($$_POST['tipo']);
-var_dump($acao);
-
-if (isset($_GET['page'])) $page = $_GET['page'];
-?>
+if (isset($_GET['page'])) $page = $_GET['page']; ?>
 
 <div class="div-login-cadastrar">
     <div id="div-login">

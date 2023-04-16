@@ -1,4 +1,7 @@
 <?php
+
+$acao = (string) $_POST['tipo'];
+
 if (isset($_POST['tipo'])) {
     if ($acao == "Login") {
         $cpf = (string) seguro(seguro_array($_POST)['cpf']);

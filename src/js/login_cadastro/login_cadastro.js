@@ -9,19 +9,26 @@ $(document).ready(function() {
 
 function switchLogin (page) {
     if (page == "" || page == "login") {
-        $("#div-login").css("display", "block");
+        $("#div-login").css("display", "flex");
         $("#div-cadastro").css("display", "none");
         $("#div-esqueceu-senha").css("display", "none");
+
+        $(".msg_cadastro").html("");
+        $(".msg_esqueceu_senha").html("");
     } else if (page == "cadastro") {
         $("#div-login").css("display", "none");
         $("#div-cadastro").css("display", "flex");
         $("#div-esqueceu-senha").css("display", "none");
+
         $(".msg_login").html("");
+        $(".msg_esqueceu_senha").html("");
     } else if (page == "esqueceu_senha") {
         $("#div-login").css("display", "none");
         $("#div-cadastro").css("display", "none");
-        $("#div-esqueceu-senha").css("display", "block");
+        $("#div-esqueceu-senha").css("display", "flex");
+
         $(".msg_login").html("");
+        $(".msg_cadastro").html("");
     }
 }
 
@@ -41,87 +48,82 @@ function login_switch() {
     }
 }
 
-function validateFormCadastro(event) {
-    const form = event.target;
-    const requiredFields = form.querySelectorAll('[required]');
-    let passwordValue = null;
-    let confirmPasswordValue = null;
+function createUser(div_form) {
+    const form = div_form;
+    fields = {};
+    fields['acao'] = "Cadastro";
 
-    for (let i = 0; i < requiredFields.length; i++) {
-        const field = requiredFields[i];
-    
-        if (field.id === 'password') {
-            passwordValue = field.value;
-        } else if (field.id === 'confirm_password') {
-            confirmPasswordValue = field.value;
-        }
+    function validateFormCadastro(form) {
+        const requiredFields = form.querySelectorAll('[required]');
 
-        if (!field.value) {
-            toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            },toastr["warning"](`Por favor, preecha o campo "${field.dataset.name}".`, "Atenção");
-            field.focus();
-            event.preventDefault();
-            return false;
-        }
-        
-        if (field.name == "data_nascimento") {
-            if (!isValidDate(field.value, field.dataset.name)) {
+
+        console.log(requiredFields);
+        let passwordValue = null;
+        let confirmPasswordValue = null;
+
+        for (let i = 0; i < requiredFields.length; i++) {
+            const field = requiredFields[i];
+            if (field.id === 'password') passwordValue = field.value;
+            if (field.id === 'confirm_password') confirmPasswordValue = field.value;
+
+            fields[field.name] = field.value;
+
+            if (!field.value) {
+                toastr.warning(`Por favor, preecha o campo "${field.dataset.name}".`, "Atenção");
                 field.focus();
                 return false;
             }
-        }
-        
-        if (field.name == "cpf") {
-            if (!isValidCPF(field.value, field.dataset.name)) {
-                field.focus();
-                return false;
+
+            if (field.name == "data_nascimento") {
+                if (!isValidDate(field.value, field.dataset.name)) {
+                    field.focus();
+                    return false;
+                }
+            }
+
+            if (field.name == "cpf") {
+                if (!isValidCPF(field.value, field.dataset.name)) {
+                    field.focus();
+                    return false;
+                }
             }
         }
-    }
 
-    function validateFormPassword(){
-        if(passwordValue!==confirmPasswordValue) {
-            toastr.options = {
-                "closeButton": false,
-                "debug": false,
-                "newestOnTop": false,
-                "progressBar": false,
-                "positionClass": "toast-top-right",
-                "preventDuplicates": false,
-                "onclick": null,
-                "showDuration": "300",
-                "hideDuration": "1000",
-                "timeOut": "5000",
-                "extendedTimeOut": "1000",
-                "showEasing": "swing",
-                "hideEasing": "linear",
-                "showMethod": "fadeIn",
-                "hideMethod": "fadeOut"
-            },toastr["warning"]("Senhas não coincidem!", "Atenção");
-            event.preventDefault();
+        function validateFormPassword(){
+            if(passwordValue!==confirmPasswordValue) {
+                toastr.warning("Senhas não coincidem!");
+                return false;
+            }
+            return true;
+        }
+
+        if (!validateFormPassword()) {
             return false;
         }
+
         return true;
     }
 
-    if (!validateFormPassword()) {
-        return false;
-    }
 
-    return true;
+    if (!validateFormCadastro(form)) {
+        toastr.error("Suas informações de cadastro não estão corretas e/ou está faltando informação!");
+        event.preventDefault();
+        return null;
+    } else {
+        console.log("cheguei aq");
+        console.log(fields);
+        $.ajax({
+            method: "POST",
+            datatype: "json",
+            url: "../../ajax/login_cadastro/cadastro.php",
+            data: fields,
+            success: function (response) {
+                console.log(response);
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                console.error(textStatus, errorThrown);
+            }
+        });
+    }
 }
+
