@@ -8,7 +8,9 @@ require_once '../../ajax/login_cadastro/esqueceu_senha.php';
 
 $page = (string) $_POST['page'];
 $msg = (string) $_SESSION['login_cadastro_msg'];
-$acao = (string) seguro(seguro_array($_POST)['tipo']);
+$acao = (string) $_POST['tipo'];
+var_dump($$_POST['tipo']);
+var_dump($acao);
 
 if (isset($_GET['page'])) $page = $_GET['page'];
 ?>

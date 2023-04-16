@@ -41,133 +41,87 @@ function login_switch() {
     }
 }
 
-// $('input[type="password"]').keyup(function() {
-//     senhaValida(this.value, this);
-// });
+function validateFormCadastro(event) {
+    const form = event.target;
+    const requiredFields = form.querySelectorAll('[required]');
+    let passwordValue = null;
+    let confirmPasswordValue = null;
 
-function senhaValida(s, input = false){
-    var retorno = false,
-        points = 0;
-    $(".senha_msg_error").html("");
-
-    const verify = {
-        "auxMaiuscula": false,
-        "auxMinuscula": false,
-        "auxNumero": false,
-        "auxEspecial": false,
-        "auxEspecial2": true,
-        "auxTamanho": false
-    };
-
-    const color = {
-        "forte": '#009A44',
-        "ok": '#EAAA00',
-        "medio": '#F68D2E',
-        "fraco": '#BC204B'
-    }
-
-    // define letras maiusculas e minisculas, numeros e caracteres especiais
-    const letrasMaiusculas = /[A-Z]/,
-        letrasMinusculas = /[a-z]/,
-        numeros = /[0-9]/,
-        caracteresEspeciais = /[!@#$%^&*]/,
-        caracteresEspeciais2 = /^(?=.*[!@#$%^&*])$/;
-
-    var auxMaiuscula = 0,
-        auxMinuscula = 0,
-        auxNumero = 0,
-        auxEspecial = 0;
-
-    // quantifica letras maiusculas e minisculas, numeros e caracteres especiais
-    for(let i=0; i<s.length; i++){
-        if(letrasMaiusculas.test(s[i]))
-            auxMaiuscula++;
-        else if(letrasMinusculas.test(s[i]))
-            auxMinuscula++;
-        else if(numeros.test(s[i]))
-            auxNumero++;
-        else if(caracteresEspeciais.test(s[i]))
-            auxEspecial++;
-        else if (!(caracteresEspeciais2.test(s[i])) && verify.auxEspecial2 == true) {
-            let msg;
-            if (/\s/.test(s[i])) {
-                msg = 'Caracter invalido detectado: "ESPAÇO"<br>';
-            } else if (/'|"/.test(s[i])) {
-                msg = 'Caracter invalido detectado: "ASPAS"<br>';
-            } else {
-                msg = 'Caracter invalido detectado: "' + s[i] +'"<br>';
-            }
-            $(".senha_msg_error").append(msg);
-            verify.auxEspecial2 = false;
+    for (let i = 0; i < requiredFields.length; i++) {
+        const field = requiredFields[i];
+    
+        if (field.id === 'password') {
+            passwordValue = field.value;
+        } else if (field.id === 'confirm_password') {
+            confirmPasswordValue = field.value;
         }
-    }
 
-
-    // verifica a quantidade de letras maiusculas e minisculas, numeros e caracteres especiais
-    if (auxMaiuscula > 0){
-        $('.senha_letra_maiuscula').css("color","green");
-        points++;
-        verify.auxMaiuscula = true;
-    } else {
-        $('.senha_letra_maiuscula').css("color","red")
-    }
-
-    if (auxMinuscula > 0){
-        $('.senha_letra_minuscula').css("color","green");
-        points++;
-        verify.auxMinuscula = true;
-    } else {
-        $('.senha_letra_minuscula').css("color","red")
-    }
-
-    if (auxNumero > 0){
-        $('.senha_número').css("color","green");
-        points++;
-        verify.auxNumero = true;
-    } else {
-        $('.senha_número').css("color","red");
-    }
-
-    if (auxEspecial > 0) {
-        $('.senha_caracteres_especiais').css("color","green");
-        points++;
-        verify.auxEspecial = true;
-    } else {
-        $('.senha_caracteres_especiais').css("color","red");
-    }
-
-    if(s.length >= 8){
-        $('.senha_quantidade_caracteres').css("color","green");
-        points++;
-        verify.auxTamanho = true;
-
-    } else {
-        $('.senha_quantidade_caracteres').css("color","red");
-    }
-
-    if (verify.auxMaiuscula) {
-        if (verify.auxMinuscula) {
-            if (verify.auxNumero) {
-                if (verify.auxEspecial && verify.auxEspecial2) {
-                    if (verify.auxTamanho) {
-                        retorno = true;
-                    }
-                }
+        if (!field.value) {
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            },toastr["warning"](`Por favor, preecha o campo "${field.dataset.name}".`, "Atenção");
+            field.focus();
+            event.preventDefault();
+            return false;
+        }
+        
+        if (field.name == "data_nascimento") {
+            if (!isValidDate(field.value, field.dataset.name)) {
+                field.focus();
+                return false;
+            }
+        }
+        
+        if (field.name == "cpf") {
+            if (!isValidCPF(field.value, field.dataset.name)) {
+                field.focus();
+                return false;
             }
         }
     }
 
-    if(points == 5){
-        $(input).attr('style','border-color: '+color.forte+' !important');
-    } else if(points >= 4){
-        $(input).attr('style','border-color: '+color.ok+' !important');
-    } else if(points >= 3){
-        $(input).attr('style','border-color: '+color.medio+' !important');
-    } else if(points <= 2){
-        $(input).attr('style','border-color: '+color.fraco+' !important');
-    } else{
-        $(input).attr('style','border-color: '+color.fraco+' !important');
+    function validateFormPassword(){
+        if(passwordValue!==confirmPasswordValue) {
+            toastr.options = {
+                "closeButton": false,
+                "debug": false,
+                "newestOnTop": false,
+                "progressBar": false,
+                "positionClass": "toast-top-right",
+                "preventDuplicates": false,
+                "onclick": null,
+                "showDuration": "300",
+                "hideDuration": "1000",
+                "timeOut": "5000",
+                "extendedTimeOut": "1000",
+                "showEasing": "swing",
+                "hideEasing": "linear",
+                "showMethod": "fadeIn",
+                "hideMethod": "fadeOut"
+            },toastr["warning"]("Senhas não coincidem!", "Atenção");
+            event.preventDefault();
+            return false;
+        }
+        return true;
     }
 
-    return retorno;
+    if (!validateFormPassword()) {
+        return false;
+    }
+
+    return true;
 }

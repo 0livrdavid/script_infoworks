@@ -10,9 +10,9 @@
 <link rel="stylesheet" href="<?php echo URL_BASE_ASSETS_CSS; ?>theme_light.scss">
 <?php
 if ($_SERVER['PHP_SELF'] == "/app/dashboard/index.php") {
-    echo "<link rel='stylesheet' href='".URL_BASE_ASSETS_CSS."dashboard.scss'";
+    echo "<link rel='stylesheet' href='".URL_BASE_ASSETS_CSS."dashboard.scss' >";
 } else if ($_SERVER['PHP_SELF'] == "/app/login_cadastro/index.php") {
-    echo "<link rel='stylesheet' href='".URL_BASE_ASSETS_CSS."login_cadastro.scss'";
+    echo "<link rel='stylesheet' href='".URL_BASE_ASSETS_CSS."login_cadastro.scss' >";
 }
 ?>
 

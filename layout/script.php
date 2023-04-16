@@ -6,3 +6,7 @@
 
 <!--SCRIPT GERAL-->
 <script type="text/javascript" src="../../src/js/script.js"></script>
+
+<!-- ASSETS -->
+<script type="text/javascript" src="../../src/assets/toast/toast.js"></script>
+<link rel="stylesheet" href="../../src/assets/toast/toast.scss">

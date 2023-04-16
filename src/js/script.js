@@ -47,34 +47,102 @@ function abrirModal(class_name) {
     }
 }
 
-function isValidBirthdayDate(birthday) {
-    // check if the input is a valid date string
-    if (!/^\d{2}\/\d{2}\/\d{4}$/.test(birthday)) {
+function isValidDate(data, msg="Data Nascimento") {
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+
+    if (!/^\d{2}\/\d{2}\/\d{4}$/.test(data)) {
+        toastr["warning"](`O campo "${msg}" não fornece uma entrada de data valida.`, "Atenção");
+        return false;
+    }
+
+    const [dia, mes, ano] = data.split('/');
+    const date = new Date(`${ano}-${mes}-${dia}`);
+
+    if (isNaN(date.getTime())) {
+        toastr["warning"](`O campo "${msg}" não fornece uma entrada de data valida.`, "Atenção");
         return false;
     }
   
-    // convert the string to a Date object
-    const date = new Date(birthday);
-  
-    // check if the date is valid
-    if (isNaN(date.getTime())) {
-      return false;
-    }
-  
-    // check if the date is in the past
     const now = new Date();
     if (date.getTime() > now.getTime()) {
-      return false;
+        toastr["warning"](`A data fornecida no campo "${msg}" não pode ser superior a data de hoje "${now}".`, "Atenção");
+        return false;
     }
   
-    // check if the date is more than 150 years ago
     const minDate = new Date();
     minDate.setFullYear(minDate.getFullYear() - 150);
     if (date.getTime() < minDate.getTime()) {
-      return false;
+        toastr["warning"](`A data fornecida no campo "${msg}" não pode ser que "${minDate}".`, "Atenção");
+        return false;
     }
   
-    // if all checks pass, the date is valid
     return true;
-  }
+}
+  
+
+function isValidCPF(cpf, msg) {
+    toastr.options = {
+        "closeButton": false,
+        "debug": false,
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        "showDuration": "300",
+        "hideDuration": "1000",
+        "timeOut": "5000",
+        "extendedTimeOut": "1000",
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut"
+    }
+    
+    cpf = cpf.replace(/[^\d]+/g,''); // remove caracteres não numéricos
+    if (cpf.length !== 11) {
+        toastr["warning"](`O campo "${msg}" deve ter 11 dígitos.`, "Atenção");
+        return false; // o CPF deve ter 11 dígitos
+    }
+
+    // Calcula o primeiro dígito verificador
+    let soma = 0;
+    for (let i = 0; i < 9; i++) {
+      soma += parseInt(cpf.charAt(i)) * (10 - i);
+    }
+    let resto = 11 - (soma % 11);
+    let digitoVerificador1 = (resto === 10 || resto === 11) ? 0 : resto;
+  
+    // Calcula o segundo dígito verificador
+    soma = 0;
+    for (let i = 0; i < 10; i++) {
+      soma += parseInt(cpf.charAt(i)) * (11 - i);
+    }
+    resto = 11 - (soma % 11);
+    let digitoVerificador2 = (resto === 10 || resto === 11) ? 0 : resto;
+  
+    // Retorna true se os dígitos verificadores estão corretos, false caso contrário
+    if ((digitoVerificador1 === parseInt(cpf.charAt(9)) && digitoVerificador2 === parseInt(cpf.charAt(10)))) {
+        return true;
+    } else {
+        toastr["warning"](`O campo "${msg}" não fornece dados validos`, "Atenção");
+        return false;
+    }
+}
   
