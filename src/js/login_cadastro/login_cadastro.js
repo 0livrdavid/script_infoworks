@@ -103,10 +103,67 @@ function createUser(div_form) {
             url: "../../ajax/login_cadastro/cadastro.php",
             data: fields,
             success: function (response) {
-                console.log(typeof response);
+                response = JSON.parse(response);
                 if (response.flag) {
-                    toastr.success(response['flag']);
-                    switchLogin('Login');
+                    toastr.success(response.msg);
+                    $("#cpf_login").val(formatarCPF(fields['cpf']));
+                    switchLogin('login');
+                } else {
+                    toastr.warning(response.msg);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                toastr.error(textStatus, errorThrown);
+            }
+        });
+    }
+}
+
+function searchUser(div_form) {
+    const form = div_form;
+    fields = {};
+    fields['acao'] = "Login";
+
+    function validateFormLogin(form) {
+        const requiredFields = form.querySelectorAll('[required]');
+        let passwordValue = null;
+        let confirmPasswordValue = null;
+
+        for (let i = 0; i < requiredFields.length; i++) {
+            const field = requiredFields[i];
+            fields[field.name] = field.value;
+
+            if (!field.value) {
+                toastr.warning(`Por favor, preecha o campo "${field.dataset.name}".`, "Atenção");
+                field.focus();
+                return false;
+            }
+
+            if (field.name == "cpf") {
+                if (!isValidCPF(field.value, field.dataset.name)) {
+                    field.focus();
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
+
+
+    if (!validateFormLogin(form)) {
+        toastr.error("Suas informações de login não estão corretas e/ou está faltando informação!");
+        return null;
+    } else {
+        $.ajax({
+            method: "POST",
+            datatype: "json",
+            url: "../../ajax/login_cadastro/login.php",
+            data: fields,
+            success: function (response) {
+                response = JSON.parse(response);
+                if (response.flag) {
+                    $.redirect("../dashboard/index.php");
                 } else {
                     toastr.warning(response.msg);
                 }

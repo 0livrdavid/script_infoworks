@@ -422,9 +422,8 @@ function createUser($user) {
                                  (1,3,0,
                                  '".$user['cpf']."','".$user['email']."','".corrigirData($user['data_nascimento'])."',
                                  '".$user['nome']."', '".$encrypt['password']."', '".$encrypt['salt']."')";
-    //$dados = bd_query($query, $_SESSION['conexao'], 0);
+    $dados = bd_query($query, $_SESSION['conexao'], 0);
 
-    $dados = true;
     return $dados;
 }
 
@@ -433,6 +432,7 @@ function encryptPassword($password) {
     $options = [
         'cost' => 12, // número de iterações de hash
     ];
+
     $salt = password_hash('', PASSWORD_BCRYPT, $options);
 
     // Criptografando a senha com o salt
@@ -441,6 +441,22 @@ function encryptPassword($password) {
     return ["password"=> $hash, "salt"=> $salt];
 }
 
+function decryptPassword($password, $salt) {
+    // Configurando opções do hash
+    $options = [
+        'cost' => 12, // número de iterações de hash
+    ];
+
+    // Criptografando a senha com o salt
+    $hash = password_hash($password . $salt, PASSWORD_BCRYPT, $options);
+
+    // Verificando se a senha criptografada é igual à senha original
+    if (password_verify($hash, $password)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function corrigirData($data) {
     // Verificando se a data está no formato correto

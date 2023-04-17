@@ -1,10 +1,14 @@
-function formatarCPF(input) {
+function formatarCPF(cpf) {
     // Remove todos os caracteres que não são números
-    input.value = input.value.replace(/\D/g, '');
+    cpf = cpf.replace(/\D/g, '');
 
     // Formata o CPF com a máscara XXX.XXX.XXX-XX
-    input.value = input.value.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+
+    return cpf;
 }
+
+
 
 function formatarCEP(input) {
     // Remove todos os caracteres que não são números

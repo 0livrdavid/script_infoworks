@@ -604,7 +604,7 @@ function find_user($cpf) {
 }
 
 function findMatchPassword($password, $salt, $status) {
-    $hashPassword = encrypt_password($password, $salt);
+    $hashPassword = decryptPassword($password, $salt);
     $data['msg'] = "";
     $data['flag'] = false;
 

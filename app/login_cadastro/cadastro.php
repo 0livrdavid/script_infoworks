@@ -18,7 +18,7 @@
           <label for="email">Email</label>
         </div>
         <div class="txt_field">
-          <input type="text" name="cpf" oninput="formatarCPF(this)" minlength="11" maxlength="14"  data-name="CPF" required>
+          <input type="text" name="cpf" onkeyup="formatarCPF(this)" minlength="11" maxlength="14"  data-name="CPF" required>
           <span></span>
           <label for="cpf">CPF</label>
         </div>
