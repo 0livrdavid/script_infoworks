@@ -9,6 +9,7 @@ function formatarCPF(cpf) {
 }
 
 function formatarCPF2(cpf) {
+    // Remove todos os caracteres que não são números
     cpf = cpf.replace(/\D/g, '');
 
     // Formata o CPF com a máscara XXX.XXX.XXX-XX
