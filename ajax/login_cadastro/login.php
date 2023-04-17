@@ -23,13 +23,16 @@ if ($acao == "Login") {
             $_SESSION['idUsuario'] = (int) $_SESSION['usuario']['id'];
             $_SESSION['SessaoLogin']=md5("seg".$_SERVER["REMOTE_ADDR"].$_SERVER["HTTP_USER_AGENT"]);
 
-            header('Location: ../../app/dashboard/');
+            $response['flag'] = true;
+            $response['msg'] = "";
         } else {
-            $_SESSION['login_cadastro_msg'] = $flag_password['msg'];
-            header('Location: ../../app/login_cadastro/');
+            $response['flag'] = false;
+            $response['msg'] = $flag_password['msg'];
         }
     } else {
-        $_SESSION['login_cadastro_msg'] = "<span style='color: red;'>CPF ou Senha incorreto!</span>";
-        header('Location: ../../app/login_cadastro/');
+        $response['flag'] = false;
+        $response['msg'] = "<span style='color: red;'>CPF ou Senha incorreto!</span>";
     }
+
+    echo json_encode($response);
 }

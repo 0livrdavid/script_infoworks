@@ -8,7 +8,7 @@
     <div id="form" class="form_esqueceu_senha">
         <p id="msg_esqueceu_senha" class="msg_esqueceu_senha"></p>
         <div class="txt_field">
-            <input name="cpf" type="text" oninput="formatarCPF(this)" minlength="11" maxlength="14">
+            <input name="cpf" type="text" onkeyup="formatarCPF(this)" onchange="formatarCPF(this)" minlength="11" maxlength="14">
             <span></span>
             <label>CPF</label>
         </div>

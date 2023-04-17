@@ -4,6 +4,9 @@ require_once '../../config.php';
 $acao = (string) $_POST['acao'];
 
 if ($acao == "Cadastro") {
+    $response['flag'] = false;
+    $response['msg'] = "&#9940; Houve um erro ao cadastrar o usuário!";
+
     $user = [
         'nome' => (string) seguro(seguro_array($_POST)['nome']),
         'data_nascimento' => (string) seguro(seguro_array($_POST)['data_nascimento']),
