@@ -8,6 +8,15 @@ function formatarCPF(cpf) {
     return cpf.value;
 }
 
+function formatarCPF2(cpf) {
+    cpf = cpf.replace(/\D/g, '');
+
+    // Formata o CPF com a máscara XXX.XXX.XXX-XX
+    cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+
+    return cpf;
+}
+
 
 
 function formatarCEP(input) {

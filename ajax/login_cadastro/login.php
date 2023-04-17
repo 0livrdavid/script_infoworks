@@ -1,11 +1,11 @@
 <?php
+require_once '../../config.php';
 
-$acao = (string) $_POST['tipo'];
-
+$acao = $_POST['acao'];
 
 if ($acao == "Login") {
-    $cpf = (string) seguro(seguro_array($_POST)['cpf']);
-    $password = (string) seguro(seguro_array($_POST)['password']);
+    $cpf = $_POST['cpf'];
+    $password = $_POST['password'];
 
     session_cache_expire(525600);
     $_SESSION['session_id']=session_id();

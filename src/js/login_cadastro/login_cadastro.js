@@ -106,7 +106,7 @@ function createUser(div_form) {
                 response = JSON.parse(response);
                 if (response.flag) {
                     toastr.success(response.msg);
-                    $("#cpf_login").val(formatarCPF(fields['cpf']));
+                    $("#cpf_login").val(formatarCPF2(fields['cpf']));
                     switchLogin('login');
                 } else {
                     toastr.warning(response.msg);
@@ -126,8 +126,6 @@ function searchUser(div_form) {
 
     function validateFormLogin(form) {
         const requiredFields = form.querySelectorAll('[required]');
-        let passwordValue = null;
-        let confirmPasswordValue = null;
 
         for (let i = 0; i < requiredFields.length; i++) {
             const field = requiredFields[i];
@@ -149,7 +147,6 @@ function searchUser(div_form) {
 
         return true;
     }
-
 
     if (!validateFormLogin(form)) {
         toastr.error("Suas informações de login não estão corretas e/ou está faltando informação!");
