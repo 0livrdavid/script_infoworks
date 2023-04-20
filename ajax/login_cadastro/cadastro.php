@@ -1,22 +1,24 @@
 <?php
 require_once '../../config.php';
 
-$acao = (string) $_POST['acao'];
+$acao = $_POST['acao'];
 
 if ($acao == "Cadastro") {
     $response['flag'] = false;
     $response['msg'] = "&#9940; Houve um erro ao cadastrar o usuário!";
 
-    $user = [
-        'nome' => (string) seguro(seguro_array($_POST)['nome']),
-        'data_nascimento' => (string) seguro(seguro_array($_POST)['data_nascimento']),
-        'email' => (string) seguro(seguro_array($_POST)['email']),
-        'cpf' => (string) seguro(seguro_array($_POST)['cpf']),
-        'password' => (string) seguro(seguro_array($_POST)['password']),
-        'confirm_password' => (string) seguro(seguro_array($_POST)['confirm_password']),
+    $data = [
+        'nome' => $_POST['nome'],
+        'data_nascimento' => $_POST['data_nascimento'],
+        'email' => $_POST['email'],
+        'cpf' => $_POST['cpf'],
+        'password' => $_POST['password'],
+        'confirm_password' => $_POST['confirm_password'],
     ];
 
-    if (!is_array(find_user($user['cpf']))) {
+    $user = find_user($data['cpf']);
+
+    if (!is_array($user)) {
         if ($user['nome'] != "" && $user['data_nascimento'] != "" &&
         $user['email'] != "" && $user['cpf'] != "" &&
         $user['password'] != "" && $user['confirm_password'] != "") {
