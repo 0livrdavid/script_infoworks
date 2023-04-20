@@ -635,6 +635,23 @@ function findMatchPassword($password, $salt, $status) {
     }
 }
 
+function decryptPassword($password, $salt) {
+    // Configurando opções do hash
+    $options = [
+        'cost' => 12, // número de iterações de hash
+    ];
+
+    // Criptografando a senha com o salt
+    $hash = password_hash($password . $salt, PASSWORD_BCRYPT, $options);
+
+    // Verificando se a senha criptografada é igual à senha original
+    if (password_verify($hash, $password)) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 
 function calcularIdade($dataNascimento) {
     $dataAtual = new DateTime();

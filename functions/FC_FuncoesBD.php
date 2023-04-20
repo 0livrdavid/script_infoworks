@@ -441,23 +441,6 @@ function encryptPassword($password) {
     return ["password"=> $hash, "salt"=> $salt];
 }
 
-function decryptPassword($password, $salt) {
-    // Configurando opções do hash
-    $options = [
-        'cost' => 12, // número de iterações de hash
-    ];
-
-    // Criptografando a senha com o salt
-    $hash = password_hash($password . $salt, PASSWORD_BCRYPT, $options);
-
-    // Verificando se a senha criptografada é igual à senha original
-    if (password_verify($hash, $password)) {
-        return true;
-    } else {
-        return false;
-    }
-}
-
 function corrigirData($data) {
     // Verificando se a data está no formato correto
     if (!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $data)) {

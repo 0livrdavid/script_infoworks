@@ -111,30 +111,13 @@ function isValidDate(data, msg="Data Nascimento") {
   
 
 function isValidCPF(cpf, msg) {
-    toastr.options = {
-        "closeButton": false,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": false,
-        "positionClass": "toast-top-right",
-        "preventDuplicates": false,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    }
-    
+    console.log(cpf);
+
     cpf = cpf.replace(/[^\d]+/g,''); // remove caracteres não numéricos
     if (cpf.length !== 11) {
-        toastr["warning"](`O campo "${msg}" deve ter 11 dígitos.`, "Atenção");
+        toastr.warning(`O campo "${msg}" deve ter 11 dígitos.`, "Atenção");
         return false; // o CPF deve ter 11 dígitos
     }
-
     // Calcula o primeiro dígito verificador
     let soma = 0;
     for (let i = 0; i < 9; i++) {
