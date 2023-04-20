@@ -127,8 +127,6 @@ function searchUser(div_form) {
     function validateFormLogin(form) {
         const requiredFields = form.querySelectorAll('[required]');
 
-        console.log(requiredFields);
-
         for (let i = 0; i < requiredFields.length; i++) {
             const field = requiredFields[i];
             fields[field.name] = field.value;

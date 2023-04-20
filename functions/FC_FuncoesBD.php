@@ -86,36 +86,6 @@ function bd_to_array($resultado){
     return $array;
 }
 
-function bd_affected_rows($res){
-    if ($GLOBALS['db'] == 'sybase') {
-        $ret = sybase_affected_rows($res);
-    } else if ($GLOBALS['db'] == 'mysql') {
-        $ret = mysql_affected_rows($res);
-    } else if ($GLOBALS['db'] == 'mysqli') {
-        $ret = mysqli_affected_rows($res);
-    } else if ($GLOBALS['db'] == 'mssql') {
-        if (function_exists('mssql_rows_affected')) {
-            return mssql_rows_affected($res);
-        } else {
-            $result = mssql_query("select @@rowcount as rows", $res);
-            $rows   = mssql_fetch_assoc($result);
-
-            return $rows['rows'];
-        }
-    } else if ($GLOBALS['db'] == 'oracle') {
-        if (is_resource($res)) {
-            $ret = oci_num_rows($res);
-        }
-    } else
-        if ($GLOBALS['db'] == 'db2') {
-            $ret = db2_num_rows($res);
-        } else
-            if ($GLOBALS['db'] == 'odbc') {
-                $ret = odbc_num_rows($res);
-            }
-
-    return $ret;
-}
 
 function sanitizeXSS () {
     $_GET   = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
@@ -245,49 +215,6 @@ function bd_sql_to_list($conexao, $sql, $mostarDados = 0){
     $aux = bd_sql_to_array($conexao, $sql, $mostarDados);
 
     return $aux[0];
-}
-
-function function_data_query($conexao, $flag, $request, $columns, $where_default, $where_session, $table, $order = ''){
-    $data=array();
-    $limit = limit($request, $columns);
-    if ($order != '') {
-
-    } else {
-        $order = order($request, $columns);
-    }
-
-    $where = filter_generico($request, $columns, $where_default, $where_session);
-
-
-    $query = "SELECT SQL_CALC_FOUND_ROWS " . implode(", ", pluck($columns, 'db')) . "
-       FROM $table
-       $where
-       $group
-       $order
-       $limit";
-
-    if ($filtro == 1) {
-        $_SESSION['filtro'] = "SELECT *
-       FROM $table
-       $where
-       $group
-       $order
-       $limit";
-    }
-    if ($filtro == 2) {
-        $_SESSION['filtro1'] = "SELECT *
-       FROM $table
-       $where
-       $group
-       $order
-       $limit";
-    }
-
-    $resultado = bd_query($query, $conexao, $flag);
-    while ($dado = bd_fetch_array($resultado)) {
-        $data[] = $dado;
-    }
-    return $data;
 }
 
 function resTotalLength($conexao, $flag, $primaryKey, $table){

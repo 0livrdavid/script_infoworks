@@ -48,29 +48,6 @@ function busca_user($user_id){
     }
 }
 
-/* * ****************************
-  Senha
- */
-
-function altera_senha($id){
-    $senha =  rand(10000,99999);
-    $salt = base64_encode(rand_bytes(8, true));
-    $password = encrypt_password($senha, $salt);
-
-    $query = "UPDATE cvsusuario_usuarios SET  
-                salt = '$salt',
-                password = '$password',
-                primeira_senha='$senha'
-              WHERE id =".(int)$id;
-
-    $resultado = bd_query($query, $_SESSION['conexao'], 0);
-    if($resultado){
-        $resultado = $senha;
-    }
-
-    return $resultado;
-}
-
 function salvar_imagem_avatar($usuario_id, $arquivo,$croped_image, $caminho=0){
     $file_path_1 = __DIR__.'/../file/avatar/';
     $file_thumb1 = __DIR__.'/../file/thumb/';

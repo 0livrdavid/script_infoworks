@@ -111,8 +111,6 @@ function isValidDate(data, msg="Data Nascimento") {
   
 
 function isValidCPF(cpf, msg) {
-    console.log(cpf);
-
     cpf = cpf.replace(/[^\d]+/g,''); // remove caracteres não numéricos
     if (cpf.length !== 11) {
         toastr.warning(`O campo "${msg}" deve ter 11 dígitos.`, "Atenção");
