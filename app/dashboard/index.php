@@ -1,7 +1,9 @@
 <?php
 require_once '../../config.php';
 require_once '../../layout/start.php';
-require_once '../../ajax/dashboard/dashboard.php';
+
+if (!isset($_GET['filtro'])) $_GET['filtro'] = "todos";
+$filter = $_GET['filtro'];
 ?>
 
 <div id="div-dashboard" class="container-fluid" style="margin: 0 auto; width: 90vw; height: 100vh">
@@ -19,7 +21,6 @@ require_once '../../ajax/dashboard/dashboard.php';
             $dado['tipoValor'] = $card['tipoValor'];
             include "./card.php";
         }
-        //include "./cards.php"
         ?>
     </div>
 </div>

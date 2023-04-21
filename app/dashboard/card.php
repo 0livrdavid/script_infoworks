@@ -14,8 +14,7 @@
             <h3>Itajubá - MG</h3>
         </div>
         <div class="avaliacao">
-            <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>estrela.png" alt="estrela" srcset="" height="25px">
-            <h4>4,5 - 33 Avaliações</h4>
+            <i class="bi bi-star-fill rating-color"></i><h4>4,5 - 33 Avaliações</h4>
         </div>
         <a href="#" class="button" onclick="abrirModal('modal-sem-cadastro')">Mais Detalhes</a>
     </div>

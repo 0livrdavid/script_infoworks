@@ -324,6 +324,7 @@
 .avaliacao{
     display: flex;
     justify-content: center;
+    align-items: baseline;
 }
 
 .avaliacao h4{
