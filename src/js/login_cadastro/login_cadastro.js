@@ -57,7 +57,7 @@ function createUser(div_form) {
             fields[field.name] = field.value;
 
             if (!field.value) {
-                toastr.warning(`Por favor, preecha o campo "${field.dataset.name}".`, "Atenção");
+                toastr['warning'](`Por favor, preecha o campo "${field.dataset.name}".`, "Atenção");
                 field.focus();
                 return false;
             }
@@ -79,7 +79,7 @@ function createUser(div_form) {
 
         function validateFormPassword(){
             if(passwordValue!==confirmPasswordValue) {
-                toastr.warning("Senhas não coincidem!");
+                toastr['warning']("Senhas não coincidem!");
                 return false;
             }
             return true;
@@ -94,7 +94,7 @@ function createUser(div_form) {
 
 
     if (!validateFormCadastro(form)) {
-        toastr.error("Suas informações de cadastro não estão corretas e/ou está faltando informação!");
+        toastr['error']("Suas informações de cadastro não estão corretas e/ou está faltando informação!");
         return null;
     } else {
         $.ajax({
@@ -104,16 +104,19 @@ function createUser(div_form) {
             data: fields,
             success: function (response) {
                 response = JSON.parse(response);
+                console.log("cheguei aq");
+                console.log(response);
                 if (response.flag) {
-                    toastr.success(response.msg);
+                    console.log("cheguei aq2");
+                    toastr['success'](response.msg);
                     $("#cpf_login").val(formatarCPF2(fields['cpf']));
                     switchLogin('login');
                 } else {
-                    toastr.warning(response.msg);
+                    toastr['warning'](response.msg);
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                toastr.error(textStatus, errorThrown);
+                toastr['error'](textStatus, errorThrown);
             }
         });
     }
@@ -132,7 +135,7 @@ function searchUser(div_form) {
             fields[field.name] = field.value;
 
             if (!field.value) {
-                toastr.warning(`Por favor, preecha o campo "${field.dataset.name}".`, "Atenção");
+                toastr['warning'](`Por favor, preecha o campo "${field.dataset.name}".`, "Atenção");
                 field.focus();
                 return false;
             }
@@ -149,7 +152,7 @@ function searchUser(div_form) {
     }
 
     if (!validateFormLogin(form)) {
-        toastr.error("Suas informações de login não estão corretas e/ou está faltando informação!");
+        toastr['error']("Suas informações de login não estão corretas e/ou está faltando informação!");
         return null;
     } else {
         $.ajax({
@@ -162,11 +165,11 @@ function searchUser(div_form) {
                 if (response.flag) {
                     window.location = "../dashboard/index.php";
                 } else {
-                    toastr.warning(response.msg);
+                    toastr['warning'](response.msg);
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
-                toastr.error(textStatus, errorThrown);
+                toastr['error'](textStatus, errorThrown);
             }
         });
     }

@@ -19,11 +19,11 @@ if ($acao == "Cadastro") {
     $user = find_user($data['cpf']);
 
     if (!is_array($user)) {
-        if ($user['nome'] != "" && $user['data_nascimento'] != "" &&
-        $user['email'] != "" && $user['cpf'] != "" &&
-        $user['password'] != "" && $user['confirm_password'] != "") {
-            if ($user['password'] == $user['confirm_password']) {
-                if (createUser($user)) {
+        if ($data['nome'] != "" && $data['data_nascimento'] != "" &&
+        $data['email'] != "" && $data['cpf'] != "" &&
+        $data['password'] != "" && $data['confirm_password'] != "") {
+            if ($data['password'] == $data['confirm_password']) {
+                if (createUser($data)) {
                     $response['flag'] = true;
                     $response['msg'] = "Cadastro de usuário com sucesso!";
                 } else {

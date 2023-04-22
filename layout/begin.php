@@ -1,2 +1,2 @@
 </head>
-<body id="body">
+    <body id="body">

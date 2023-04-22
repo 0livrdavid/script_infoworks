@@ -1,7 +1,8 @@
 <div id="modal-sem-cadastro" class="modal">
     <div class="div-modal-content">
         <div class="tituloModal">
-            <h1 style="font-size: 1.6rem;">Você não está conectado!</h1><span class="close">&times;</span>
+            <h1 style="font-size: 1.6rem; color: #ffffff !important;">Você não está conectado!</h1>
+            <span class="close">&times;</span>
         </div>
         <div class="modalMeio">
             <div class="paragrafoModal">

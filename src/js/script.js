@@ -1,3 +1,21 @@
+toastr.options = {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "5000",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+}
+
 function formatarCPF(cpf) {
     // Remove todos os caracteres que não são números
     cpf.value = cpf.value.replace(/\D/g, '');
@@ -62,24 +80,6 @@ function abrirModal(class_name) {
 }
 
 function isValidDate(data, msg="Data Nascimento") {
-    toastr.options = {
-        "closeButton": false,
-        "debug": false,
-        "newestOnTop": false,
-        "progressBar": false,
-        "positionClass": "toast-top-right",
-        "preventDuplicates": false,
-        "onclick": null,
-        "showDuration": "300",
-        "hideDuration": "1000",
-        "timeOut": "5000",
-        "extendedTimeOut": "1000",
-        "showEasing": "swing",
-        "hideEasing": "linear",
-        "showMethod": "fadeIn",
-        "hideMethod": "fadeOut"
-    }
-
     if (!/^\d{2}\/\d{2}\/\d{4}$/.test(data)) {
         toastr["warning"](`O campo "${msg}" não fornece uma entrada de data valida.`, "Atenção");
         return false;
@@ -113,7 +113,7 @@ function isValidDate(data, msg="Data Nascimento") {
 function isValidCPF(cpf, msg) {
     cpf = cpf.replace(/[^\d]+/g,''); // remove caracteres não numéricos
     if (cpf.length !== 11) {
-        toastr.warning(`O campo "${msg}" deve ter 11 dígitos.`, "Atenção");
+        toastr['warning'](`O campo "${msg}" deve ter 11 dígitos.`, "Atenção");
         return false; // o CPF deve ter 11 dígitos
     }
     // Calcula o primeiro dígito verificador
