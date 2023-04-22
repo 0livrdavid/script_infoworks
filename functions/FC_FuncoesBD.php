@@ -341,14 +341,14 @@ function getCards($filter) {
 }
 
 function createUser($user) {
-    $encrypt = (array) encryptPassword($user['password']);
+    $encrypt = encryptPassword($user['password']);
 
-    $query = "INSERT INTO `user`(`status`, `tipo`, `autorizado`,
-                                `cpf`, `email`, `idade`,
-                                `nome`, `senha`, `salt`) VALUES
+    $query = 'INSERT INTO user (status, tipo, autorizado,
+                                cpf, email, idade,
+                                nome, senha, salt) VALUES
                                  (1,3,0,
-                                 '".$user['cpf']."','".$user['email']."','".corrigirData($user['data_nascimento'])."',
-                                 '".$user['nome']."', '".$encrypt['password']."', '".$encrypt['salt']."')";
+                                 "'.$user['cpf'].'","'.$user['email'].'","'.transformar_data($user['data_nascimento']).'",
+                                 "'.$user['nome'].'", "'.$encrypt['password'].'", "'.$encrypt['salt'].'")';
     $dados = bd_query($query, $_SESSION['conexao'], 0);
 
     return $dados;
@@ -368,18 +368,12 @@ function encryptPassword($password) {
     return ["password"=> $hash, "salt"=> $salt];
 }
 
-function corrigirData($data) {
-    // Verificando se a data está no formato correto
-    if (!preg_match('/^\d{2}\/\d{2}\/\d{4}$/', $data)) {
-        throw new Exception('Data inválida!');
-    }
-
-    // Convertendo a data para formato datetime
-    $data_formatada = DateTime::createFromFormat('d/m/Y', $data);
-
-    if (!$data_formatada) {
-        throw new Exception('Data inválida!');
-    }
-
-    return $data_formatada->format('Y-m-d');
-}
+function transformar_data($data) {
+    // separa o valor em dia, mês e ano
+    $partes = explode('/', $data);
+    
+    // inverte a ordem para ano-mês-dia
+    $data_formatada = $partes[2] . '-' . $partes[1] . '-' . $partes[0];
+    
+    return $data_formatada;
+  }

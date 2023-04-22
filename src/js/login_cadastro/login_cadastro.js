@@ -104,13 +104,10 @@ function createUser(div_form) {
             data: fields,
             success: function (response) {
                 response = JSON.parse(response);
-                console.log("cheguei aq");
-                console.log(response);
                 if (response.flag) {
-                    console.log("cheguei aq2");
-                    toastr['success'](response.msg);
                     $("#cpf_login").val(formatarCPF2(fields['cpf']));
                     switchLogin('login');
+                    toastr["success"](response.msg);
                 } else {
                     toastr['warning'](response.msg);
                 }

@@ -6,7 +6,7 @@
 
 <!--CSS-->
 <link rel="stylesheet" type="text/css" href="<?php echo URL_BASE_ASSETS_CSS; ?>theme_light.css">
-<link rel="stylesheet" type="text/css" href="<?php echo URL_BASE_ASSETS_CSS; ?>modify-boostrap-icons.css">
+<link rel="stylesheet" type="text/css" href="<?php echo URL_BASE_ASSETS_CSS; ?>modify.css">
 <?php
 if ($_SERVER['PHP_SELF'] == "/app/dashboard/index.php") {
     echo "<link rel='stylesheet' type='text/css' href='".URL_BASE_ASSETS_CSS."dashboard.css' >";

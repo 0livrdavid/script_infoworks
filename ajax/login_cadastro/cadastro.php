@@ -18,7 +18,7 @@ if ($acao == "Cadastro") {
 
     $user = find_user($data['cpf']);
 
-    if (!is_array($user)) {
+    if (is_null($user)) {
         if ($data['nome'] != "" && $data['data_nascimento'] != "" &&
         $data['email'] != "" && $data['cpf'] != "" &&
         $data['password'] != "" && $data['confirm_password'] != "") {
