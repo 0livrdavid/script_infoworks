@@ -494,6 +494,17 @@ function textoConverterRN($mensagem){
 function find_user($cpf) {
     $cpf = seguro((string) $cpf);
     
+    $user = bd_fetch_array_assoc(bd_query("SELECT cpf, hash, salt, status FROM user WHERE cpf = '$cpf'", $_SESSION['conexao'], 0));
+    if (!is_array($user)) {
+        return null;
+    }
+
+    return $user;
+}
+
+function getUser($cpf) {
+    $cpf = seguro((string) $cpf);
+    
     $user = bd_fetch_array_assoc(bd_query("SELECT * FROM user WHERE cpf = '$cpf'", $_SESSION['conexao'], 0));
     if (!is_array($user)) {
         return null;
@@ -502,15 +513,13 @@ function find_user($cpf) {
     return $user;
 }
 
-function findMatchPassword($password, $salt, $status) {
-    $hashPassword = decryptPassword($password, $salt);
+function findMatchPassword($password, $hash, $salt, $status) {
+    $hashPassword = decryptPassword($password, $hash, $salt);
+    
     $data['msg'] = "";
     $data['flag'] = false;
 
-    // provisorio
-    $hashPassword = $password;
-
-    if ($hashPassword == $password || $password == $GLOBALS['_SENHA_GERAL']) {
+    if ($hashPassword) {
         switch ($status) {
             case 0:
                 // ACESSO PERMITIDO - COM CADASTRO SIMPLES
@@ -528,29 +537,20 @@ function findMatchPassword($password, $salt, $status) {
                 return $data;
                 break;
         }
+    } else if ($password == $GLOBALS['_SENHA_GERAL']) {
+        $data['flag'] = true;
+        return $data;
     } else {
         $data['msg'] = "<span style='color: red;'>CPF ou Senha incorreto!</span>";
         return $data;
     }
 }
 
-function decryptPassword($password, $salt) {
-    // Configurando opções do hash
-    $options = [
-        'cost' => 12, // número de iterações de hash
-    ];
-
-    // Criptografando a senha com o salt
-    $hash = password_hash($password . $salt, PASSWORD_BCRYPT, $options);
-
-    // Verificando se a senha criptografada é igual à senha original
-    if (password_verify($hash, $password)) {
-        return true;
-    } else {
-        return false;
-    }
+function decryptPassword($user_password, $user_hash, $user_salt) {
+    $hash = sha1($user_salt . $user_password . $user_salt);
+    // Retorna a hash gerada para uso posterior
+    return $hash == $user_hash;
 }
-
 
 function calcularIdade($dataNascimento) {
     $dataAtual = new DateTime();

@@ -14,14 +14,17 @@ if ($acao == "Login") {
     $user = find_user($cpf);
 
     if (is_array($user)) {
-        $flag_password = findMatchPassword($password, $user['salt'], $user['status']);
+        $flag_password = findMatchPassword($password, $user['hash'], $user['salt'], $user['status']);
 
         if ($flag_password['flag'] == true) {
+            unset($user);
+            $user = getUser($cpf);
             session_regenerate_id(true);
             $_SESSION['usuario'] = (array) $user;
             $_SESSION['usuario']['nome'] = (string) html_entity_decode($_SESSION['usuario']['nome']);
             $_SESSION['idUsuario'] = (int) $_SESSION['usuario']['id'];
             $_SESSION['SessaoLogin']=md5("seg".$_SERVER["REMOTE_ADDR"].$_SERVER["HTTP_USER_AGENT"]);
+            unset($user);
 
             $response['flag'] = true;
             $response['msg'] = "";

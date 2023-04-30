@@ -1,4 +1,10 @@
 <div class="filter">
+    <div class="pesquisa">
+        <div class="caixa-busca">
+            <input type="text" placeholder="Digite sua pesquisa...">
+            <button type="submit">Pesquisar</button>
+        </div>
+    </div>
     <div id="buttons">
         <button id="filter_todos" name="filter_todos" class="button-value" onclick="filterProduct('Todos')">
             Todos

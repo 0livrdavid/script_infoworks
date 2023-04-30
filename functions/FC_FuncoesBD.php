@@ -341,32 +341,29 @@ function getCards($filter) {
 }
 
 function createUser($user) {
-    $encrypt = encryptPassword($user['password']);
+    $password = encryptPassword($user['password']);
 
     $query = 'INSERT INTO user (status, tipo, autorizado,
                                 cpf, email, idade,
-                                nome, senha, salt) VALUES
+                                senha, hash, salt,
+                                nome) VALUES
                                  (1,3,0,
                                  "'.$user['cpf'].'","'.$user['email'].'","'.transformar_data($user['data_nascimento']).'",
-                                 "'.$user['nome'].'", "'.$encrypt['password'].'", "'.$encrypt['salt'].'")';
+                                 "'.$password['password'].'", "'.$password['hash'].'", "'.$password['salt'].'",
+                                 "'.$user['nome'].'")';
     $dados = bd_query($query, $_SESSION['conexao'], 0);
 
     return $dados;
 }
 
+
 function encryptPassword($password) {
-    // Gerando salt aleatório
-    $options = [
-        'cost' => 12, // número de iterações de hash
-    ];
-
-    $salt = password_hash('', PASSWORD_BCRYPT, $options);
-
-    // Criptografando a senha com o salt
-    $hash = password_hash($password . $salt, PASSWORD_BCRYPT, $options);
-
-    return ["password"=> $hash, "salt"=> $salt];
+    $salt = md5(uniqid(rand(), true));
+    $hash = sha1($salt . $password . $salt);
+    // Retorna a hash gerada para uso posterior
+    return ["password" => $password, "hash" => $hash, "salt" => $salt];
 }
+
 
 function transformar_data($data) {
     // separa o valor em dia, mês e ano

@@ -164,6 +164,7 @@
   border-radius: 25px 0 0 25px;
   font-size: 1.1rem;
   outline: none;
+  border: 2px solid #3b2b83;
 }
 
 .caixa-busca button[type="submit"] {
@@ -260,6 +261,7 @@
 .filter{
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   margin: 2rem 0;
   align-items: center;
 }
@@ -284,6 +286,7 @@
   box-sizing: border-box;
   width: 20vw;
   font-size: 1.2rem;
+  border-radius: 1.2rem !important;
 }
 
 .div-card {
@@ -291,12 +294,12 @@
   display: flex; 
   flex-direction: column; 
   justify-content: space-between;
-  row-gap: 1.2rem;
 }
 
 .imgCargo {
      display: flex;
      justify-content: center;
+     margin-bottom: 1rem;
  }
 
  .imagem {
@@ -360,6 +363,12 @@ input[type="submit"]{
     text-decoration: none;
 }
 
+.button:hover{
+  background: #e9f4fb;
+  color: #3b2b83;
+  border: 2px solid #3b2b83;
+}
+
 .cargoNome{
   overflow: hidden;
   text-overflow: ellipsis;
@@ -414,6 +423,12 @@ input[type="submit"]:hover{
       width: 40vw;
       font-size: 1.7rem;
     }
+
+    .filter {
+      flex-direction: column;
+      row-gap: 1.2rem;
+      align-items: flex-start;  
+    }
 }
 
 @media screen and (min-width: 481px) and (max-width: 900px) {
@@ -421,12 +436,24 @@ input[type="submit"]:hover{
         width: 100vw;
         font-size: 2rem;
     }
+
+    .filter {
+      flex-direction: column;
+      row-gap: 1.2rem;
+      align-items: flex-start;  
+    }
 }
 
 @media screen and (max-device-width: 480px) {
     .card {
       width: 100vw;
       font-size: 1.7rem;
+    }
+
+    .filter {
+      flex-direction: column;
+      row-gap: 1.2rem;
+      align-items: flex-start;  
     }
 }
 

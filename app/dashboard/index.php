@@ -13,7 +13,8 @@ $filter = $_GET['filtro'];
     <div class="adverts">
         <?php
         $cards = sanitize_array(getCards($filter));
-        foreach ($cards as $card){
+        foreach ($cards as $key => $card){
+            $dado['card_id'] = "card_id_".$key;
             $dado['nome'] = resume_nome($card['nome']);
             $dado['idade'] = calcularIdade($card['idade']);
             $dado['categoria'] = $card['categoria'];

@@ -5,12 +5,6 @@
                 <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>InfoWorks_logo.png" alt="logo">
             </div>
         </div>
-        <div class="pesquisa">
-            <div class="caixa-busca">
-                <input type="text" placeholder="Digite sua pesquisa...">
-                <button type="submit">Pesquisar</button>
-            </div>
-        </div>
     </div>
     <div class="header-menu-logout">
         <a class="btn btn-primary botao-login" href="../login_cadastro/">Entrar</a>

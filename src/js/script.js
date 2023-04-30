@@ -141,3 +141,21 @@ function isValidCPF(cpf, msg) {
     }
 }
   
+
+function openModalOnDelayedHover(divId, modalId, delayTime) {
+    const div = document.getElementById(divId);
+    const modal = document.getElementById(modalId);
+    let timer;
+  
+    div.addEventListener('mouseover', () => {
+      timer = setTimeout(() => {
+        modal.style.display = 'block';
+      }, delayTime);
+    });
+  
+    div.addEventListener('mouseout', () => {
+      clearTimeout(timer);
+      modal.style.display = 'none';
+    });
+  }
+  
