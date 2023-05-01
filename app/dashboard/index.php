@@ -26,7 +26,7 @@ $filter = $_GET['filtro'];
     </div>
 </div>
 
-<script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>dashboard/dashboard.js"></script>
+<script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>dashboard.js"></script>
 <script type="text/javascript" defer>
     switchLoginDashboard('<?php echo json_encode($_SESSION['usuario']) ?>');
 </script>

@@ -17,7 +17,7 @@ if (isset($_GET['page'])) $page = $_GET['page']; ?>
     </div>
 </div>
 
-<script defer src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>login_cadastro/login_cadastro.js"></script>
+<script defer src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>login_cadastro.js"></script>
 <script type="text/javascript" defer>
     window.onload = function() {
         switchLogin("<?php echo $page ?>");
