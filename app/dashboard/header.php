@@ -15,7 +15,7 @@
                 <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>notification.png" alt="Notificações">
             </button>
         </div>
-        <p style="color: #fff"><?php echo $_SESSION['usuario']['nome'] ?></p>
+        <p style="color: #fff; margin-bottom: 0"><?php echo $_SESSION['usuario']['nome'] ?></p>
         <div class="perfil">
             <a class="botao-circular" href="../perfil/">
                 <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>pessoa.jfif" alt="Perfil">
