@@ -373,4 +373,14 @@ function transformar_data($data) {
     $data_formatada = $partes[2] . '-' . $partes[1] . '-' . $partes[0];
     
     return $data_formatada;
-  }
+}
+
+function converte_data($data) {
+    // separa o valor em dia, mês e ano
+    $partes = explode('-', $data);
+    
+    // inverte a ordem para ano-mês-dia
+    $data_formatada = $partes[2] . '/' . $partes[1] . '/' . $partes[0];
+    
+    return $data_formatada;
+}

@@ -13,8 +13,12 @@ require_once '../../layout/start.php';
     <div class="container">
       <?php include "./form_user.php" ?>
     </div>
-    <div class="footer">
-      <?php include "./footer_user.php" ?>
+    <div class="container">
+      <div style="float: right;">
+        <button class="btn btn-outline-danger">Deslogar</button>
+        <button class="btn btn-primary">Adicionar Serviço</button>
+        <button class="btn btn-primary">Salvar</button>
+      </div>
     </div>
   </div>
 </div>
