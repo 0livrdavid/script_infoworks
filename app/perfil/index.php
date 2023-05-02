@@ -7,14 +7,12 @@ require_once '../../layout/start.php';
   <?php include "./header.php" ?>
   
   <div class="form-user">
-    <div class="titulo-pag">
+    <div class="container">
       <h1>Perfil</h1>
     </div>
-
-    <div class="divPrincipal">
+    <div class="container">
       <?php include "./form_user.php" ?>
     </div>
-
     <div class="footer">
       <?php include "./footer_user.php" ?>
     </div>
