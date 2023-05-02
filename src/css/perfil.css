@@ -149,6 +149,8 @@
 .form-user {
   display: flex;
   flex-direction: column;
+  padding: 15px;
+  row-gap: 1.2rem;
 }
 
 
@@ -217,9 +219,7 @@ select {
 }
 
 .titulo-pag {
-  max-width: 1660px;
-  margin: 0 auto;
-  padding: 25px;
+  
   font-size: 25px;
 }
 
@@ -271,42 +271,12 @@ select {
 }
 
 
-.sectionUsuario {
-  grid-row: 1 / 2;
-  grid-column: 1 / 2;
+.section {
+  padding: 15px;
   border-radius: 20px;
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
-  padding: 10px;
 }
-
-.sectionConta {
-  grid-row: 1 / 2;
-  grid-column: 2 / 3;
-  border-radius: 20px;
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
-  padding: 10px;
-}
-
-.sectionEndereco {
-  grid-row: 2 / 3;
-  grid-column: 1 / 2;
-  border-radius: 20px;
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
-  padding: 10px;
-}
-
-.sectionContato {
-  grid-row: 2 / 3;
-  grid-column: 2 / 3;
-  border-radius: 20px;
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
-  padding: 10px;
-}
-
 
 .dados-usuario-form {
   padding: 10px;
