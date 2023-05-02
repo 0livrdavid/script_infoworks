@@ -1,9 +1,11 @@
 <div class="header">
     <div class="header-logo">
         <div class="logo-dashboard">
-            <div class="img_logo_dashboard">
-                <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>InfoWorks_logo.png" alt="logo">
-            </div>
+            <a href="index.php">
+                <div class="img_logo_dashboard">
+                    <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>InfoWorks_logo.png" alt="logo">
+                </div>
+            </a>
         </div>
     </div>
     <div class="header-menu-logout">

@@ -8,6 +8,9 @@ $filter = $_GET['filtro'];
 
 <div id="div-dashboard" class="container-fluid" style="margin: 0 auto; width: 90vw; height: 100vh">
     <?php include "./header.php" ?>
+    <!-- <div class="container">
+
+    </div> -->
     <?php include "./filter.php" ?>
 
     <div class="adverts">
