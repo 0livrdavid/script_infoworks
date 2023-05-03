@@ -33,16 +33,28 @@ if ($acao == "SalvarPerfil") {
                 $response['msg'] = "Perfil salvo com sucesso!";
             } else {
                 $response['flag'] = false;
-                $response['msg'] = "Não foi possivel salvar os dados de perfil";
+                $response['msg'] = "Não foi possivel salvar os dados de perfil!";
             }
         } else {
             $response['flag'] = false;
-            $response['msg'] = "<span style='color: red;'>CPF ou Senha incorreto!</span>";
+            $response['msg'] = "Não foi possivel salvar os dados de perfil!";
         }
     } else {
         $response['flag'] = false;
-        $response['msg'] = "Você não tem autorização para editar esse perfil! ";
+        $response['msg'] = "Você não tem autorização para editar esse perfil!";
     }
 
+    echo json_encode($response);
+} else if ($acao ==  "DeslogarUsuario") {
+    session_destroy();
+    
+    if (!(session_status() == PHP_SESSION_ACTIVE)) {
+        $response['flag'] = true;
+        $response['msg'] = "Usuário deslogado com sucesso!";
+    } else {
+        $response['flag'] = false;
+        $response['msg'] = "Não foi possível deslogar o usuário!";
+    }
+    
     echo json_encode($response);
 }

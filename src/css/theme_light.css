@@ -35,3 +35,59 @@ body{
     height: 100%;
     background-color: rgba(0, 0, 0, 0.4);
 }
+
+.modalMeio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 2rem;
+    flex-direction: row;
+  }
+  
+  .tituloModal{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  
+  .imgModal img{
+    height: 20vh;
+  }
+  
+  .paragrafoModal {
+    color: #ffffff !important;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  
+  .paragrafoModal p {
+      color: #ffffff !important;
+      text-align: left;
+  }
+  
+  .rodapeModal {
+    color: white;
+    font-size: 1.2rem;
+  }
+  
+  .rodapeModal a {
+    color: #3d2a84;
+  }
+  
+  .modal{
+    justify-content: center !important;
+    align-items: center !important;
+  }
+  
+  .div-modal-content {
+    background-image: linear-gradient(#354b60, #3b68bc);
+    border: 1px solid #888;
+    padding: 15px 20px;
+    width: 50%;
+    border-top-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+  }

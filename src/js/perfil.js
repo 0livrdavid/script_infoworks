@@ -37,3 +37,23 @@ function salvarPerfil() {
     });
 }
 
+function deslogarUsuario() {
+    $.ajax({
+        method: "POST",
+        datatype: "json",
+        url: "../../ajax/perfil/perfil.php",
+        data: {'acao': 'DeslogarUsuario'},
+        success: function (response) {
+            response = JSON.parse(response);
+            if (response.flag) {
+                window.location.href = "../dashboard/index.php";
+            } else {
+                toastr['warning'](response.msg);
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            toastr['error'](textStatus, errorThrown);
+        }
+    });
+}
+
