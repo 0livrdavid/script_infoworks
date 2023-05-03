@@ -29,13 +29,26 @@
         <div class="row">
             <div class="col">
                 <label for="cidade" class="form-label">Cidade:</label>
-                <input name="cidade" id="cidade" class="form-control" value="<?php echo $_SESSION['usuario']['fk_cidade'] ?>" type="text">
+                <select id="cidade" name="cidade" class="form-select">
+                    <option value="">Selecione</option>
+                    <?php
+                    foreach ($cidades as $obj) {
+                        $selected = "";
+                        if ($obj['id'] == $_SESSION['usuario']['fk_cidade']) $selected = "selected";
+                        echo '<option value="' . $obj['id'] . '" '.$selected.'>' . $obj['nome'] . '</option>';
+                    } ?>
+                </select>
             </div>
             <div class="col">
                 <label for="estado" class="form-label">Estado:</label>
                 <select id="estado" name="estado" class="form-select">
                     <option value="">Selecione</option>
-                    <option value="AC">AcreAcre</option>
+                    <?php 
+                    foreach ($estados as $obj) {
+                        $selected = "";
+                        if ($obj['sigla'] == $_SESSION['usuario']['fk_estado']) $selected = "selected";
+                        echo '<option value="' . $obj['sigla'] . '" '.$selected.'>' . $obj['nome'] . '</option>';
+                    } ?>
                 </select>
             </div>
         </div>
@@ -57,10 +70,10 @@
 <div class="row">
     <div class="col-8 section">
         <h4>Dados Pessoais</h4>
-        <label for="sobre" class="form-label">Fale sobre você:</label>
-        <textarea name="sobre_mim" id="sobre" class="form-control" rows="5" value="<?php echo $_SESSION['usuario']['sobre_mim'] ?>"> </textarea>
+        <label for="sobre_mim" class="form-label">Fale sobre você:</label>
+        <textarea name="sobre_mim" id="sobre_mim" class="form-control" rows="5"><?php echo $_SESSION['usuario']['sobre_mim'] ?></textarea>
         <label for="formacao" class="form-label">Formação:</label>
-        <textarea name="formacao" id="formacao" class="form-control" rows="5" value="<?php echo $_SESSION['usuario']['formacao'] ?>"> </textarea>
+        <textarea name="formacao" id="formacao" class="form-control" rows="5"><?php echo $_SESSION['usuario']['formacao'] ?></textarea>
     </div>
 
     <div class="col section">

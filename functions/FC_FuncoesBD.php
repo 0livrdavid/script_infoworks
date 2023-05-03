@@ -24,7 +24,10 @@ function bd_query($str_sql, $str_conexao, $ver_dados = 0){
     $erro = mysqli_error($str_conexao);
     if ($ver_dados == 1) {
         echo '<br>[Query = ' . $str_sql . '] [Banco = ] [Erro = ' . $erro . ']';
-
+    } else if ($ver_dados == 2) {
+        return '[Query = ' . $str_sql . '] [Banco = ] [Erro = ' . $erro . ']';
+    }else if ($ver_dados == 3) {
+        return '[Erro = ' . $erro . ']';
     }
   return $qry;
 }
@@ -51,6 +54,10 @@ function bd_fetch_array_assoc($res) {
 
 function bd_num_rows($res) {
     return mysqli_num_rows($res);
+}
+
+function bd_affect_rows() {
+    return mysqli_affected_rows($_SESSION['conexao']);
 }
 
 function abrir(){
@@ -312,7 +319,33 @@ function sanitize_array($arrays) {
 }
 
 
+function bd_iteration($sql){
+    while ($dado = bd_fetch_assoc($sql)) {
+        $dados[] = $dado;
+    }
+    return $dados;
+}
 
+function bd_iterate_query_update($datas, $table, $where = ""){
+    abrir();
+    $sql = array();
+    $result = array();
+
+    foreach ($datas as $data_name => $data_value) {
+        $sql[] = "UPDATE $table SET $data_name = '$data_value' $where";
+    }
+
+    foreach ($sql as $query) {
+        $result[] = bd_query($query, $_SESSION['conexao'], 2);
+        if (bd_affect_rows() <= 0) {
+            rollback();
+            return ['flag' => false, 'sql' => $sql, 'result' => $result, 'field' => bd_query($query, $_SESSION['conexao'], 3)];
+        }
+    }
+    
+    commit();
+    return ['flag' => true, 'sql' => $sql, 'result' => $result, 'field' => ""];
+}
 
 
 
@@ -334,10 +367,7 @@ function getCards($filter) {
             JOIN `categoria` AS c ON c.nome = s.fk_idCategoria
             WHERE s.status = 1";
     $dados = bd_query($query, $_SESSION['conexao'], 0);
-    while ($dado = bd_fetch_assoc($dados)) {
-        $cards[] = $dado;
-    }
-    return $cards;
+    return bd_iteration($dados);
 }
 
 function createUser($user) {

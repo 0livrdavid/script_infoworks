@@ -1,6 +1,11 @@
 <?php
 require_once '../../config.php';
 require_once '../../layout/start.php';
+
+$estados = getEstados();
+$cidades = getCidades();
+
+atualizarSessionUsuario($_SESSION['usuario']['cpf']);
 ?>
 
 <div id="div-dashboard" class="container-fluid" style="margin: 0 auto; width: 90vw; height: 100vh">
@@ -17,7 +22,7 @@ require_once '../../layout/start.php';
       <div style="float: right;">
         <button class="btn btn-outline-danger">Deslogar</button>
         <button class="btn btn-primary">Adicionar Serviço</button>
-        <button class="btn btn-primary">Salvar</button>
+        <button class="btn btn-primary" onclick="salvarPerfil()">Salvar</button>
       </div>
     </div>
   </div>
