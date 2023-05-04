@@ -1,4 +1,4 @@
-<div id="" class="modal">
+<div id="modal-sem-cadastro" class="modal">
     <div class="div-modal-content">
         <div class="tituloModal">
             <h1 style="font-size: 1.6rem; color: #ffffff !important;">Você não está conectado!</h1>
@@ -18,85 +18,71 @@
     </div>
 </div>
 
-<div class="modal fade" id="modal-sem-cadastro" tabindex="-1" aria-labelledby="modal-sem-cadastro-label" aria-hidden="true">
+<div class="modal fade" id="modal-adicionar-servico" tabindex="-1" aria-labelledby="modal-adicionar-servico-label" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="modal-sem-cadastro-label">Você não está conectado!</h5>
+                <h5 class="modal-title" id="modal-adicionar-servico-label">Inserir novos serviços!</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="modalMeio">
                     <div class="container">
                         <div class="row">
-                            <div class="col-6">
-                                <p>Para ver mais informações do serviço ou informações de contato acesse a sua conta.</p>
-                            </div>
-                            <div class="col-6">
-                                <img style="width: 100%" src="../../src/pictures/InfoWorks_logo.png" alt="Lights">
+                            <div class="col">
+                                <label for="nome" class="form-label">Nome do serviço</label>
+                                <input id="nome" name="nome" class="form-control" type="text">
+                                <label for="preco" class="form-label">Preço</label>
+                                <input id="preco" name="preco" class="form-control" type="text">
+                                <label for="tipo" class="form-label">Tipo</label>
+                                <select name="tipo" class="form-select">
+                                    <option value="AC">KM</option>
+                                    <option value="AL">Hora</option>
+                                    <option value="AL">Dia</option>
+                                </select>
+                                <label for="nome" class="form-label">Descrição do serviço</label>
+                                <textarea class="form-control"></textarea>
+                                <label for="imagens" class="form-label">Inserir imagens</label>
+                                <div class="upload">
+                                    <p>Drag files here or <span class="upload__button">Browse</span></p>
+                                </div>
+                                <!-- <div class="uploaded uploaded--one">
+                                    <i class="far fa-file-pdf"></i>
+                                    <div class="file">
+                                        <div class="file__name">
+                                            <p>lorem_ipsum.pdf</p>
+                                            <i class="fas fa-times"></i>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width:100%"></div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div class="imgs">
+                                    <button class="btn-img" onclick="openFile()">
+                                        <img src="pictures/input-img.png" alt="Selecionar Imagens">
+                                    </button>
+                                    <button class="btn-img" onclick="openFile()">
+                                        <img src="pictures/input-img.png" alt="Selecionar Imagens">
+                                    </button>
+                                    <button class="btn-img" onclick="openFile()">
+                                        <img src="pictures/input-img.png" alt="Selecionar Imagens">
+                                    </button>
+                                    <button class="btn-img" onclick="openFile()">
+                                        <img src="pictures/input-img.png" alt="Selecionar Imagens">
+                                    </button>
+                                    <button class="btn-img" onclick="openFile()">
+                                        <img src="pictures/input-img.png" alt="Selecionar Imagens">
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                Para continuar faça <a href="../login_cadastro/?page=login">LOGIN</a> ou <a href="../login_cadastro/?page=cadastro">CADASTRE-SE</a>.
+                <button type="button" class="btn btn-primary">Cadastrar</button>
             </div>
-        </div>
-    </div>
-</div>
-
-
-<div id="modal-adicionar-servico" class="modal">
-    <div class="div-modal-content">
-        <div class="tituloModal">
-            <h1 style="font-size: 1.6rem; color: #ffffff !important;">Inserir novo serviço!</h1>
-            <span class="close">&times;</span>
-        </div>
-        <div class="modalMeio">
-            <div class="paragrafoModal">
-                <h4>Nome do serviço</h4>
-                <input type="text">
-                <div class="preco">
-                    <div class="pt1">
-                        <h4>Preço</h4>
-                        <input id="ipt-preco" type="text">
-                    </div>
-                    <div class="pt2">
-                        <h4>Tipo</h4>
-                        <select name="tipo">
-                            <option value="AC">KM</option>
-                            <option value="AL">Hora</option>
-                            <option value="AL">Dia</option>
-                        </select>
-                    </div>
-                </div>
-                <h4>Descrição do serviço</h4>
-                <textarea class="modal-input-servico"></textarea>
-                <h4>Inserir imagens</h4>
-            </div>
-        </div>
-        <div class="modalMeio">
-            <div class="imgs">
-                <button class="btn-img" onclick="openFile()">
-                    <img src="pictures/input-img.png" alt="Selecionar Imagens">
-                </button>
-                <button class="btn-img" onclick="openFile()">
-                    <img src="pictures/input-img.png" alt="Selecionar Imagens">
-                </button>
-                <button class="btn-img" onclick="openFile()">
-                    <img src="pictures/input-img.png" alt="Selecionar Imagens">
-                </button>
-                <button class="btn-img" onclick="openFile()">
-                    <img src="pictures/input-img.png" alt="Selecionar Imagens">
-                </button>
-                <button class="btn-img" onclick="openFile()">
-                    <img src="pictures/input-img.png" alt="Selecionar Imagens">
-                </button>
-            </div>
-        </div>
-        <div class="rodapeModal">
-            <input class="btn btn-primary" type="submit" value="Inserir">
         </div>
     </div>
 </div>

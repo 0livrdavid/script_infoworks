@@ -155,3 +155,4 @@ function abrirModal(class_name) {
         }
     }
 }
+

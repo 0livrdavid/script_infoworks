@@ -1,5 +1,5 @@
 <div class="row" style="margin-bottom: 1rem">
-    <div class="col-8 section">
+    <div class="col-6 section">
         <div class="row" style="gap: 1rem">
             <div class="col">
                 <h4>Dados do Usuário</h4>

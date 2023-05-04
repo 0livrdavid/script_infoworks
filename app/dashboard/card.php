@@ -12,6 +12,6 @@
         <div class="avaliacao">
             <i class="bi bi-star-fill rating-color"></i><p>4,5 - 33 Avaliações</p>
         </div>
-        <button href="#" class="button" data-bs-toggle="modal" data-bs-target="#modal-sem-cadastro">Mais Detalhes</button>
+        <button href="#" class="button" onclick="abrirModal('modal-sem-cadastro')">Mais Detalhes</button>
     </div>
 </div>

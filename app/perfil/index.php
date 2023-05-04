@@ -21,7 +21,7 @@ atualizarSessionUsuario($_SESSION['usuario']['cpf']);
     <div class="container">
       <div style="float: right;">
         <button class="btn btn-outline-danger" onclick="deslogarUsuario()">Deslogar</button>
-        <button class="btn btn-primary" onclick="abrirModal('modal-adicionar-servico')">Adicionar Serviço</button>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-adicionar-servico">Adicionar Serviço</button>
         <button class="btn btn-primary" onclick="salvarPerfil()">Salvar</button>
       </div>
     </div>
