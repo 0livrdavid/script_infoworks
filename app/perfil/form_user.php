@@ -15,7 +15,7 @@
             <div class="col d-table">
                 <h4 class="">Foto de Perfil</h4>
                 <div class="d-table-row" style="text-align: center;">
-                    <img style="border-radius: 50%;" src="../../src/pictures/pessoa.jfif" alt="Perfil">
+                    <img id="img_perfil" style="border-radius: 50%;" src="../../src/pictures/pessoa.jfif" alt="Perfil">
                 </div>
                 <input class="form-control" type="file" id="formFile">
             </div>

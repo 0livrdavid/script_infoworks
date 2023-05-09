@@ -57,4 +57,18 @@ if ($acao == "SalvarPerfil") {
     }
     
     echo json_encode($response);
+} else if ($acao ==  "CriarServico") {
+    $data = [
+        'cep' => $_POST['cep'],
+    ];
+
+    if ($_SESSION['usuario']['cpf'] == $_POST['cpf']) {
+        $response['flag'] = true;
+        $response['msg'] = "Serviço criado com sucesso!";
+    } else {
+        $response['flag'] = false;
+        $response['msg'] = "Você não tem autorização para editar esse perfil!";
+    }
+
+    echo json_encode($response);
 }

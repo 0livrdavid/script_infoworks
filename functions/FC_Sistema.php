@@ -560,6 +560,14 @@ function calcularIdade($dataNascimento) {
 }
 
   
+function getServiceCategoria() {
+    return bd_iteration(bd_query("SELECT * FROM service_category", $_SESSION['conexao'], 0));
+}
+
+function getServiceType() {
+    return bd_iteration(bd_query("SELECT * FROM service_type", $_SESSION['conexao'], 0));
+}
+
 function getEstados() {
     return bd_iteration(bd_query("SELECT * FROM estados", $_SESSION['conexao'], 0));
 }

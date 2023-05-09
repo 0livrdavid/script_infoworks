@@ -57,3 +57,30 @@ function deslogarUsuario() {
     });
 }
 
+function criarServico() {
+    data = {};
+    data['acao'] = 'CriarServico';
+    data['servico_idusuario'] = $('servico_idusuario').val();
+
+    data['servico_categoria'] = $('servico_categoria').val();
+    data['servico_preco'] = $('servico_preco').val();
+    data['servico_tipo'] = $('servico_tipo').val();
+
+    $.ajax({
+        method: "POST",
+        datatype: "json",
+        url: "../../ajax/perfil/perfil.php",
+        data: data,
+        success: function (response) {
+            response = JSON.parse(response);
+            if (response.flag) {
+                toastr["success"](response.msg);
+            } else {
+                toastr['warning'](response.msg);
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            toastr['error'](textStatus, errorThrown);
+        }
+    });
+}
