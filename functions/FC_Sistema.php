@@ -581,8 +581,8 @@ function getCidadesFromEstado($fk_estado) {
 }
 
 
-function atualizarSessionUsuario($cpf){
-    $user = getUser($cpf);
+function atualizarSessionUsuario(){
+    $user = getUser($_SESSION['usuario']['cpf']);
     $_SESSION['usuario'] = (array) $user;
     $_SESSION['usuario']['nome'] = (string) html_entity_decode($_SESSION['usuario']['nome']);
     $_SESSION['idUsuario'] = (int) $_SESSION['usuario']['id'];

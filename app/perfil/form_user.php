@@ -12,12 +12,12 @@
                 <label for="nascimento" class="form-label">Data de nascimento:</label>
                 <input name="nascimento" id="nascimento" class="form-control" type="text" value="<?php echo converte_data($_SESSION['usuario']['idade']) ?>" disabled>
             </div>
-            <div class="col d-table">
+            <div class="col d-table" style="text-align: center;" >
                 <h4 class="">Foto de Perfil</h4>
                 <div class="d-table-row" style="text-align: center;">
                     <img id="img_perfil" style="border-radius: 50%;" src="../../src/pictures/pessoa.jfif" alt="Perfil">
                 </div>
-                <input class="form-control" type="file" id="formFile">
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-imagem-perfil">Imagem de Perfil</button>
             </div>
         </div>
     </div>
@@ -25,7 +25,10 @@
     <div class="col section">
         <h4>Dados de Endereço</h4>
         <label for="cep" class="form-label">CEP:</label>
-        <input name="cep" id="cep" class="form-control" type="text" value="<?php echo $_SESSION['usuario']['cep'] ?>" placeholder="_____-___">
+        <div class="input-group mb-3">
+            <input type="text" name="cep" id="cep" class="form-control" onblur="formatarCEP(this)" value="<?php echo $_SESSION['usuario']['cep'] ?>" placeholder="_____-___" aria-label="_____-___" aria-describedby="button-discovery-cep">
+            <button class="btn btn-outline-primary" type="button" id="button-discovery-cep">Buscar CEP</button>
+        </div>
         <div class="row">
             <div class="col">
                 <label for="cidade" class="form-label">Cidade:</label>

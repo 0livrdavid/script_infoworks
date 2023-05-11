@@ -22,10 +22,10 @@ toastr.options = {
 }
 
 function switchLoginDashboard(user) {
-    if (user != 'null') {
+    if (user == 'logged') {
         $(".header-menu-logged").css("display", "flex");
         $(".header-menu-logout").css("display", "none");
-    } else {
+    } else if (user == "logout") {
         $(".header-menu-logged").css("display", "none");
         $(".header-menu-logout").css("display", "flex");
     }

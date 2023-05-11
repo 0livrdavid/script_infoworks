@@ -1,3 +1,22 @@
+document.getElementById('button-discovery-cep').onclick = function () {
+    var script = document.createElement('script');
+    if ($('#cep').val() != '') {
+        script.src = 'https://viacep.com.br/ws/'+ $('#cep').val() + '/json/?callback=atualizarCEP';
+        document.body.appendChild(script);
+    } else {
+        script.remove();
+        toastr['warning']("Informe um CEP para utilizar a busca!");
+    }
+};
+
+function atualizarCEP(data) {
+    $('#estado').val(data.uf);
+    $('#cidade').find('option:contains("' + data.localidade + '")').prop('selected', true);
+    $('#bairro').val(data.bairro);
+    $('#rua').val(data.logradouro);
+    $('#numero').val('');
+}
+
 function salvarPerfil() {
     data = {};
     data['acao'] = 'SalvarPerfil';
@@ -31,7 +50,7 @@ function salvarPerfil() {
                 toastr['warning'](response.msg);
             }
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
             toastr['error'](textStatus, errorThrown);
         }
     });
@@ -42,7 +61,9 @@ function deslogarUsuario() {
         method: "POST",
         datatype: "json",
         url: "../../ajax/perfil/perfil.php",
-        data: {'acao': 'DeslogarUsuario'},
+        data: {
+            'acao': 'DeslogarUsuario'
+        },
         success: function (response) {
             response = JSON.parse(response);
             if (response.flag) {
@@ -51,7 +72,7 @@ function deslogarUsuario() {
                 toastr['warning'](response.msg);
             }
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
             toastr['error'](textStatus, errorThrown);
         }
     });
@@ -79,7 +100,7 @@ function criarServico() {
                 toastr['warning'](response.msg);
             }
         },
-        error: function(jqXHR, textStatus, errorThrown) {
+        error: function (jqXHR, textStatus, errorThrown) {
             toastr['error'](textStatus, errorThrown);
         }
     });

@@ -361,10 +361,9 @@ function bd_iterate_query_update($datas, $table, $where = ""){
 
 
 function getCards($filter) {
-    $query = "SELECT s.fk_idCategoria AS categoria, s.valor, s.tipoValor, u.nome, u.idade
+    $query = "SELECT s.fk_idCategory AS categoria, s.valor, s.fk_idType AS tipoValor, u.nome, u.idade
             FROM `service` AS s
             JOIN `user` AS u ON u.id = s.fk_idUsuario
-            JOIN `categoria` AS c ON c.nome = s.fk_idCategoria
             WHERE s.status = 1";
     $dados = bd_query($query, $_SESSION['conexao'], 0);
     return bd_iteration($dados);

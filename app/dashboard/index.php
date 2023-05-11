@@ -4,6 +4,8 @@ require_once '../../layout/start.php';
 
 if (!isset($_GET['filtro'])) $_GET['filtro'] = "todos";
 $filter = $_GET['filtro'];
+
+if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
 ?>
 
 <div id="div-dashboard" class="container-fluid" style="margin: 0 auto; width: 90vw; height: 100vh">
@@ -16,8 +18,8 @@ $filter = $_GET['filtro'];
     <div class="adverts">
         <?php
         $cards = sanitize_array(getCards($filter));
-        foreach ($cards as $key => $card){
-            $dado['card_id'] = "card_id_".$key;
+        foreach ($cards as $key => $card) {
+            $dado['card_id'] = "card_id_" . $key;
             $dado['nome'] = resume_nome($card['nome']);
             $dado['idade'] = calcularIdade($card['idade']);
             $dado['categoria'] = $card['categoria'];
@@ -30,8 +32,8 @@ $filter = $_GET['filtro'];
 </div>
 
 <script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>dashboard.js"></script>
-<script type="text/javascript" defer>
-    switchLoginDashboard('<?php echo json_encode($_SESSION['usuario']) ?>');
+<script type="text/javascript">
+  switchLoginDashboard('<?php echo isset($_SESSION['usuario']) ? "logged" : "logout"; ?>');
 </script>
 
 <?php
