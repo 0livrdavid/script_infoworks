@@ -45,6 +45,49 @@ if ($acao == "SalvarPerfil") {
     }
 
     echo json_encode($response);
+} else if ($acao ==  "SalvarImagemPerfil") {
+    if(isset($_FILES['imagem'])) {
+        move_uploaded_file($_FILES['imagem']['tmp_name'], '../../files/avatar'.$_FILES['imagem']['name']);
+        
+        $data = [
+            'fk_idUsuario' => (int) $_POST['id'],
+            'filepath' => '',
+            'filename' => $nome_arquivo,
+            'filesize' => 1,
+            'filetype' => 1,
+            'created_on' => 1,
+            'status' => 1,
+            'tipo' => 1,
+        ];
+
+        if ($_SESSION['usuario']['cpf'] == $_POST['cpf']) {
+            $user = find_user($_POST['cpf']);
+            if (is_array($user)) {
+                $iterate = bd_iterate_query_insert($data,'files', 'WHERE fk_idUsuario= "'.$_SESSION['usuario']['cpf'].'"');
+        
+                if ($iterate['flag']) {
+                    atualizarSessionUsuario($_SESSION['usuario']['cpf']);
+                    header("Refresh:0");
+                    $response['flag'] = true;
+                    $response['msg'] = "Imagem salva com sucesso!";
+                } else {
+                    $response['flag'] = false;
+                    $response['msg'] = "Não foi possivel salvar imagem de perfil!";
+                }
+            } else {
+                $response['flag'] = false;
+                $response['msg'] = "Erro ao salvar a imagem!";
+            }
+        } else {
+            $response['flag'] = false;
+            $response['msg'] = "Você não tem autorização para editar esse perfil!";
+        }
+    } else {
+        $response['flag'] = false;
+        $response['msg'] = "Nenhuma imagem foi enviada!";
+    }
+
+    echo json_encode($response);
 } else if ($acao ==  "DeslogarUsuario") {
     session_destroy();
     

@@ -3,6 +3,8 @@ if (window.navigator.userAgent.indexOf("Trident/") > 0) {
     location.href = servidor + "../../not_support.php";
 }
 
+
+
 toastr.options = {
     "closeButton": false,
     "debug": false,
@@ -156,3 +158,10 @@ function abrirModal(class_name) {
     }
 }
 
+function cloneImage(srcElementId, destElementId) {
+    var srcElement = document.getElementById(srcElementId);
+    var destElement = document.getElementById(destElementId);
+  
+    destElement.src = srcElement.src;
+  }
+  

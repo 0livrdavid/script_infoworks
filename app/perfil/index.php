@@ -28,7 +28,8 @@ if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
   </div>
 </div>
 
-<script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>perfil.js"></script>
+<script defer src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>perfil.js"></script>
+<script defer src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>crop_image.js"></script>
 <script type="text/javascript">
   switchLoginDashboard('<?php echo isset($_SESSION['usuario']) ? "logged" : "logout"; ?>');
 </script>
@@ -36,3 +37,6 @@ if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
 <?php
 require PATH_ASSETS_END;
 ?>
+
+
+

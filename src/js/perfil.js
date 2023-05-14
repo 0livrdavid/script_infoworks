@@ -78,6 +78,32 @@ function deslogarUsuario() {
     });
 }
 
+function salvarImagemPerfil() {
+    var data = new FormData();
+    data.append('acao', 'SalvarImagemPerfil');
+    data.append('id', $('#perfil_idusuario').val());
+    data.append('imagem', $('#img_input_perfil').files[0]);
+
+    $.ajax({
+        url: '../../ajax/perfil/perfil.php',
+        type: 'POST',
+        data: data,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+            response = JSON.parse(response);
+            if (response.flag) {
+                toastr["success"](response.msg);
+            } else {
+                toastr['warning'](response.msg);
+            }
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            toastr['error'](textStatus, errorThrown);
+        }
+    });
+}
+
 function criarServico() {
     data = {};
     data['acao'] = 'CriarServico';

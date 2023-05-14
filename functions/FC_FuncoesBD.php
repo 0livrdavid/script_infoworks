@@ -347,6 +347,27 @@ function bd_iterate_query_update($datas, $table, $where = ""){
     return ['flag' => true, 'sql' => $sql, 'result' => $result, 'field' => ""];
 }
 
+function bd_iterate_query_insert($datas, $table){
+    abrir();
+    $sql = array();
+    $result = array();
+
+    foreach ($datas as $data_name => $data_value) {
+        $sql[] = "INSERT INTO $table ($data_name) VALUES ('$data_value')";
+    }
+
+    foreach ($sql as $query) {
+        $result[] = bd_query($query, $_SESSION['conexao'], 2);
+        if (bd_affect_rows() <= 0) {
+            rollback();
+            return ['flag' => false, 'sql' => $sql, 'result' => $result, 'field' => bd_query($query, $_SESSION['conexao'], 3)];
+        }
+    }
+    
+    commit();
+    return ['flag' => true, 'sql' => $sql, 'result' => $result, 'field' => ""];
+}
+
 
 
 
