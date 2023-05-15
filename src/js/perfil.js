@@ -9,6 +9,12 @@ document.getElementById('button-discovery-cep').onclick = function () {
     }
 };
 
+$('#img_input_perfil').click(function() {
+    $('#img_input_perfil2').trigger('click');
+});
+
+
+
 function atualizarCEP(data) {
     $('#estado').val(data.uf);
     $('#cidade').find('option:contains("' + data.localidade + '")').prop('selected', true);
@@ -82,7 +88,7 @@ function salvarImagemPerfil() {
     var data = new FormData();
     data.append('acao', 'SalvarImagemPerfil');
     data.append('id', $('#perfil_idusuario').val());
-    data.append('imagem', $('#img_input_perfil').files[0]);
+    data.append('imagem', $('#img_input_perfil2')[0].files[0]);
 
     $.ajax({
         url: '../../ajax/perfil/perfil.php',

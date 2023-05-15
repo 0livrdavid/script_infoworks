@@ -32,22 +32,22 @@
                             <input id="servico_idusuario" type="hidden" value="<?php echo $_SESSION['idUsuario'] ?>">
                             <label for="servico_categoria" class="form-label">Categoria:</label>
                             <select name="servico_categoria" class="form-select">
-                                <?php 
+                                <?php
                                 $services_categoria = getServiceCategoria();
                                 foreach ($services_categoria as $obj) {
-                                    echo " <option value='{$obj['nome']}'>{$obj['nome']}</option>"
-;                                    }
+                                    echo " <option value='{$obj['nome']}'>{$obj['nome']}</option>";
+                                }
                                 ?>
                             </select>
                             <label for="servico_preco" class="form-label">Preço:</label>
                             <input id="servico_preco" name="servico_preco" class="form-control" type="number" placeholder="Preço">
                             <label for="servico_tipo" class="form-label">Tipo de Preço:</label>
                             <select name="servico_tipo" class="form-select">
-                                <?php 
+                                <?php
                                 $services_type = getServiceType();
                                 foreach ($services_type as $obj) {
-                                    echo " <option value='{$obj['tipo']}'>{$obj['tipo']}</option>"
-;                                    }
+                                    echo " <option value='{$obj['tipo']}'>{$obj['tipo']}</option>";
+                                }
                                 ?>
                             </select>
                             <label for="nome" class="form-label">Descrição do serviço:</label>
@@ -108,15 +108,16 @@
                     <div class="row">
                         <div class="col">
                             <input id="perfil_idusuario" type="hidden" value="<?php echo $_SESSION['idUsuario'] ?>">
-                            <div style="width: 100%;">
-                                <img src="../../src/pictures/motorista.jpg" id="img_input_perfil" style="width: 100%; object-fit: cover;">
-                                <button class="btn btn-primary" style="margin-top: 15px" data-bs-toggle="modal" data-bs-target="#modal-crop-imagem" onclick="cloneImage('img_input_perfil', 'img_output'); initializeCropper(document.getElementById('img_output')); changeFunctionBtnCrop('img_input_perfil')">Cortar Imagem</button>
+                            <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+                                <img src="../../files/avatar/<?php echo (isset($_SESSION['usuario']['imagem_perfil'])) ? $_SESSION['usuario']['imagem_perfil'] : 'avatar.png'; ?>" id="img_input_perfil" style="width: 100%; object-fit: cover; max-width: 400px;">
+                                <input id="img_input_perfil2" style="margin-top: 15px" class="form-control" type="file" onchange="changeInputImgToImg(this, 'img_input_perfil')">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modal-crop-imagem" onclick="cloneImage('img_input_perfil', 'img_output'); initializeCropper(document.getElementById('img_output')); changeFunctionBtnCrop('img_input_perfil')">Cortar Imagem</button>
                 <button type="button" class="btn btn-primary" onclick="salvarImagemPerfil()">Salvar</button>
             </div>
         </div>
@@ -148,7 +149,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" id="cropImageBtn" data-bs-dismiss="modal">Cortar Imagem</button>
+                <button type="button" class="btn btn-primary" id="cropImageBtn" onclick="cropImage('img_input_perfil')" data-bs-dismiss="modal">Cortar Imagem</button>
             </div>
         </div>
     </div>

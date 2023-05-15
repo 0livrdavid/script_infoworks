@@ -8,7 +8,7 @@
     <div id="form" class="form_login">
         <p id="msg_login" class="msg_login"></p>
         <div class="txt_field">
-            <input id="cpf_login" name="cpf" type="text" onkeyup="formatarCPF(this)" onchange="formatarCPF(this)" minlength="11" maxlength="14" data-name="CPF" required>
+            <input id="cpf_login" name="cpf" type="text" class="mask-cpf" minlength="11" maxlength="14" data-name="CPF" required>
             <span></span>
             <label for="cpf">CPF</label>
         </div>
@@ -25,4 +25,3 @@
         </div>
     </div>
 </div>
-

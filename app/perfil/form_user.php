@@ -15,7 +15,7 @@
             <div class="col d-table" style="text-align: center;" >
                 <h4 class="">Foto de Perfil</h4>
                 <div class="d-table-row" style="text-align: center;">
-                    <img id="img_perfil" style="border-radius: 50%;" src="../../src/pictures/pessoa.jfif" alt="Perfil">
+                    <img id="img_perfil" style="border-radius: 50%; object-fit: cover; max-width: 15rem" src="../../files/avatar/<?php echo (isset($_SESSION['usuario']['imagem_perfil'])) ? $_SESSION['usuario']['imagem_perfil'] : 'avatar.png'; ?>" alt="Perfil">
                 </div>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-imagem-perfil">Imagem de Perfil</button>
             </div>
@@ -26,7 +26,7 @@
         <h4>Dados de Endereço</h4>
         <label for="cep" class="form-label">CEP:</label>
         <div class="input-group mb-3">
-            <input type="text" name="cep" id="cep" class="form-control" onblur="formatarCEP(this)" value="<?php echo $_SESSION['usuario']['cep'] ?>" placeholder="_____-___" aria-label="_____-___" aria-describedby="button-discovery-cep">
+            <input type="text" name="cep" id="cep" class="form-control mask-cep" value="<?php echo $_SESSION['usuario']['cep'] ?>" placeholder="_____-___" aria-label="_____-___" aria-describedby="button-discovery-cep">
             <button class="btn btn-outline-primary" type="button" id="button-discovery-cep">Buscar CEP</button>
         </div>
         <div class="row">

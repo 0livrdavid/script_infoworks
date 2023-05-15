@@ -46,14 +46,20 @@ if ($acao == "SalvarPerfil") {
 
     echo json_encode($response);
 } else if ($acao ==  "SalvarImagemPerfil") {
+    var_dump($_POST);
+    var_dump($_FILES);
+    var_dump($_FILES['imagem']);
+
     if(isset($_FILES['imagem'])) {
         move_uploaded_file($_FILES['imagem']['tmp_name'], '../../files/avatar'.$_FILES['imagem']['name']);
         
+        
+
         $data = [
             'fk_idUsuario' => (int) $_POST['id'],
             'filepath' => '',
-            'filename' => $nome_arquivo,
-            'filesize' => 1,
+            'filename' => $_FILES['imagem']['name'],
+            'filesize' => $_FILES['imagem']['size'],
             'filetype' => 1,
             'created_on' => 1,
             'status' => 1,
@@ -63,11 +69,11 @@ if ($acao == "SalvarPerfil") {
         if ($_SESSION['usuario']['cpf'] == $_POST['cpf']) {
             $user = find_user($_POST['cpf']);
             if (is_array($user)) {
-                $iterate = bd_iterate_query_insert($data,'files', 'WHERE fk_idUsuario= "'.$_SESSION['usuario']['cpf'].'"');
+                //$iterate = bd_iterate_query_insert($data,'files', 'WHERE fk_idUsuario= "'.$_SESSION['usuario']['cpf'].'"');
         
                 if ($iterate['flag']) {
-                    atualizarSessionUsuario($_SESSION['usuario']['cpf']);
-                    header("Refresh:0");
+                    //atualizarSessionUsuario($_SESSION['usuario']['cpf']);
+                    //header("Refresh:0");
                     $response['flag'] = true;
                     $response['msg'] = "Imagem salva com sucesso!";
                 } else {

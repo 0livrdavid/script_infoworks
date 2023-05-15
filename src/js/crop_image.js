@@ -27,6 +27,16 @@ function turnAspectRatio(value) {
 
 function cropImage(img) {
     document.getElementById(img).src = cropper.getCroppedCanvas().toDataURL('image/png');
+    document.getElementById(img+'2').src = cropper.getCroppedCanvas().toDataURL('image/png');
+}
+
+function changeInputImgToImg(input, img) {
+    const previewImage = document.getElementById(img);
+    const reader = new FileReader();
+    reader.onload = function() {
+        previewImage.src = reader.result;
+    };
+    reader.readAsDataURL(input.files[0]);
 }
 
 function changeFunctionBtnCrop(img) {
