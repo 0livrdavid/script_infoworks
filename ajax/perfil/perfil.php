@@ -46,15 +46,16 @@ if ($acao == "SalvarPerfil") {
 
     echo json_encode($response);
 } else if ($acao ==  "SalvarImagemPerfil") {
-    var_dump($_POST);
-    var_dump($_FILES);
+    //var_dump($_POST);
+    //var_dump($_FILES);
     var_dump($_FILES['imagem']);
+    echo '<br><br>';
+    var_dump($_FILES['imagem_base']);
 
-    if(isset($_FILES['imagem'])) {
-        move_uploaded_file($_FILES['imagem']['tmp_name'], '../../files/avatar'.$_FILES['imagem']['name']);
+    if(isset($_FILES['imagem_base'])) {
+        move_uploaded_file($_FILES['imagem']['tmp_name'], '../../files/avatar/'.$_FILES['imagem']['name']);
+        move_uploaded_file($_FILES['imagem_base']['tmp_name'], '../../files/avatar/'.$_FILES['imagem_base']['name']);
         
-        
-
         $data = [
             'fk_idUsuario' => (int) $_POST['id'],
             'filepath' => '',

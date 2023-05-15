@@ -88,7 +88,8 @@ function salvarImagemPerfil() {
     var data = new FormData();
     data.append('acao', 'SalvarImagemPerfil');
     data.append('id', $('#perfil_idusuario').val());
-    data.append('imagem', $('#img_input_perfil2')[0].files[0]);
+    data.append('imagem_base', $('#img_input_perfil2')[0].files[0]);
+    data.append('imagem', $('#img_input_perfil3')[0].files[0]);
 
     $.ajax({
         url: '../../ajax/perfil/perfil.php',
