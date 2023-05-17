@@ -15,7 +15,7 @@
             <div class="col d-table" style="text-align: center;" >
                 <h4 class="">Foto de Perfil</h4>
                 <div class="d-table-row" style="text-align: center;">
-                    <img id="img_perfil" style="border-radius: 50%; object-fit: cover; max-width: 15rem" src="../../files/avatar/<?php echo (isset($_SESSION['usuario']['imagem_perfil'])) ? $_SESSION['usuario']['imagem_perfil'] : 'avatar.png'; ?>" alt="Perfil">
+                    <img id="img_perfil" style="border-radius: 50%; object-fit: cover; width: 14rem" src="../../files/avatar/<?php echo (isset($_SESSION['usuario']['imagem_perfil'])) ? $_SESSION['usuario']['imagem_perfil'] : 'avatar.png'; ?>" alt="Perfil">
                 </div>
                 <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-imagem-perfil">Imagem de Perfil</button>
             </div>

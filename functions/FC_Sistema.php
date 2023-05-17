@@ -582,7 +582,9 @@ function getCidadesFromEstado($fk_estado) {
 
 
 function getImageProfileUser($id) {
-    return bd_iteration(bd_query("SELECT * FROM file WHERE fk_idUsuario = $id AND status = 1 AND tipo = 1", $_SESSION['conexao'], 0));
+    $img = bd_iteration(bd_query("SELECT * FROM file WHERE fk_idUsuario = $id AND status = 1 AND tipo = 1", $_SESSION['conexao'], 0));
+    if ($img === null) return ['imagem' => 'avatar.png', 'imagem_tudo' => 'avatar.png'];
+    return ['imagem' => $img[0]['filename'] . getTypeFile($img[0]['filetype'], true), 'imagem_tudo' => $img[0]];
 }
 
 function getTypeFile($type, $return = false) {
@@ -590,6 +592,10 @@ function getTypeFile($type, $return = false) {
         case 'image/jpeg':
             if ($return) return '.jpg';
             return 'jpg';
+            break;
+        case 'image/png':
+            if ($return) return '.png';
+            return 'png';
             break;
         default:
             break;
@@ -599,13 +605,12 @@ function getTypeFile($type, $return = false) {
 
 function atualizarSessionUsuario(){
     $user = getUser($_SESSION['usuario']['cpf']);
-    $image = getImageProfileUser($user['id']);
     $_SESSION['usuario'] = (array) $user;
-    $_SESSION['usuario']['nome'] = (string) html_entity_decode($_SESSION['usuario']['nome']);
+    $_SESSION['usuario_nome'] = (string) html_entity_decode($_SESSION['usuario']['nome']);
     $_SESSION['idUsuario'] = (int) $_SESSION['usuario']['id'];
     $_SESSION['cpfUsuario'] = (string) $_SESSION['usuario']['cpf'];
-    $_SESSION['usuario']['imagem_perfil'] = (string) $image[0]['filename'] . getTypeFile($image[0]['filetype'], true);
-    $_SESSION['usuario']['imagem_perfil_tudo'] = (array) $image[0];
+    $_SESSION['usuario']['imagem_perfil'] = getImageProfileUser($user['id'])['imagem'];
+    $_SESSION['usuario']['imagem_perfil_tudo'] = getImageProfileUser($user['id'])['imagem_tudo'];
     unset($user);
 }
 
