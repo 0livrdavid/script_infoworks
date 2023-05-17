@@ -494,7 +494,7 @@ function textoConverterRN($mensagem){
 function find_user($cpf) {
     $cpf = seguro((string) $cpf);
     
-    $user = bd_fetch_array_assoc(bd_query("SELECT cpf, hash, salt, status FROM user WHERE cpf = '$cpf'", $_SESSION['conexao'], 0));
+    $user = bd_fetch_array_assoc(bd_query("SELECT id, cpf, hash, salt, status FROM user WHERE cpf = '$cpf'", $_SESSION['conexao'], 0));
     if (!is_array($user)) {
         return null;
     }
@@ -581,11 +581,32 @@ function getCidadesFromEstado($fk_estado) {
 }
 
 
+function getImageProfileUser($id) {
+    return bd_iteration(bd_query("SELECT * FROM file WHERE fk_idUsuario = $id AND status = 1 AND tipo = 1", $_SESSION['conexao'], 0));
+}
+
+function getTypeFile($type, $return = false) {
+    switch ($type) {
+        case 'image/jpeg':
+            if ($return) return '.jpg';
+            return 'jpg';
+            break;
+        default:
+            break;
+    }
+}
+
+
 function atualizarSessionUsuario(){
     $user = getUser($_SESSION['usuario']['cpf']);
+    $image = getImageProfileUser($user['id']);
     $_SESSION['usuario'] = (array) $user;
     $_SESSION['usuario']['nome'] = (string) html_entity_decode($_SESSION['usuario']['nome']);
     $_SESSION['idUsuario'] = (int) $_SESSION['usuario']['id'];
+    $_SESSION['cpfUsuario'] = (string) $_SESSION['usuario']['cpf'];
+    $_SESSION['usuario']['imagem_perfil'] = (string) $image[0]['filename'] . getTypeFile($image[0]['filetype'], true);
+    $_SESSION['usuario']['imagem_perfil_tudo'] = (array) $image[0];
+    unset($user);
 }
 
 

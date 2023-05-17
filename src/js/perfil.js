@@ -87,7 +87,7 @@ function deslogarUsuario() {
 function salvarImagemPerfil() {
     var data = new FormData();
     data.append('acao', 'SalvarImagemPerfil');
-    data.append('id', $('#perfil_idusuario').val());
+    data.append('cpf', $('#perfil_cpf').val());
     data.append('imagem_base', $('#img_input_perfil2')[0].files[0]);
     data.append('imagem', $('#img_input_perfil3')[0].files[0]);
 
@@ -100,7 +100,8 @@ function salvarImagemPerfil() {
         success: function (response) {
             response = JSON.parse(response);
             if (response.flag) {
-                toastr["success"](response.msg);
+                alert(response.msg);
+                window.location.reload();
             } else {
                 toastr['warning'](response.msg);
             }

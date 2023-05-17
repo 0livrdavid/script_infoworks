@@ -23,6 +23,7 @@ if ($acao == "Login") {
             $_SESSION['usuario'] = (array) $user;
             $_SESSION['usuario']['nome'] = (string) html_entity_decode($_SESSION['usuario']['nome']);
             $_SESSION['idUsuario'] = (int) $_SESSION['usuario']['id'];
+            $_SESSION['cpfUsuario'] = (string) $_SESSION['usuario']['cpf'];
             $_SESSION['SessaoLogin']=md5("seg".$_SERVER["REMOTE_ADDR"].$_SERVER["HTTP_USER_AGENT"]);
             unset($user);
 

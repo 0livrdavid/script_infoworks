@@ -46,35 +46,37 @@ if ($acao == "SalvarPerfil") {
 
     echo json_encode($response);
 } else if ($acao ==  "SalvarImagemPerfil") {
-    //var_dump($_POST);
-    //var_dump($_FILES);
-    var_dump($_FILES['imagem']);
-    echo '<br><br>';
-    var_dump($_FILES['imagem_base']);
+    $filename = uniqid();
 
-    if(isset($_FILES['imagem_base'])) {
-        move_uploaded_file($_FILES['imagem']['tmp_name'], '../../files/avatar/'.$_FILES['imagem']['name']);
-        move_uploaded_file($_FILES['imagem_base']['tmp_name'], '../../files/avatar/'.$_FILES['imagem_base']['name']);
-        
-        $data = [
-            'fk_idUsuario' => (int) $_POST['id'],
-            'filepath' => '',
-            'filename' => $_FILES['imagem']['name'],
-            'filesize' => $_FILES['imagem']['size'],
-            'filetype' => 1,
-            'created_on' => 1,
-            'status' => 1,
-            'tipo' => 1,
-        ];
-
+    if(isset($_FILES['imagem_base'])) {    
         if ($_SESSION['usuario']['cpf'] == $_POST['cpf']) {
             $user = find_user($_POST['cpf']);
             if (is_array($user)) {
-                //$iterate = bd_iterate_query_insert($data,'files', 'WHERE fk_idUsuario= "'.$_SESSION['usuario']['cpf'].'"');
+                $data = [
+                    'status' => 0,
+                ];
+
+                $iterate = bd_iterate_query_update($data,'file', "WHERE fk_idUsuario = {$user['id']} AND status = 1");
+
+                $path = '../../files/avatar/'.$_SESSION['usuario']['imagem_perfil'];
+                unlink($path);
+
+                $data = [
+                    'fk_idUsuario' => (int) $user['id'],
+                    'filepath' => 'avatar/'.$filename.'.jpg',
+                    'filename' => $filename,
+                    'filesize' => $_FILES['imagem']['size'],
+                    'filetype' => $_FILES['imagem']['type'],
+                    'created_on' => date('Y-m-d H:i:s'),
+                    'status' => 1,
+                    'tipo' => 1,
+                ];
+
+                $iterate = bd_iterate_query_insert($data,'file');
+                move_uploaded_file($_FILES['imagem']['tmp_name'], '../../files/avatar/'.$filename.'.jpg');
+                //move_uploaded_file($_FILES['imagem_base']['tmp_name'], '../../files/avatar/'.$_FILES['imagem_base']['name']);
         
                 if ($iterate['flag']) {
-                    //atualizarSessionUsuario($_SESSION['usuario']['cpf']);
-                    //header("Refresh:0");
                     $response['flag'] = true;
                     $response['msg'] = "Imagem salva com sucesso!";
                 } else {

@@ -107,7 +107,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <input id="perfil_idusuario" type="hidden" value="<?php echo $_SESSION['idUsuario'] ?>">
+                            <input id="perfil_cpf" type="hidden" value="<?php echo $_SESSION['cpfUsuario'] ?>">
                             <div style="width: 100%; display: flex; flex-direction: column; align-items: center;">
                                 <img src="../../files/avatar/<?php echo (isset($_SESSION['usuario']['imagem_perfil'])) ? $_SESSION['usuario']['imagem_perfil'] : 'avatar.png'; ?>" id="img_input_perfil" style="width: 100%; object-fit: cover; max-width: 400px;">
                                 <input id="img_input_perfil2" style="margin-top: 15px" class="form-control" type="file" onchange="changeInputImgToImg(this, 'img_input_perfil')">

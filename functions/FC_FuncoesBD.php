@@ -349,23 +349,23 @@ function bd_iterate_query_update($datas, $table, $where = ""){
 
 function bd_iterate_query_insert($datas, $table){
     abrir();
-    $sql = array();
-    $result = array();
+    $columns = array_keys($datas);
+    $values = array_values($datas);
 
-    foreach ($datas as $data_name => $data_value) {
-        $sql[] = "INSERT INTO $table ($data_name) VALUES ('$data_value')";
+    $columns_str = implode(", ", $columns);
+    $values_str = "'" . implode("', '", $values) . "'";
+
+    $sql = "INSERT INTO $table ($columns_str) VALUES ($values_str)";
+
+    $result = bd_query($sql, $_SESSION['conexao'], 2);
+
+    if ($result === false) {
+        rollback();
+        return ['flag' => false, 'sql' => $sql, 'result' => bd_query($sql, $_SESSION['conexao'], 3)];
     }
 
-    foreach ($sql as $query) {
-        $result[] = bd_query($query, $_SESSION['conexao'], 2);
-        if (bd_affect_rows() <= 0) {
-            rollback();
-            return ['flag' => false, 'sql' => $sql, 'result' => $result, 'field' => bd_query($query, $_SESSION['conexao'], 3)];
-        }
-    }
-    
     commit();
-    return ['flag' => true, 'sql' => $sql, 'result' => $result, 'field' => ""];
+    return ['flag' => true, 'sql' => $sql, 'result' => $result];
 }
 
 
