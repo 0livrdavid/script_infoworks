@@ -1,7 +1,7 @@
 document.getElementById('button-discovery-cep').onclick = function () {
     var script = document.createElement('script');
     if ($('#cep').val() != '') {
-        script.src = 'https://viacep.com.br/ws/'+ $('#cep').val() + '/json/?callback=atualizarCEP';
+        script.src = 'https://viacep.com.br/ws/' + $('#cep').val() + '/json/?callback=atualizarCEP';
         document.body.appendChild(script);
     } else {
         script.remove();
@@ -9,7 +9,7 @@ document.getElementById('button-discovery-cep').onclick = function () {
     }
 };
 
-$('#img_input_perfil').click(function() {
+$('#img_input_perfil').click(function () {
     $('#img_input_perfil2').trigger('click');
 });
 
@@ -113,19 +113,26 @@ function salvarImagemPerfil() {
 }
 
 function criarServico() {
-    data = {};
-    data['acao'] = 'CriarServico';
-    data['servico_idusuario'] = $('servico_idusuario').val();
+    var data = new FormData();
+    data.append('acao', 'CriarServico');
+    data.append('servico_cpf', $('#servico_cpf').val());
 
-    data['servico_categoria'] = $('servico_categoria').val();
-    data['servico_preco'] = $('servico_preco').val();
-    data['servico_tipo'] = $('servico_tipo').val();
+    data.append('servico_categoria', $('#servico_categoria').val());
+    data.append('servico_preco', $('#servico_preco').val());
+    data.append('servico_tipo', $('#servico_tipo').val());
+    data.append('servico_descricao', $('#servico_descricao').val());
+
+    var files = $('#servico_imagens')[0].files;
+    for (var i = 0; i < files.length; i++) {
+        data.append('imagens[]', files[i]);
+    }
 
     $.ajax({
-        method: "POST",
-        datatype: "json",
         url: "../../ajax/perfil/perfil.php",
+        type: "POST",
         data: data,
+        contentType: false,
+        processData: false,
         success: function (response) {
             response = JSON.parse(response);
             if (response.flag) {

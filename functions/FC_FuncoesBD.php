@@ -348,7 +348,6 @@ function bd_iterate_query_update($datas, $table, $where = ""){
 }
 
 function bd_iterate_query_insert($datas, $table){
-    abrir();
     $columns = array_keys($datas);
     $values = array_values($datas);
 
@@ -360,12 +359,10 @@ function bd_iterate_query_insert($datas, $table){
     $result = bd_query($sql, $_SESSION['conexao'], 2);
 
     if ($result === false) {
-        rollback();
         return ['flag' => false, 'sql' => $sql, 'result' => bd_query($sql, $_SESSION['conexao'], 3)];
     }
 
-    commit();
-    return ['flag' => true, 'sql' => $sql, 'result' => $result];
+    return ['flag' => true, 'sql' => $sql, 'result' => $result, 'inserted_id' => bd_last_id()];
 }
 
 
@@ -382,10 +379,35 @@ function bd_iterate_query_insert($datas, $table){
 
 
 function getCards($filter) {
-    $query = "SELECT s.fk_idCategory AS categoria, s.valor, s.fk_idType AS tipoValor, u.nome, u.idade
+    $query = "SELECT s.*,s.fk_idCategory AS categoria, s.valor, s.fk_idType AS tipoValor, u.nome, u.idade
             FROM `service` AS s
             JOIN `user` AS u ON u.id = s.fk_idUsuario
             WHERE s.status = 1";
+    $dados = bd_query($query, $_SESSION['conexao'], 0);
+    return bd_iteration($dados);
+}
+
+function getServices() {
+    $query = "SELECT s.*
+            FROM `service` AS s
+            WHERE fk_idUsuario = {$_SESSION['idUsuario']}";
+    $dados = bd_query($query, $_SESSION['conexao'], 0);
+    return bd_iteration($dados);
+}
+
+function getService($id) {
+    $query = "SELECT s.*
+            FROM `service` AS s
+            WHERE fk_idUsuario = {$_SESSION['idUsuario']}";
+    $dados = bd_query($query, $_SESSION['conexao'], 0);
+    return bd_iteration($dados);
+}
+
+function getFilesService($service) {
+    $query = "SELECT f.*
+            FROM `service_file` AS sf
+            JOIN file AS f ON f.id = sf.fk_idFile
+            WHERE fk_idService = $service";
     $dados = bd_query($query, $_SESSION['conexao'], 0);
     return bd_iteration($dados);
 }

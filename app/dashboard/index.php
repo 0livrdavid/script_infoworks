@@ -9,23 +9,17 @@ if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
 ?>
 
 <div id="div-dashboard" class="container-fluid" style="margin: 0 auto; width: 90vw; height: 100vh">
-    <?php include "./header.php" ?>
-    <!-- <div class="container">
-
-    </div> -->
-    <?php include "./filter.php" ?>
+    <?php 
+        include "./header.php";
+        include "./filter.php";
+    ?>
 
     <div class="adverts">
         <?php
         $cards = sanitize_array(getCards($filter));
         if (count($cards)) {
             foreach ($cards as $key => $card) {
-                $dado['card_id'] = "card_id_" . $key;
-                $dado['nome'] = resume_nome($card['nome']);
-                $dado['idade'] = calcularIdade($card['idade']);
-                $dado['categoria'] = $card['categoria'];
-                $dado['valor'] = $card['valor'];
-                $dado['tipoValor'] = $card['tipoValor'];
+                $images = getFilesService($card['id']);
                 include "./card.php";
             }
         } else { ?>

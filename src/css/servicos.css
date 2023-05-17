@@ -1,0 +1,143 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+    background-color: #82b3f3;
+    border-radius: 15px;
+    height: 6rem;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, .2)
+  }
+  
+  .img_logo_dashboard {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    height: 4em
+  }
+  
+  .img_logo_dashboard img {
+    width: 100%;
+    height: 100%
+  }
+  
+  .botao-noti {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    border: none;
+    align-items: center
+  }
+  
+  .botao-noti img {
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom
+  }
+  
+  .botao-circular {
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    margin-top: 10px;
+    margin-bottom: 10px
+  }
+  
+  .botao-circular img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center bottom
+  }
+  
+  .perfil {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 5em
+  }
+  
+  .notificao {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2em
+  }
+  
+  .logo-dashboard {
+    margin-left: 5px
+  }
+  
+  .header-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center
+  }
+  
+  .header-menu-logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1.2rem
+  }
+  
+  .botao-login {
+    color: #fff;
+    padding: .6rem 1.5rem
+  }
+  
+  .header-menu-logged {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1.2rem;
+    column-gap: .8rem
+  }
+  
+  .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 2em;
+    border: 1px solid;
+    background: #3b2b83;
+    border-radius: 25px;
+    color: #e9f4fb;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none
+  }
+  
+  .button:hover {
+    background: #e9f4fb;
+    color: #3b2b83;
+    border: 2px solid #3b2b83
+  }
+  
+  .nome {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap
+  }
+  
+  #perfil_output {
+    width: 100;
+  }
+
+
+
+
+  

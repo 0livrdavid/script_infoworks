@@ -29,9 +29,9 @@
                 <div class="container">
                     <div class="row">
                         <div class="col">
-                            <input id="servico_idusuario" type="hidden" value="<?php echo $_SESSION['idUsuario'] ?>">
+                            <input id="servico_cpf" type="hidden" value="<?php echo $_SESSION['cpfUsuario'] ?>">
                             <label for="servico_categoria" class="form-label">Categoria:</label>
-                            <select name="servico_categoria" class="form-select">
+                            <select name="servico_categoria" id="servico_categoria" class="form-select">
                                 <?php
                                 $services_categoria = getServiceCategoria();
                                 foreach ($services_categoria as $obj) {
@@ -42,7 +42,7 @@
                             <label for="servico_preco" class="form-label">Preço:</label>
                             <input id="servico_preco" name="servico_preco" class="form-control mask-dinheiro" type="text" placeholder="R$ 0,00">
                             <label for="servico_tipo" class="form-label">Tipo de Preço:</label>
-                            <select name="servico_tipo" class="form-select">
+                            <select name="servico_tipo" id="servico_tipo" class="form-select">
                                 <?php
                                 $services_type = getServiceType();
                                 foreach ($services_type as $obj) {
@@ -50,17 +50,17 @@
                                 }
                                 ?>
                             </select>
-                            <label for="nome" class="form-label">Descrição do serviço:</label>
-                            <textarea class="form-control" placeholder="Adicione sua Descrição aqui" rows="5"></textarea>
+                            <label for="servico_descricao" class="form-label">Descrição do serviço:</label>
+                            <textarea id="servico_descricao" class="form-control" placeholder="Adicione sua Descrição aqui" rows="5"></textarea>
                             <label for="imagens[]" class="form-label">Inserir imagens</label>
-                            <input class="form-control" type="file" id="imagens[]" onchange="changeAccordionImage(this)" accept="image/png, image/jpeg" multiple>
+                            <input class="form-control" type="file" id="servico_imagens" onchange="changeAccordionImage(this)" accept="image/png, image/jpeg" multiple>
                             <div class="accordion accordion-flush" id="accordion_image" style="margin-top: 15px"></div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="criarServico()">Adicionar</button>
+                <button type="button" class="btn btn-primary" onclick="criarServico()" data-bs-dismiss="modal">Adicionar</button>
             </div>
         </div>
     </div>
