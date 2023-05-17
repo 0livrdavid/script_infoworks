@@ -40,7 +40,7 @@
                                 ?>
                             </select>
                             <label for="servico_preco" class="form-label">Preço:</label>
-                            <input id="servico_preco" name="servico_preco" class="form-control" type="number" placeholder="Preço">
+                            <input id="servico_preco" name="servico_preco" class="form-control mask-dinheiro" type="text" placeholder="R$ 0,00">
                             <label for="servico_tipo" class="form-label">Tipo de Preço:</label>
                             <select name="servico_tipo" class="form-select">
                                 <?php
@@ -51,40 +51,10 @@
                                 ?>
                             </select>
                             <label for="nome" class="form-label">Descrição do serviço:</label>
-                            <textarea class="form-control" placeholder="Adicione sua Descrição aqui"></textarea>
-                            <label for="imagens" class="form-label">Inserir imagens</label>
-                            <div class="upload">
-                                <p>Drag files here or <span class="upload__button">Browse</span></p>
-                            </div>
-                            <!-- <div class="uploaded uploaded--one">
-                                <i class="far fa-file-pdf"></i>
-                                <div class="file">
-                                    <div class="file__name">
-                                        <p>lorem_ipsum.pdf</p>
-                                        <i class="fas fa-times"></i>
-                                    </div>
-                                    <div class="progress">
-                                        <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" style="width:100%"></div>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <div class="imgs">
-                                <button class="btn-img" onclick="openFile()">
-                                    <img src="pictures/input-img.png" alt="Selecionar Imagens">
-                                </button>
-                                <button class="btn-img" onclick="openFile()">
-                                    <img src="pictures/input-img.png" alt="Selecionar Imagens">
-                                </button>
-                                <button class="btn-img" onclick="openFile()">
-                                    <img src="pictures/input-img.png" alt="Selecionar Imagens">
-                                </button>
-                                <button class="btn-img" onclick="openFile()">
-                                    <img src="pictures/input-img.png" alt="Selecionar Imagens">
-                                </button>
-                                <button class="btn-img" onclick="openFile()">
-                                    <img src="pictures/input-img.png" alt="Selecionar Imagens">
-                                </button>
-                            </div>
+                            <textarea class="form-control" placeholder="Adicione sua Descrição aqui" rows="5"></textarea>
+                            <label for="imagens[]" class="form-label">Inserir imagens</label>
+                            <input class="form-control" type="file" id="imagens[]" onchange="changeAccordionImage(this)" accept="image/png, image/jpeg" multiple>
+                            <div class="accordion accordion-flush" id="accordion_image" style="margin-top: 15px"></div>
                         </div>
                     </div>
                 </div>

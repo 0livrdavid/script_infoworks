@@ -7,6 +7,22 @@ $(document).ready(function () {
     $('.mask-cpf').mask('999.999.999-99');
     $('.mask-cep').mask('99999-999');
     $('.mask-data').mask('99/99/9999');
+    $('.mask-dinheiro').maskMoney({
+        prefix: 'R$ ',
+        decimal: ',',
+        thousands: '.'
+    });
+
+    $('#fileInput').on('change', function (e) {
+        var files = e.target.files;
+        var fileList = $('#fileList');
+        fileList.empty();
+
+        for (var i = 0; i < files.length; i++) {
+            var file = files[i];
+            fileList.append('<div class="file-progress">' + file.name + ': <div class="file-progress-bar"></div></div>');
+        }
+    });
 });
 
 toastr.options = {

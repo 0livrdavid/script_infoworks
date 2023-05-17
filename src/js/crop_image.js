@@ -67,3 +67,48 @@ function changeFunctionBtnCrop(img) {
         cropImage(img);
     };
 }
+
+function changeAccordionImage(input) {
+    var index
+    var files = input.files;
+    var accordion = document.getElementById('accordion_image');
+    accordion.innerHTML = '';
+
+    if (files.length > 0) {
+        Array.from(files).forEach(function (file, index) {
+            var accordionItem = document.createElement('div');
+            accordionItem.className = 'accordion-item';
+
+            var accordionHeader = document.createElement('h2');
+            accordionHeader.className = 'accordion-header';
+            accordionHeader.id = 'flush-heading-' + index;
+
+            var accordionButton = document.createElement('button');
+            accordionButton.className = 'accordion-button collapsed';
+            accordionButton.type = 'button';
+            accordionButton.setAttribute('data-bs-toggle', 'collapse');
+            accordionButton.setAttribute('data-bs-target', '#flush-collapse-' + index);
+            accordionButton.setAttribute('aria-expanded', 'false');
+            accordionButton.setAttribute('aria-controls', 'flush-collapse-' + index);
+            accordionButton.innerText = file.name;
+
+            var accordionCollapse = document.createElement('div');
+            accordionCollapse.id = 'flush-collapse-' + index;
+            accordionCollapse.className = 'accordion-collapse collapse';
+            accordionCollapse.setAttribute('aria-labelledby', 'flush-heading-' + index);
+            accordionCollapse.setAttribute('data-bs-parent', '#accordion_image');
+
+            var accordionBody = document.createElement('div');
+            accordionBody.className = 'accordion-body';
+            
+            accordionBody.innerHTML = '<img style="width: 100%; object-fit: cover;" src="' + URL.createObjectURL(file) + '">';
+
+            // Adiciona os elementos ao DOM
+            accordion.appendChild(accordionItem);
+            accordionItem.appendChild(accordionHeader);
+            accordionHeader.appendChild(accordionButton);
+            accordionItem.appendChild(accordionCollapse);
+            accordionCollapse.appendChild(accordionBody);
+        });
+    }
+}

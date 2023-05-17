@@ -18,16 +18,21 @@ if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
     <div class="adverts">
         <?php
         $cards = sanitize_array(getCards($filter));
-        foreach ($cards as $key => $card) {
-            $dado['card_id'] = "card_id_" . $key;
-            $dado['nome'] = resume_nome($card['nome']);
-            $dado['idade'] = calcularIdade($card['idade']);
-            $dado['categoria'] = $card['categoria'];
-            $dado['valor'] = $card['valor'];
-            $dado['tipoValor'] = $card['tipoValor'];
-            include "./card.php";
-        }
-        ?>
+        if (count($cards)) {
+            foreach ($cards as $key => $card) {
+                $dado['card_id'] = "card_id_" . $key;
+                $dado['nome'] = resume_nome($card['nome']);
+                $dado['idade'] = calcularIdade($card['idade']);
+                $dado['categoria'] = $card['categoria'];
+                $dado['valor'] = $card['valor'];
+                $dado['tipoValor'] = $card['tipoValor'];
+                include "./card.php";
+            }
+        } else { ?>
+            <div style="height: 60vh; display: flex; align-items: center;">
+                <h3 style="color: #ffffff">Não existem serviços cadastrados!</h3>
+            </div>
+        <?php } ?>
     </div>
 </div>
 
