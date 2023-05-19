@@ -136,7 +136,8 @@ function criarServico() {
         success: function (response) {
             response = JSON.parse(response);
             if (response.flag) {
-                toastr["success"](response.msg);
+                alert(response.msg);
+                window.location.reload();
             } else {
                 toastr['warning'](response.msg);
             }

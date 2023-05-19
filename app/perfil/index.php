@@ -26,6 +26,7 @@ if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
             </div>
         </div>
         <div class="container">
+            <h1>Meus Serviços</h1>
             <?php
             $services = sanitize_array(getServices());
             if (count($services)) {
