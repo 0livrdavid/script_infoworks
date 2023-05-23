@@ -44,7 +44,7 @@ function bd_fetch_assoc($res) {
     return htmlspecialchars_recursive(mysqli_fetch_assoc($res));
 }
 
-function htmlspecialchars_recursive ($input, $flags = ENT_COMPAT | ENT_HTML401, $encoding = 'UTF-8', $double_encode = false) {
+function htmlspecialchars_recursive($input, $flags = ENT_COMPAT | ENT_HTML401, $encoding = 'UTF-8', $double_encode = false) {
     return sanitize_array($input);
 }
 
@@ -92,7 +92,6 @@ function bd_to_array($resultado){
 
     return $array;
 }
-
 
 function sanitizeXSS () {
     $_GET   = filter_input_array(INPUT_GET, FILTER_SANITIZE_STRING);
@@ -193,7 +192,6 @@ function seguroMysql($value){
     return $value;
 }
 
-
 function bd_last_id($res=null){
     return mysqli_insert_id($_SESSION['conexao']);
 }
@@ -231,50 +229,34 @@ function resTotalLength($conexao, $flag, $primaryKey, $table){
     return $resTotalLength[0];
 }
 
-function encrypt_password($password, $salt){
-    return base64_encode(pbkdf2_calc('sha1', $password, $salt, 10000, 1));
-}
-
-if (!function_exists('pbkdf2_calc')) {
-    function pbkdf2_calc($hash, $password, $salt, $iterations, $length)
-    {
-        $num = ceil($length / output_size_hmac($hash, true));
-        $result = '';
-        for ($block = 1; $block <= $num; $block++) {
-            $hmac = hash_hmac($hash, $salt . pack('N', $block), $password, true);
-            $mix = $hmac;
-            for ($i = 1; $i < $iterations; $i++) {
-                $hmac = hash_hmac($hash, $hmac, $password, true);
-                $mix ^= $hmac;
-            }
-            $result .= $mix;
+function pbkdf2_calc($hash, $password, $salt, $iterations, $length) {
+    $num = ceil($length / output_size_hmac($hash, true));
+    $result = '';
+    for ($block = 1; $block <= $num; $block++) {
+        $hmac = hash_hmac($hash, $salt . pack('N', $block), $password, true);
+        $mix = $hmac;
+        for ($i = 1; $i < $iterations; $i++) {
+            $hmac = hash_hmac($hash, $hmac, $password, true);
+            $mix ^= $hmac;
         }
-
-        return substr($result, 0, $length);
+        $result .= $mix;
     }
+
+    return substr($result, 0, $length);
 }
 
-if (!function_exists('output_size_hmac')) {
-    function output_size_hmac($hash, $output = false)
-    {
-        return strlen(compute_hmac('key', $hash, 'data', $output));
-    }
+function output_size_hmac($hash, $output = false) {
+    return strlen(compute_hmac('key', $hash, 'data', $output));
 }
 
-if (!function_exists('compute_hmac')) {
-    function compute_hmac($key, $hash, $data, $output = false)
-    {
-        if (empty($key)) {
-            echo "chave nula ou vazia";
-
-            return null;
-        }
-
-        return hash_hmac($hash, $data, $key, $output);
+function compute_hmac($key, $hash, $data, $output = false) {
+    if (empty($key)) {
+        echo "chave nula ou vazia";
+        return null;
     }
+
+    return hash_hmac($hash, $data, $key, $output);
 }
-
-
 
 function sanitize_string($string){ # limpa a string removendo XSS injection
     return html_entity_decode(htmlspecialchars($string, ENT_QUOTES, 'UTF-8'));
@@ -363,96 +345,4 @@ function bd_iterate_query_insert($datas, $table){
     }
 
     return ['flag' => true, 'sql' => $sql, 'result' => $result, 'inserted_id' => bd_last_id()];
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function getCards($filter) {
-    $query = "SELECT s.*,s.fk_idCategory AS categoria, s.valor, s.fk_idType AS tipoValor, u.nome, u.idade
-            FROM `service` AS s
-            JOIN `user` AS u ON u.id = s.fk_idUsuario
-            WHERE s.status = 1";
-    $dados = bd_query($query, $_SESSION['conexao'], 0);
-    return bd_iteration($dados);
-}
-
-function getServices() {
-    $query = "SELECT s.*
-            FROM `service` AS s
-            WHERE fk_idUsuario = {$_SESSION['idUsuario']}";
-    $dados = bd_query($query, $_SESSION['conexao'], 0);
-    return bd_iteration($dados);
-}
-
-function getService($id) {
-    $query = "SELECT s.*
-            FROM `service` AS s
-            WHERE fk_idUsuario = {$_SESSION['idUsuario']}";
-    $dados = bd_query($query, $_SESSION['conexao'], 0);
-    return bd_iteration($dados);
-}
-
-function getFilesService($service) {
-    $query = "SELECT f.*
-            FROM `service_file` AS sf
-            JOIN file AS f ON f.id = sf.fk_idFile
-            WHERE fk_idService = $service";
-    $dados = bd_query($query, $_SESSION['conexao'], 0);
-    return bd_iteration($dados);
-}
-
-function createUser($user) {
-    $password = encryptPassword($user['password']);
-
-    $query = 'INSERT INTO user (status, tipo, autorizado,
-                                cpf, email, idade,
-                                senha, hash, salt,
-                                nome) VALUES
-                                 (1,3,0,
-                                 "'.$user['cpf'].'","'.$user['email'].'","'.transformar_data($user['data_nascimento']).'",
-                                 "'.$password['password'].'", "'.$password['hash'].'", "'.$password['salt'].'",
-                                 "'.$user['nome'].'")';
-    $dados = bd_query($query, $_SESSION['conexao'], 0);
-
-    return $dados;
-}
-
-
-function encryptPassword($password) {
-    $salt = md5(uniqid(rand(), true));
-    $hash = sha1($salt . $password . $salt);
-    // Retorna a hash gerada para uso posterior
-    return ["password" => $password, "hash" => $hash, "salt" => $salt];
-}
-
-
-function transformar_data($data) {
-    // separa o valor em dia, mês e ano
-    $partes = explode('/', $data);
-    
-    // inverte a ordem para ano-mês-dia
-    $data_formatada = $partes[2] . '-' . $partes[1] . '-' . $partes[0];
-    
-    return $data_formatada;
-}
-
-function converte_data($data) {
-    // separa o valor em dia, mês e ano
-    $partes = explode('-', $data);
-    
-    // inverte a ordem para ano-mês-dia
-    $data_formatada = $partes[2] . '/' . $partes[1] . '/' . $partes[0];
-    
-    return $data_formatada;
 }

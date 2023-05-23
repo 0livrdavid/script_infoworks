@@ -69,7 +69,7 @@ function changeFunctionBtnCrop(img) {
 }
 
 function changeAccordionImage(input) {
-    var index
+    var index;
     var files = input.files;
     var accordion = document.getElementById('accordion_image');
     accordion.innerHTML = '';

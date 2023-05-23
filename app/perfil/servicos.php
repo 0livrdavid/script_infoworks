@@ -13,7 +13,7 @@
             </div>
             <div>
                 <button class="btn btn-primary" onclick="window.location.href='../servicos/?id=<?php echo $service['id'] ?>'">EDITAR</button>
-                <button class="btn btn-primary" onclick="window.location.href='../servicos/?id=<?php echo $service['id'] ?>'">ABRIR</button>
+                <a href="../servicos/?id=<?php echo $service['id'] ?>" target="_blank"><button class="btn btn-primary">ABRIR</button></a>
             </div>
         </div>
     </div>

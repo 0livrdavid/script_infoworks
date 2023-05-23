@@ -7,23 +7,23 @@
     border-radius: 15px;
     height: 6rem;
     box-shadow: 10px 10px 15px rgba(0, 0, 0, .2)
-  }
-  
-  .img_logo_dashboard {
+}
+
+.img_logo_dashboard {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-left: 15px;
     height: 4em
-  }
-  
-  .img_logo_dashboard img {
+}
+
+.img_logo_dashboard img {
     width: 100%;
     height: 100%
-  }
-  
-  .botao-noti {
+}
+
+.botao-noti {
     cursor: pointer;
     width: 100%;
     height: 100%;
@@ -32,15 +32,15 @@
     justify-content: center;
     border: none;
     align-items: center
-  }
-  
-  .botao-noti img {
+}
+
+.botao-noti img {
     height: 100%;
     object-fit: cover;
     object-position: center bottom
-  }
-  
-  .botao-circular {
+}
+
+.botao-circular {
     cursor: pointer;
     width: 100%;
     height: 100%;
@@ -52,61 +52,61 @@
     background-color: transparent;
     margin-top: 10px;
     margin-bottom: 10px
-  }
-  
-  .botao-circular img {
+}
+
+.botao-circular img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
     object-fit: cover;
     object-position: center bottom
-  }
-  
-  .perfil {
+}
+
+.perfil {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 5em
-  }
-  
-  .notificao {
+}
+
+.notificao {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 2em
-  }
-  
-  .logo-dashboard {
+}
+
+.logo-dashboard {
     margin-left: 5px
-  }
-  
-  .header-logo {
+}
+
+.header-logo {
     display: flex;
     justify-content: center;
     align-items: center
-  }
-  
-  .header-menu-logout {
+}
+
+.header-menu-logout {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 1.2rem
-  }
-  
-  .botao-login {
+}
+
+.botao-login {
     color: #fff;
     padding: .6rem 1.5rem
-  }
-  
-  .header-menu-logged {
+}
+
+.header-menu-logged {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0 1.2rem;
     column-gap: .8rem
-  }
-  
-  .button {
+}
+
+.button {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,25 +119,35 @@
     font-weight: 700;
     cursor: pointer;
     text-decoration: none
-  }
-  
-  .button:hover {
+}
+
+.button:hover {
     background: #e9f4fb;
     color: #3b2b83;
     border: 2px solid #3b2b83
-  }
-  
-  .nome {
+}
+
+.nome {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap
-  }
-  
-  #perfil_output {
+}
+
+#perfil_output {
     width: 100;
-  }
+}
 
 
 
 
-  
+.adverts {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    background-color: rgb(130, 179, 243);
+    padding: 1vw;
+    gap: 1rem;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
+}
