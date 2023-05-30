@@ -1,3 +1,8 @@
+<?php 
+require_once '../../config.php';
+componentPhpFile();
+?>
+
 <div id="modal-sem-cadastro" class="modal">
     <div class="div-modal-content">
         <div class="tituloModal">

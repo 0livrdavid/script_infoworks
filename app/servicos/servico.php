@@ -1,3 +1,8 @@
+<?php 
+require_once '../../config.php';
+componentPhpFile();
+?>
+
 <div class="section">
     <h3><?php echo $service['fk_idCategory'] ?></h3>
     <div id="<?php echo $service['id'] ?>" class="row" style="margin-top: 30px;">

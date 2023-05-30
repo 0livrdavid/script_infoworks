@@ -1,3 +1,8 @@
+<?php 
+require_once '../../config.php';
+componentPhpFile();
+?>
+
 <div id="<?php echo "card_id_" . $key ?>" class="card">
     <div class="div-card">
         <div class="imgCargo">

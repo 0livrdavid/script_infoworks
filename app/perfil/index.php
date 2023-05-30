@@ -1,11 +1,15 @@
 <?php
 require_once '../../config.php';
+componentPhpFile();
+verificaUsuario();
+if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
 require_once '../../layout/start.php';
+
 
 $estados = getEstados();
 $cidades = getCidades();
 
-if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
+
 ?>
 
 <div id="div-perfil" class="container-fluid" style="margin: 0 auto; width: 90vw; height: 100vh">
@@ -14,8 +18,6 @@ if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
     <div class="form-user">
         <div class="container">
             <h1>Perfil</h1>
-        </div>
-        <div class="container">
             <?php include "./form_user.php" ?>
         </div>
         <div class="container">

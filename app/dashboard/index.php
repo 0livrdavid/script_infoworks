@@ -1,11 +1,11 @@
 <?php
 require_once '../../config.php';
+componentPhpFile();
+if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
 require_once '../../layout/start.php';
 
 if (!isset($_GET['filtro'])) $_GET['filtro'] = "todos";
 $filter = $_GET['filtro'];
-
-if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
 ?>
 
 <div id="div-dashboard" class="container-fluid" style="margin: 0 auto; width: 90vw; height: 100vh">

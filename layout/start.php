@@ -1,4 +1,7 @@
 <?php
+require_once '../../config.php';
+componentPhpFile();
+
 include_once "../../layout/header.php";
 include_once "../../layout/style.php";
 include_once "../../layout/assets.php";

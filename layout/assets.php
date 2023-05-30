@@ -1,3 +1,8 @@
+<?php 
+require_once '../../config.php';
+componentPhpFile();
+?>
+
 <script type="text/javascript" src="../../src/assets/jquery/jquery-3.6.4.min.js"></script>
 <script type="text/javascript" src="../../src/assets/jquery/jquery-mask.js"></script>
 <script type="text/javascript" src="../../src/assets/jquery/jquery-maskmoney.js"></script>

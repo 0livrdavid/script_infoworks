@@ -1,5 +1,6 @@
 <?php
 require_once '../../config.php';
+componentPhpFile();
 
 $acao = $_POST['acao'];
 

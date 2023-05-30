@@ -1,3 +1,8 @@
+<?php 
+require_once '../../config.php';
+componentPhpFile();
+?>
+
 <!--FAVICON-->
 <link rel="icon" type="image/x-icon" href="<?php echo URL_BASE_ASSETS_PICTURES; ?>InfoWorks_logo_fundo.ico">
 

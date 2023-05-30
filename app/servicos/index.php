@@ -1,10 +1,11 @@
 <?php
 require_once '../../config.php';
+componentPhpFile();
+verificaUsuario();
+if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
 require_once '../../layout/start.php';
 
 $idServico = $_GET['id'];
-
-if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
 ?>
 
 <div id="div-servicos" class="container-fluid" style="margin: 0 auto; width: 90vw; height: 100vh">

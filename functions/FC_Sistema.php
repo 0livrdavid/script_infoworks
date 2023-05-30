@@ -1,4 +1,5 @@
 ﻿<?php
+componentPhpFile();
 
 function resume_nome($nome){
     $split_name = explode(" ",$nome);
@@ -255,7 +256,12 @@ function converte_data($data) {
     return $data_formatada;
 }
 
-
+function verificaUsuario() {
+    if (!isset($_SESSION['usuario'])) {
+        header("location: ".URL_BASE_APP."dashboard/");
+        exit();
+    }
+}
 
 
 

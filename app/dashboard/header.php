@@ -1,3 +1,8 @@
+<?php 
+require_once '../../config.php';
+componentPhpFile();
+?>
+
 <div class="header">
     <div class="header-logo">
         <div class="logo-dashboard">

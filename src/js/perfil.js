@@ -73,7 +73,7 @@ function deslogarUsuario() {
         success: function (response) {
             response = JSON.parse(response);
             if (response.flag) {
-                window.location.href = "../dashboard/index.php";
+                window.location.href = "../dashboard/";
             } else {
                 toastr['warning'](response.msg);
             }
