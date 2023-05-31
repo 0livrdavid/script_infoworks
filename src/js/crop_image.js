@@ -69,13 +69,22 @@ function changeFunctionBtnCrop(img) {
 }
 
 function changeAccordionImage(input) {
-    var index;
-    var files = input.files;
+    var files;
     var accordion = document.getElementById('accordion_image');
     accordion.innerHTML = '';
 
+    // Verifica se a entrada é uma instância de FileList (por exemplo, de um elemento de entrada)
+    if (input instanceof FileList) {
+        files = Array.from(input);
+    } else if (Array.isArray(input)) { // Verifica se a entrada é um array
+        files = input;
+    } else {
+        console.error('Entrada inválida para changeAccordionImage');
+        return;
+    }
+
     if (files.length > 0) {
-        Array.from(files).forEach(function (file, index) {
+        files.forEach(function (file, index) {
             var accordionItem = document.createElement('div');
             accordionItem.className = 'accordion-item';
 
@@ -90,7 +99,7 @@ function changeAccordionImage(input) {
             accordionButton.setAttribute('data-bs-target', '#flush-collapse-' + index);
             accordionButton.setAttribute('aria-expanded', 'false');
             accordionButton.setAttribute('aria-controls', 'flush-collapse-' + index);
-            accordionButton.innerText = file.name;
+            accordionButton.innerText = file.filename || file.name;
 
             var accordionCollapse = document.createElement('div');
             accordionCollapse.id = 'flush-collapse-' + index;
@@ -100,8 +109,10 @@ function changeAccordionImage(input) {
 
             var accordionBody = document.createElement('div');
             accordionBody.className = 'accordion-body';
-            
-            accordionBody.innerHTML = '<img style="width: 100%; object-fit: cover;" src="' + URL.createObjectURL(file) + '">';
+
+            // Verifica se o arquivo é do tipo File ou objeto (do seu array de PHP)
+            var fileURL = file instanceof File ? URL.createObjectURL(file) : file.filepath;
+            accordionBody.innerHTML = '<img style="width: 100%; object-fit: cover;" src="' + fileURL + '">';
 
             // Adiciona os elementos ao DOM
             accordion.appendChild(accordionItem);

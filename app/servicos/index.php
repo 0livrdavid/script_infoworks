@@ -1,7 +1,6 @@
 <?php
 require_once '../../config.php';
-componentPhpFile();
-verificaUsuario();
+$isUserMaster = verificaUsuario(1);
 if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
 require_once '../../layout/start.php';
 

@@ -1,15 +1,11 @@
 <?php
 require_once '../../config.php';
-componentPhpFile();
 verificaUsuario();
 if (isset($_SESSION['usuario']['cpf'])) atualizarSessionUsuario();
 require_once '../../layout/start.php';
 
-
 $estados = getEstados();
 $cidades = getCidades();
-
-
 ?>
 
 <div id="div-perfil" class="container-fluid" style="margin: 0 auto; width: 90vw; height: 100vh">

@@ -1,8 +1,3 @@
-<?php 
-require_once '../../config.php';
-componentPhpFile();
-?>
-
 <div id="<?php echo $service['id'] ?>" class="row">
     <div class="col section">
         <h3><?php echo $service['fk_idCategory'] ?></h3>
@@ -17,7 +12,7 @@ componentPhpFile();
                 <p>5 - 33 Avaliações</p>
             </div>
             <div>
-                <button class="btn btn-primary" onclick="window.location.href='../servicos/?id=<?php echo $service['id'] ?>'">EDITAR</button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-adicionar-servico" onclick="getServico(<?php echo $service['id'] ?>)">EDITAR</button>
                 <a href="../servicos/?id=<?php echo $service['id'] ?>" target="_blank"><button class="btn btn-primary">ABRIR</button></a>
             </div>
         </div>

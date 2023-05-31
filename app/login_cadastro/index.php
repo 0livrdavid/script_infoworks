@@ -1,6 +1,5 @@
 <?php
 require_once '../../config.php';
-componentPhpFile();
 require_once '../../layout/start.php';
 
 $page = (string) $_POST['page'];

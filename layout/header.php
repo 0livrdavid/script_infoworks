@@ -1,8 +1,3 @@
-<?php 
-require_once '../../config.php';
-componentPhpFile();
-?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>

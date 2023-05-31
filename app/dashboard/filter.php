@@ -1,8 +1,3 @@
-<?php 
-require_once '../../config.php';
-componentPhpFile();
-?>
-
 <div class="filter">
     <div class="pesquisa">
         <div class="caixa-busca">

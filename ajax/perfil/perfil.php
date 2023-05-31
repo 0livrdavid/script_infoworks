@@ -1,6 +1,5 @@
 <?php
 require_once '../../config.php';
-componentPhpFile();
 
 $acao = $_POST['acao'];
 
@@ -191,6 +190,25 @@ if ($acao == "SalvarPerfil") {
     } else {
         $response['flag'] = false;
         $response['msg'] = "Você não tem autorização para editar nesse perfil!";
+    }
+
+    echo json_encode($response);
+} else if ($acao ==  "GetServico") {
+    $service = getService($_POST['id'])[0];
+    if (is_array($service)) {
+        $response['service'] = $service;
+        $response['image'] = getFilesService($response['service']['id']);
+        var_dump($response['image']);
+        var_dump(NULL);
+        var_dump(NULL);
+        var_dump(NULL);
+        var_dump(NULL);
+        var_dump(NULL);
+        $response['flag'] = true;
+        $response['msg'] = "Serviço achado com sucesso!";
+    } else {
+        $response['flag'] = false;
+        $response['msg'] = "Erro ao procurar serviço!";
     }
 
     echo json_encode($response);

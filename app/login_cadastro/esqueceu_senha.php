@@ -1,8 +1,3 @@
-<?php 
-require_once '../../config.php';
-componentPhpFile();
-?>
-
 <div class="logo-login-cadastro">
     <div class="logo-login-cadastro">
         <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>InfoWorks_logo.png" alt="" srcset="">

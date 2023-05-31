@@ -1,6 +1,4 @@
 <?php
-componentPhpFile();
-
 $conexao = bd_Conexao($database_server, $database_username, $database_password, $database_name);
 $_SESSION['conexao'] = $conexao;
 
