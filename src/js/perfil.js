@@ -159,13 +159,13 @@ function getServico(id) {
         },
         success: function (response) {
             response = JSON.parse(response);
-            console.log(response.service)
             if (response.flag) {
                 service = response.service
                 $('#servico_categoria').find('option:contains("' + service.fk_idCategory + '")').prop('selected', true);
                 $('#servico_preco').val(service.valor);
                 $('#servico_tipo').find('option:contains("' + service.fk_idType + '")').prop('selected', true);
                 $('#servico_descricao').val(service.descricao);
+                changeAccordionImage(response.imagens, 'service_accordion_image');
             } else {
                 toastr['warning'](response.msg);
             }

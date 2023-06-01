@@ -19,7 +19,7 @@ $cidades = getCidades();
         <div class="container">
             <div style="float: right;">
                 <button class="btn btn-outline-danger" onclick="deslogarUsuario()">Deslogar</button>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-adicionar-servico">Adicionar Serviço</button>
+                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-adicionar-servico" onclick="$('#servico_categoria').val(''); $('#servico_preco').val(''); $('#servico_tipo').val(''); $('#servico_descricao').val(''); document.getElementById('service_accordion_image').innerHTML = '';">Adicionar Serviço</button>
                 <button class="btn btn-primary" onclick="salvarPerfil()">Salvar</button>
             </div>
         </div>

@@ -140,7 +140,7 @@ if ($acao == "SalvarPerfil") {
                     if ($fileError === UPLOAD_ERR_OK) {
                         $data = [
                             'fk_idUsuario' => (int) $user['id'],
-                            'filepath' => 'avatar/'.$fileName.'.jpg',
+                            'filepath' => 'service/'.$fileName.'.jpg',
                             'filename' => $fileName,
                             'filesize' => $fileSize,
                             'filetype' => $fileType,
@@ -197,13 +197,12 @@ if ($acao == "SalvarPerfil") {
     $service = getService($_POST['id'])[0];
     if (is_array($service)) {
         $response['service'] = $service;
-        $response['image'] = getFilesService($response['service']['id']);
-        var_dump($response['image']);
-        var_dump(NULL);
-        var_dump(NULL);
-        var_dump(NULL);
-        var_dump(NULL);
-        var_dump(NULL);
+        $response['imagens'] = getFilesService($response['service']['id']);
+        foreach ($response['imagens'] as $key => $value) {
+            $imagens[$key]['filename'] = $value['filename'];
+            $imagens[$key]['filepath'] = URL_BASE_FILES.$value['filepath'];
+        }
+        $response['imagens'] = $imagens;
         $response['flag'] = true;
         $response['msg'] = "Serviço achado com sucesso!";
     } else {

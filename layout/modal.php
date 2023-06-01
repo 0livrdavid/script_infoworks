@@ -53,8 +53,8 @@
                             <label for="servico_descricao" class="form-label">Descrição do serviço:</label>
                             <textarea id="servico_descricao" class="form-control" placeholder="Adicione sua Descrição aqui" rows="5"></textarea>
                             <label for="imagens[]" class="form-label">Inserir imagens</label>
-                            <input class="form-control" type="file" id="servico_imagens" onchange="changeAccordionImage(this)" accept="image/png, image/jpeg" multiple>
-                            <div class="accordion accordion-flush" id="accordion_image" style="margin-top: 15px"></div>
+                            <input class="form-control" type="file" id="servico_imagens" onchange="changeAccordionImage(this, 'service_accordion_image')" accept="image/png, image/jpeg" multiple>
+                            <div class="accordion accordion-flush" id="service_accordion_image" style="margin-top: 15px"></div>
                         </div>
                     </div>
                 </div>

@@ -68,58 +68,57 @@ function changeFunctionBtnCrop(img) {
     };
 }
 
-function changeAccordionImage(input) {
+function createAccordionElements(accordion, file, index, isFileList) {
+    var accordionItem = document.createElement('div');
+    accordionItem.className = 'accordion-item';
+
+    var accordionHeader = document.createElement('h2');
+    accordionHeader.className = 'accordion-header';
+    accordionHeader.id = 'flush-heading-' + index;
+
+    var accordionButton = document.createElement('button');
+    accordionButton.className = 'accordion-button collapsed';
+    accordionButton.type = 'button';
+    accordionButton.setAttribute('data-bs-toggle', 'collapse');
+    accordionButton.setAttribute('data-bs-target', '#flush-collapse-' + index);
+    accordionButton.setAttribute('aria-expanded', 'false');
+    accordionButton.setAttribute('aria-controls', 'flush-collapse-' + index);
+    accordionButton.innerText = isFileList ? file.name : file.filename;
+
+    var accordionCollapse = document.createElement('div');
+    accordionCollapse.id = 'flush-collapse-' + index;
+    accordionCollapse.className = 'accordion-collapse collapse';
+    accordionCollapse.setAttribute('aria-labelledby', 'flush-heading-' + index);
+    accordionCollapse.setAttribute('data-bs-parent', '#accordion_image');
+
+    var accordionBody = document.createElement('div');
+    accordionBody.className = 'accordion-body';
+
+    var imageSrc = isFileList ? URL.createObjectURL(file) : file.filepath;
+    accordionBody.innerHTML = `<img style="width: 100%; object-fit: cover;" src="${imageSrc}">`;
+
+    accordion.appendChild(accordionItem);
+    accordionItem.appendChild(accordionHeader);
+    accordionHeader.appendChild(accordionButton);
+    accordionItem.appendChild(accordionCollapse);
+    accordionCollapse.appendChild(accordionBody);
+}
+
+function changeAccordionImage(input, div) {
     var files;
-    var accordion = document.getElementById('accordion_image');
+    var accordion = document.getElementById(div);
     accordion.innerHTML = '';
 
-    // Verifica se a entrada é uma instância de FileList (por exemplo, de um elemento de entrada)
-    if (input instanceof FileList) {
-        files = Array.from(input);
-    } else if (Array.isArray(input)) { // Verifica se a entrada é um array
-        files = input;
-    } else {
-        console.error('Entrada inválida para changeAccordionImage');
-        return;
-    }
-
-    if (files.length > 0) {
-        files.forEach(function (file, index) {
-            var accordionItem = document.createElement('div');
-            accordionItem.className = 'accordion-item';
-
-            var accordionHeader = document.createElement('h2');
-            accordionHeader.className = 'accordion-header';
-            accordionHeader.id = 'flush-heading-' + index;
-
-            var accordionButton = document.createElement('button');
-            accordionButton.className = 'accordion-button collapsed';
-            accordionButton.type = 'button';
-            accordionButton.setAttribute('data-bs-toggle', 'collapse');
-            accordionButton.setAttribute('data-bs-target', '#flush-collapse-' + index);
-            accordionButton.setAttribute('aria-expanded', 'false');
-            accordionButton.setAttribute('aria-controls', 'flush-collapse-' + index);
-            accordionButton.innerText = file.filename || file.name;
-
-            var accordionCollapse = document.createElement('div');
-            accordionCollapse.id = 'flush-collapse-' + index;
-            accordionCollapse.className = 'accordion-collapse collapse';
-            accordionCollapse.setAttribute('aria-labelledby', 'flush-heading-' + index);
-            accordionCollapse.setAttribute('data-bs-parent', '#accordion_image');
-
-            var accordionBody = document.createElement('div');
-            accordionBody.className = 'accordion-body';
-
-            // Verifica se o arquivo é do tipo File ou objeto (do seu array de PHP)
-            var fileURL = file instanceof File ? URL.createObjectURL(file) : file.filepath;
-            accordionBody.innerHTML = '<img style="width: 100%; object-fit: cover;" src="' + fileURL + '">';
-
-            // Adiciona os elementos ao DOM
-            accordion.appendChild(accordionItem);
-            accordionItem.appendChild(accordionHeader);
-            accordionHeader.appendChild(accordionButton);
-            accordionItem.appendChild(accordionCollapse);
-            accordionCollapse.appendChild(accordionBody);
-        });
+    if (input.length > 0) {
+        if (input instanceof FileList) {
+            files = input.files;
+            Array.from(files).forEach((file, index) => createAccordionElements(accordion, file, index, true));
+        } else if (Array.isArray(input)) {
+            files = input;
+            Array.from(files).forEach((file, index) => createAccordionElements(accordion, file, index, false));
+        } else {
+            console.error('Entrada inválida para changeAccordionImage');
+            return;
+        }
     }
 }
