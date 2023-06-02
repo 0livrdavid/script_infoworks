@@ -8,9 +8,9 @@ $filter = $_GET['filtro'];
 ?>
 
 <div id="div-dashboard" class="container-fluid" style="margin: 0 auto; width: 90vw; height: 100vh">
-    <?php 
-        include "./header.php";
-        include "./filter.php";
+    <?php
+    include "./header.php";
+    include "./filter.php";
     ?>
 
     <div class="adverts">
@@ -31,7 +31,11 @@ $filter = $_GET['filtro'];
 
 <script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>dashboard.js"></script>
 <script type="text/javascript">
-  switchLoginDashboard('<?php echo isset($_SESSION['usuario']) ? "logged" : "logout"; ?>');
+    switchLoginDashboard('<?php echo isset($_SESSION['usuario']) ? "logged" : "logout"; ?>');
+
+    document.getElementById('button_modal_servico').addEventListener('click', () => {
+
+    })
 </script>
 
 <?php

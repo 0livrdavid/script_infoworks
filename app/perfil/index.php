@@ -19,7 +19,7 @@ $cidades = getCidades();
         <div class="container">
             <div style="float: right;">
                 <button class="btn btn-outline-danger" onclick="deslogarUsuario()">Deslogar</button>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-adicionar-servico" onclick="$('#servico_categoria').val(''); $('#servico_preco').val(''); $('#servico_tipo').val(''); $('#servico_descricao').val(''); document.getElementById('service_accordion_image').innerHTML = '';">Adicionar Serviço</button>
+                <button id="button_modal_servico" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-adicionar-servico">Adicionar Serviço</button>
                 <button class="btn btn-primary" onclick="salvarPerfil()">Salvar</button>
             </div>
         </div>
@@ -42,6 +42,14 @@ $cidades = getCidades();
 <script defer src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>crop_image.js"></script>
 <script type="text/javascript">
     switchLoginDashboard('<?php echo isset($_SESSION['usuario']) ? "logged" : "logout"; ?>');
+
+    document.getElementById('button_modal_servico').addEventListener('click', () => {
+        $('#servico_categoria').val('');
+        $('#servico_preco').val('');
+        $('#servico_tipo').val('');
+        $('#servico_descricao').val('');
+        document.getElementById('service_accordion_image').innerHTML = '';
+    })
 </script>
 
 <?php

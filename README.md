@@ -33,7 +33,7 @@ To install TaskFinder, follow these steps:
 
 * Clone the repository  
 * Open the project in your preferred code editor  
-* Open the index.html file in your browser  
+* Open the index.php file in your browser  
 
 # Usage
 To use TaskFinder, follow these steps:  
