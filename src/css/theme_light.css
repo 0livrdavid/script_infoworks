@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
-@import url('./bootstrap.css');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap");
+@import url("./bootstrap.css");
 
 * {
   font-family: "Poppins", sans-serif !important;
@@ -92,8 +92,8 @@ body {
   row-gap: 1rem;
 }
 
-.rating-color{
-  color:#fbc634 !important;
+.rating-color {
+  color: #fbc634 !important;
 }
 
 .section {
@@ -102,4 +102,8 @@ body {
   border-radius: 20px;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
   background-color: #ffffff;
+}
+
+.tema {
+  color: #3b2b83 !important;
 }

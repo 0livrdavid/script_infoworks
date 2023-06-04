@@ -1,5 +1,5 @@
 <div class="section">
-    <h3><?php echo $service['fk_idCategory'] ?></h3>
+    <h3 class="tema"><?php echo $service['fk_idCategory'] ?></h3>
     <div id="<?php echo $service['id'] ?>" class="row" style="margin-top: 30px;">
         <div class="col">
             <?php include './carrosel.php' ?>
