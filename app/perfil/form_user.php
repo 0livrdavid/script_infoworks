@@ -2,7 +2,7 @@
     <div class="col-6 section">
         <div class="row" style="gap: 1rem">
             <div class="col">
-                <h4>Dados do Usuário</h4>
+                <h4 class="tema">Dados do Usuário</h4>
                 <label for="nome" class="form-label">Nome completo:</label>
                 <input name="nome" id="nome" class="form-control" type="text" value="<?php echo $_SESSION['usuario']['nome'] ?>" disabled>
                 <label for="cpf" class="form-label">CPF:</label>
@@ -13,7 +13,7 @@
                 <input name="nascimento" id="nascimento" class="form-control" type="text" value="<?php echo converte_data($_SESSION['usuario']['idade']) ?>" disabled>
             </div>
             <div class="col d-table" style="text-align: center;" >
-                <h4 class="">Foto de Perfil</h4>
+                <h4 class="tema">Foto de Perfil</h4>
                 <div class="d-table-row" style="text-align: center;">
                     <img id="img_perfil" style="border-radius: 50%; object-fit: cover; width: 14rem" src="../../files/avatar/<?php echo (isset($_SESSION['usuario']['imagem_perfil'])) ? $_SESSION['usuario']['imagem_perfil'] : 'avatar.png'; ?>" alt="Perfil">
                 </div>
@@ -23,7 +23,7 @@
     </div>
 
     <div class="col section">
-        <h4>Dados de Endereço</h4>
+        <h4 class="tema">Dados de Endereço</h4>
         <label for="cep" class="form-label">CEP:</label>
         <div class="input-group mb-3">
             <input type="text" name="cep" id="cep" class="form-control mask-cep" value="<?php echo $_SESSION['usuario']['cep'] ?>" placeholder="_____-___" aria-label="_____-___" aria-describedby="button-discovery-cep">
@@ -72,7 +72,7 @@
 
 <div class="row">
     <div class="col-8 section">
-        <h4>Dados Pessoais</h4>
+        <h4 class="tema">Dados Pessoais</h4>
         <label for="sobre_mim" class="form-label">Fale sobre você:</label>
         <textarea name="sobre_mim" id="sobre_mim" class="form-control" rows="5"><?php echo $_SESSION['usuario']['sobre_mim'] ?></textarea>
         <label for="formacao" class="form-label">Formação:</label>
@@ -80,7 +80,7 @@
     </div>
 
     <div class="col section">
-        <h4>Dados de Contato</h4>
+        <h4 class="tema">Dados de Contato</h4>
         <label for="telefone" class="form-label">Telefone:</label>
         <input name="telefone" id="telefone" class="form-control" type="text" placeholder="(__) 9____-____" value="<?php echo $_SESSION['usuario']['telefone'] ?>">
         <label for="whatsapp" class="form-label">Whatsapp:</label>

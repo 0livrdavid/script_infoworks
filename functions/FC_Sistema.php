@@ -187,6 +187,7 @@ function atualizarSessionUsuario()
     $user = getUser($_SESSION['usuario']['cpf']);
     $_SESSION['usuario'] = (array) $user;
     $_SESSION['usuario_nome'] = (string) html_entity_decode($_SESSION['usuario']['nome']);
+    $_SESSION['usuario_nome_resumido'] = resume_nome($_SESSION['usuario_nome']);
     $_SESSION['idUsuario'] = (int) $_SESSION['usuario']['id'];
     $_SESSION['cpfUsuario'] = (string) $_SESSION['usuario']['cpf'];
     $_SESSION['usuario']['imagem_perfil'] = getImageProfileUser($user['id'])['imagem'];

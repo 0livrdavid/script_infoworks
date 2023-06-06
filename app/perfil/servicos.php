@@ -1,6 +1,6 @@
 <div id="<?php echo $service['id'] ?>" class="row">
     <div class="col section">
-        <h3><?php echo $service['fk_idCategory'] ?></h3>
+        <h4 class="tema"><?php echo $service['fk_idCategory'] ?></h4>
         <p id="meuParagrafo"><?php echo $service['descricao'] ?></p>
         <div style="display: flex; justify-content: space-between; flex-direction: row;">
             <div>

@@ -1,4 +1,4 @@
-<div id="<?php echo "card_id_" . $key ?>" class="card">
+<div id="<?php echo "card_id_" . $card['id'] ?>" class="card">
     <div class="div-card">
         <div class="imgCargo">
             <?php include './carrosel.php' ?>
@@ -11,6 +11,12 @@
             <i class="bi bi-star-fill rating-color"></i>
             <p>4,5 - 33 Avaliações</p>
         </div>
-        <button href="#" class="button" onclick="abrirModal('modal-sem-cadastro')">Mais Detalhes</button>
+        <?php
+        if ($isLogged) {
+            echo "<button href=\"javascript:;\" class=\"button\" onclick=\"window.location.href='../servicos/?id={$card['id']}'\">Mais Detalhes</button>";
+        } else {
+            echo "<button href=\"javascript:;\" class=\"button\" onclick=\"abrirModal('modal-sem-cadastro')\">Mais Detalhes</button>";
+        }
+        ?>
     </div>
 </div>
