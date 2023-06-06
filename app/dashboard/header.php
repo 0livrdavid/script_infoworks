@@ -3,7 +3,7 @@
         <div class="logo-dashboard">
             <a href="index.php">
                 <div class="img_logo_dashboard">
-                    <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>InfoWorks_logo.png" alt="logo">
+                    <img src="<?php echo URL_BASE_ASSETS_IMG; ?>InfoWorks_logo.png" alt="logo">
                 </div>
             </a>
         </div>
@@ -14,7 +14,7 @@
     <div class="header-menu-logged">
         <div class="notificao">
             <button class="botao-noti">
-                <img src="<?php echo URL_BASE_ASSETS_PICTURES; ?>notification.png" alt="Notificações">
+                <img src="<?php echo URL_BASE_ASSETS_IMG; ?>notification.png" alt="Notificações">
             </button>
         </div>
         <p style="color: #fff; margin-bottom: 0"><?php echo $_SESSION['usuario_nome'] ?></p>

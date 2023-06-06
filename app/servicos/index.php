@@ -14,6 +14,7 @@ $idServico = $_GET['id'];
         <h1>Serviço</h1>
         <?php
         $service = sanitize_array(getService($idServico))[0];
+        $user = sanitize_array(getUser("",$service['fk_idUsuario']));
         if (count($service)) {
             include "./servico.php";
         } else { ?>

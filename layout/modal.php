@@ -9,7 +9,7 @@
                 <p>Para ver mais informações do serviço ou informações de contato acesse a sua conta.</p>
             </div>
             <div class="imgModal">
-                <img src="../../src/pictures/InfoWorks_logo.png" alt="Lights">
+                <img src="../../src/img/InfoWorks_logo.png" alt="Lights">
             </div>
         </div>
         <div class="rodapeModal">
