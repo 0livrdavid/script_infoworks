@@ -1,9 +1,6 @@
 <!--FAVICON-->
 <link rel="icon" type="image/x-icon" href="<?php echo URL_BASE_ASSETS_IMG; ?>InfoWorks_logo_fundo.ico">
 
-<!--RESET CSS-->
-<link rel="stylesheet" type="text/css" href="<?php echo URL_BASE_ASSETS_CSS; ?>reset.css">
-
 <!--CSS-->
 <link rel="stylesheet" type="text/css" href="<?php echo URL_BASE_ASSETS_CSS; ?>theme_light.css">
 <link rel="stylesheet" type="text/css" href="<?php echo URL_BASE_ASSETS_CSS; ?>modify.css">

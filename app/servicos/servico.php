@@ -10,15 +10,21 @@
                <hr>
                <h4 class="tema">Dados de Contato</h4>
                <ul style="padding-left: 0;">
-                    <?php if ($user['whatsapp'] != "") { ?><li><i class="bi bi-whatsapp"></i><span style="margin-left: 10px;"><?php echo $user['whatsapp'] ?></span></li><?php } ?>
-                    <?php if ($user['instagram'] != "") { ?><li><i class="bi bi-instagram"></i><span style="margin-left: 10px;"><?php echo $user['instagram'] ?></span></li><?php } ?>
-                    <?php if ($user['email'] != "") { ?><li><i class="bi bi-envelope-at"></i><span style="margin-left: 10px;"><?php echo $user['email'] ?></span></li><?php } ?>
+                    <?php if ($user['whatsapp'] != "") { ?><li style="list-style: none;"><i class="bi bi-whatsapp"></i><span style="margin-left: 10px;"><a href="https://api.whatsapp.com/send?phone=<?php echo $user['whatsapp'] ?>"><?php echo $user['whatsapp'] ?></a></span></li><?php } ?>
+                    <?php if ($user['instagram'] != "") { ?><li style="list-style: none;"><i class="bi bi-instagram"></i><span style="margin-left: 10px;"><a href="<?php echo $user['instagram'] ?>"><?php echo $user['instagram'] ?></a></span></li><?php } ?>
+                    <?php if ($user['email'] != "") { ?><li style="list-style: none;"><i class="bi bi-envelope-at"></i><span style="margin-left: 10px;"><a href="mailto:<?php echo $user['email'] ?>"><?php echo $user['email'] ?></a></span></li><?php } ?>
                </ul>
           </div>
      </div>
      <div class="row" style="margin-top: 30px;">
-          <h4 class="tema">Descrição do Serviço</h4>
-          <p id="meuParagrafo"><?php echo $service['descricao'] ?></p>
-          <h4 class="tema">Avaliação</h4>
+          <div class="col">
+               <h4 class="tema">Descrição do Serviço</h4>
+               <p id="meuParagrafo"><?php echo $service['descricao'] ?></p>
+          </div>
+     </div>
+     <div class="row">
+          <div class="col">
+               <h4 class="tema">Avaliação</h4>
+          </div>
      </div>
 </div>

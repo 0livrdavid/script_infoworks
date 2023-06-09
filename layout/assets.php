@@ -11,3 +11,7 @@
 
 <script type="text/javascript" src="../../src/assets/cropper/cropper.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../../src/assets/cropper/cropper.min.css">
+
+<link rel="stylesheet" href="../../src/assets/summernote/summernote.min.css">
+<script src="../../src/assets/summernote/summernote.min.js"></script>
+

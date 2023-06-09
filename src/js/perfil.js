@@ -46,7 +46,7 @@ function salvarPerfil() {
     $.ajax({
         method: "POST",
         datatype: "json",
-        url: "../../ajax/perfil/perfil.php",
+        url: "../../api/perfil/perfil.php",
         data: data,
         success: function (response) {
             response = JSON.parse(response);
@@ -66,7 +66,7 @@ function deslogarUsuario() {
     $.ajax({
         method: "POST",
         datatype: "json",
-        url: "../../ajax/perfil/perfil.php",
+        url: "../../api/perfil/perfil.php",
         data: {
             'acao': 'DeslogarUsuario'
         },
@@ -92,7 +92,7 @@ function salvarImagemPerfil() {
     data.append('imagem', $('#img_input_perfil3')[0].files[0]);
 
     $.ajax({
-        url: '../../ajax/perfil/perfil.php',
+        url: '../../api/perfil/perfil.php',
         type: 'POST',
         data: data,
         contentType: false,
@@ -120,7 +120,7 @@ function criarServico() {
     data.append('servico_categoria', $('#servico_categoria').val());
     data.append('servico_preco', $('#servico_preco').val());
     data.append('servico_tipo', $('#servico_tipo').val());
-    data.append('servico_descricao', $('#servico_descricao').val());
+    data.append('servico_descricao', $('#servico_descricao').summernote('code'));
 
     var files = $('#servico_imagens')[0].files;
     for (var i = 0; i < files.length; i++) {
@@ -128,7 +128,7 @@ function criarServico() {
     }
 
     $.ajax({
-        url: "../../ajax/perfil/perfil.php",
+        url: "../../api/perfil/perfil.php",
         type: "POST",
         data: data,
         contentType: false,
@@ -152,7 +152,7 @@ function getServico(id) {
     $.ajax({
         method: "POST",
         datatype: "json",
-        url: "../../ajax/perfil/perfil.php",
+        url: "../../api/perfil/perfil.php",
         data: {
             'acao': 'GetServico',
             'id': id,
@@ -164,7 +164,8 @@ function getServico(id) {
                 $('#servico_categoria').find('option:contains("' + service.fk_idCategory + '")').prop('selected', true);
                 $('#servico_preco').val(service.valor);
                 $('#servico_tipo').find('option:contains("' + service.fk_idType + '")').prop('selected', true);
-                $('#servico_descricao').val(service.descricao);
+                $('#servico_descricao').html(service.descricao);
+                $('#servico_descricao').summernote('code', service.descricao);
                 changeAccordionImage(response.imagens, 'service_accordion_image');
             } else {
                 toastr['warning'](response.msg);

@@ -100,7 +100,7 @@ function createUser(div_form) {
         $.ajax({
             method: "POST",
             datatype: "json",
-            url: "../../ajax/login_cadastro/cadastro.php",
+            url: "../../api/login_cadastro/cadastro.php",
             data: fields,
             success: function (response) {
                 response = JSON.parse(response);
@@ -155,7 +155,7 @@ function searchUser(div_form) {
         $.ajax({
             method: "POST",
             datatype: "json",
-            url: "../../ajax/login_cadastro/login.php",
+            url: "../../api/login_cadastro/login.php",
             data: fields,
             success: function (response) {
                 response = JSON.parse(response);

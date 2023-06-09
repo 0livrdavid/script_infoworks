@@ -19,7 +19,7 @@
 </div>
 
 <div class="modal fade" id="modal-adicionar-servico" tabindex="-1" aria-labelledby="modal-adicionar-servico-label" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-xl">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modal-adicionar-servico-label">Inserir novos serviços!</h5>
@@ -51,7 +51,7 @@
                                 ?>
                             </select>
                             <label for="servico_descricao" class="form-label">Descrição do serviço:</label>
-                            <textarea id="servico_descricao" class="form-control" placeholder="Adicione sua Descrição aqui" rows="5"></textarea>
+                            <div id="servico_descricao" class="form-control summernote"></div>
                             <label for="imagens[]" class="form-label">Inserir imagens</label>
                             <input class="form-control" type="file" id="servico_imagens" onchange="changeAccordionImage(this, 'service_accordion_image')" accept="image/png, image/jpeg" multiple>
                             <div class="accordion accordion-flush" id="service_accordion_image" style="margin-top: 15px"></div>
@@ -60,7 +60,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" onclick="criarServico()" data-bs-dismiss="modal">Adicionar</button>
+                <button type="button" class="btn btn-primary" id="btnAcaoServico" onclick="criarServico()" data-bs-dismiss="modal">Adicionar</button>
             </div>
         </div>
     </div>
