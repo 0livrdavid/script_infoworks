@@ -12,12 +12,7 @@
         <a class="btn btn-primary botao-login" href="../login_cadastro/">Entrar</a>
     </div>
     <div class="header-menu-logged">
-        <div class="notificao">
-            <button class="botao-noti">
-                <img src="<?php echo URL_BASE_ASSETS_IMG; ?>notification.png" alt="Notificações">
-            </button>
-        </div>
-        <p style="color: #fff; margin-bottom: 0"><?php echo resume_nome($_SESSION['usuario_nome']) ?></p>
+        <p style="color: #fff; margin-bottom: 0; font-size: 1rem"><?php echo resume_nome($_SESSION['usuario_nome']) ?></p>
         <div class="perfil">
             <a class="botao-circular" href="../perfil/">
                 <img style="object-fit: cover;" src="../../files/avatar/<?php echo (isset($_SESSION['usuario']['imagem_perfil'])) ? $_SESSION['usuario']['imagem_perfil'] : 'avatar.png'; ?>" alt="Perfil">

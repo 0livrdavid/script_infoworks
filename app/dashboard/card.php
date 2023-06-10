@@ -1,4 +1,4 @@
-<div id="<?php echo "card_id_" . $card['id'] ?>" class="card">
+<div id="<?php echo "card_id_" . $card['id'] ?>" class="card" style="width: 18rem; ">
     <div class="div-card">
         <div class="imgCargo">
             <?php include './carrosel.php' ?>
