@@ -11,7 +11,10 @@ $idServico = $_GET['id'];
     <?php include "./header.php" ?>
 
     <div class="container">
-        <h1>Serviço</h1>
+        <div class="d-flex flex-row justify-content-between px-3">
+             <h1>Serviço</h1>
+             <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-adicionar-servico" onclick="getServico(<?php echo $idServico ?>)">EDITAR</button>
+        </div>
         <?php
         $service = sanitize_array(getService($idServico))[0];
         $user = sanitize_array(getUser("",$service['fk_idUsuario']));
@@ -26,6 +29,7 @@ $idServico = $_GET['id'];
 </div>
 
 <script src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>servicos.js"></script>
+<script defer src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>crop_image.js"></script>
 <script type="text/javascript">
     switchLoginDashboard('<?php echo isset($_SESSION['usuario']) ? "logged" : "logout"; ?>');
 </script>

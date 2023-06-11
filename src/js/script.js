@@ -14,7 +14,14 @@ $(document).ready(function () {
           thousands: '.'
      });
 
-     $('.summernote').summernote();
+     $('.summernote').summernote({
+          toolbar: [
+               ['style', ['bold', 'italic', 'underline', 'clear']],
+               ['para', ['ul', 'ol']],
+               ['insert', ['link']],
+          ]
+     });
+
 
      $('#fileInput').on('change', function (e) {
           var files = e.target.files;
