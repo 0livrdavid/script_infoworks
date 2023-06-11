@@ -39,6 +39,7 @@ $cidades = getCidades();
 </div>
 
 <script defer src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>perfil.js"></script>
+<script defer src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>servicos.js"></script>
 <script defer src="<?php echo URL_BASE_ASSETS_JAVASCRIPT; ?>crop_image.js"></script>
 <script type="text/javascript">
     switchLoginDashboard('<?php echo isset($_SESSION['usuario']) ? "logged" : "logout"; ?>');
@@ -47,7 +48,7 @@ $cidades = getCidades();
         $('#servico_categoria').val('');
         $('#servico_preco').val('');
         $('#servico_tipo').val('');
-        $('#servico_descricao').val('');
+        $('#servico_descricao').summernote('code','');
         document.getElementById('service_accordion_image').innerHTML = '';
     })
 </script>

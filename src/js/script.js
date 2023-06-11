@@ -7,6 +7,7 @@ $(document).ready(function () {
      $('.mask-cpf').mask('999.999.999-99');
      $('.mask-cep').mask('99999-999');
      $('.mask-data').mask('99/99/9999');
+     $('.mask-telefone').mask('+99 (99) 99999-9999');
      $('.mask-dinheiro').maskMoney({
           prefix: 'R$ ',
           decimal: ',',

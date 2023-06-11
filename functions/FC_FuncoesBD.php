@@ -2,10 +2,10 @@
 $conexao = bd_Conexao($database_server, $database_username, $database_password, $database_name);
 $_SESSION['conexao'] = $conexao;
 
-$_POST=seguro_array($_POST);
-$_GET=seguro_array($_GET);
+//$_POST=seguro_array($_POST);
+//$_GET=seguro_array($_GET);
 
-sanitizeXSS();
+//sanitizeXSS();
 
 function bd_Conexao($database_server, $database_username, $database_password, $database_name){
     $conexao = mysqli_connect($database_server, $database_username, $database_password, $database_name)

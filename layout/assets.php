@@ -14,4 +14,3 @@
 
 <link rel="stylesheet" href="../../src/assets/summernote/summernote.min.css">
 <script src="../../src/assets/summernote/summernote.min.js"></script>
-

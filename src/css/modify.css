@@ -1,7 +1,17 @@
 .bi-star-fill {
-    color:#cecece;
+  color: #cecece;
 }
 
 .toast-message {
-    color:#ffffff !important;
+  color: #ffffff !important;
+}
+
+.note-editor {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.note-editing-area {
+  flex-grow: 1;
 }

@@ -1,7 +1,7 @@
 .container {
   width: 90%;
   margin: 0 auto;
-  height: 100%
+  height: 100%;
 }
 
 .header {
@@ -12,7 +12,7 @@
   background-color: #82b3f3;
   border-radius: 15px;
   height: 6rem;
-  box-shadow: 10px 10px 15px rgba(0, 0, 0, .2)
+  box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.2);
 }
 
 .img_logo_dashboard {
@@ -21,12 +21,12 @@
   justify-content: center;
   align-items: center;
   margin-left: 15px;
-  height: 4em
+  height: 4em;
 }
 
 .img_logo_dashboard img {
   width: 100%;
-  height: 100%
+  height: 100%;
 }
 
 .botao-noti {
@@ -37,13 +37,13 @@
   display: flex;
   justify-content: center;
   border: none;
-  align-items: center
+  align-items: center;
 }
 
 .botao-noti img {
   height: 100%;
   object-fit: cover;
-  object-position: center bottom
+  object-position: center bottom;
 }
 
 .botao-circular {
@@ -57,7 +57,7 @@
   align-items: center;
   background-color: transparent;
   margin-top: 10px;
-  margin-bottom: 10px
+  margin-bottom: 10px;
 }
 
 .botao-circular img {
@@ -65,43 +65,43 @@
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center bottom
+  object-position: center bottom;
 }
 
 .perfil {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 5em
+  height: 5em;
 }
 
 .notificao {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 2em
+  height: 2em;
 }
 
 .logo-dashboard {
-  margin-left: 5px
+  margin-left: 5px;
 }
 
 .header-logo {
   display: flex;
   justify-content: center;
-  align-items: center
+  align-items: center;
 }
 
 .header-menu-logout {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 1.2rem
+  margin: 0 1.2rem;
 }
 
 .botao-login {
   color: #fff;
-  padding: .6rem 1.5rem
+  padding: 0.6rem 1.5rem;
 }
 
 .header-menu-logged {
@@ -109,7 +109,7 @@
   justify-content: center;
   align-items: center;
   margin: 0 1.2rem;
-  column-gap: .8rem
+  column-gap: 0.8rem;
 }
 
 .button {
@@ -124,29 +124,24 @@
   color: #e9f4fb;
   font-weight: 700;
   cursor: pointer;
-  text-decoration: none
+  text-decoration: none;
 }
 
 .button:hover {
   background: #e9f4fb;
   color: #3b2b83;
-  border: 2px solid #3b2b83
+  border: 2px solid #3b2b83;
 }
 
 .nome {
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap
+  white-space: nowrap;
 }
 
 #perfil_output {
   width: 100;
 }
-
-
-
-
-
 
 .form-user {
   display: flex;
@@ -154,7 +149,6 @@
   padding: 15px;
   row-gap: 1.2rem;
 }
-
 
 .divPrincipal {
   display: flex;
@@ -186,7 +180,6 @@
   background-color: #3b2b83;
   color: #ffffff;
 }
-
 
 .dados-endereco {
   padding: 10px;
@@ -224,7 +217,6 @@ select {
 }
 
 .dados-contato {
-
   padding: 10px;
   border-radius: 10px;
   box-sizing: border-box;
@@ -270,7 +262,6 @@ select {
   align-items: center;
 }
 
-
 .sectionEnderecoP1 {
   display: flex;
   justify-content: space-between;
@@ -286,7 +277,6 @@ select {
   display: flex;
   justify-content: space-between;
 }
-
 
 .SEP4 select {
   width: 270px;
@@ -328,81 +318,75 @@ select {
   margin-left: 10px;
 }
 
-
-
-
-
-
-
-
 @media screen and (min-width: 2550px) and (max-width: 3000px) {
-.card {
- font-size: 2rem;
-}
+  .card {
+    font-size: 2rem;
+  }
 }
 
 @media screen and (min-width: 2150px) and (max-width: 2550px) {
-.card {
- font-size: 2rem;
-}
+  .card {
+    font-size: 2rem;
+  }
 }
 
 @media screen and (min-width: 1900px) and (max-width: 2150px) {
- .card {
-     font-size: 1.8rem;
- }
+  .card {
+    font-size: 1.8rem;
+  }
 }
 
 @media screen and (min-width: 1500px) and (max-width: 1900px) {
- .card {
-   width: 26vw;
-   font-size: 1.8rem;
- }
+  .card {
+    width: 26vw;
+    font-size: 1.8rem;
+  }
 }
 
 @media screen and (min-width: 1250px) and (max-width: 1500px) {
- .card {
-   width: 28vw;
-   font-size: 1.7rem;
- }
+  .card {
+    width: 28vw;
+    font-size: 1.7rem;
+  }
 }
 
 @media screen and (min-width: 901px) and (max-width: 1250px) {
- .card {
-   width: 40vw;
-   font-size: 1.7rem;
- }
+  .card {
+    width: 40vw;
+    font-size: 1.7rem;
+  }
 
- .filter {
-   flex-direction: column;
-   row-gap: 1.2rem;
-   align-items: flex-start;  
- }
+  .filter {
+    flex-direction: column;
+    row-gap: 1.2rem;
+    align-items: flex-start;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 900px) {
- .card {
-     width: 100vw;
-     font-size: 2rem;
- }
+  .card {
+    width: 100vw;
+    font-size: 2rem;
+  }
 
- .filter {
-   flex-direction: column;
-   row-gap: 1.2rem;
-   align-items: flex-start;  
- }
+  .filter {
+    flex-direction: column;
+    row-gap: 1.2rem;
+    align-items: flex-start;
+  }
 }
 
 @media screen and (max-device-width: 480px) {
- .card {
-   width: 100vw;
-   font-size: 1.7rem;
- }
+  .card {
+    width: 100vw;
+    font-size: 1.7rem;
+  }
 
- .filter {
-   flex-direction: column;
-   row-gap: 1.2rem;
-   align-items: flex-start;  
- }
+  .filter {
+    flex-direction: column;
+    row-gap: 1.2rem;
+    align-items: flex-start;
+  }
 }
+
 
