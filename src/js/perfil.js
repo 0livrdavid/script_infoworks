@@ -1,3 +1,65 @@
+$(document).ready(function () {
+     let selectEstados = document.getElementById('estado');
+     let selectCidades = document.getElementById('cidade');
+
+     fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/municipios`)
+          .then(response => response.json())
+          .then(data => {
+               for (let cidade of data) {
+                    let option = document.createElement('option');
+                    option.value = cidade.id;
+                    option.text = cidade.nome;
+                    selectCidades.appendChild(option);
+               }
+          })
+          .then(() => {
+               $('#cidade').val(fk_cidade);
+          });
+
+     fetch('https://servicodados.ibge.gov.br/api/v1/localidades/estados')
+          .then(response => response.json())
+          .then(data => {
+               for (let estado of data) {
+                    let option = document.createElement('option');
+                    option.value = estado.sigla;
+                    option.text = estado.nome;
+                    selectEstados.appendChild(option);
+               }
+          })
+          .then(() => {
+               $('#estado').val(fk_estado);
+          });
+
+     selectEstados.addEventListener('change', function () {
+          selectCidades.innerHTML = '';
+
+          if (this.value != "") {
+               fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${this.value}/municipios`)
+                    .then(response => response.json())
+                    .then(data => {
+                         for (let cidade of data) {
+                              let option = document.createElement('option');
+                              option.value = cidade.id;
+                              option.text = cidade.nome;
+                              selectCidades.appendChild(option);
+                         }
+                    });
+          } else {
+               fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/municipios`)
+                    .then(response => response.json())
+                    .then(data => {
+                         for (let cidade of data) {
+                              let option = document.createElement('option');
+                              option.value = cidade.id;
+                              option.text = cidade.nome;
+                              selectCidades.appendChild(option);
+                         }
+                    });
+          }
+     });
+
+})
+
 document.getElementById('button-discovery-cep').onclick = function () {
      var script = document.createElement('script');
      if ($('#cep').val() != '') {

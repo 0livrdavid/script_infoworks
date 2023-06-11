@@ -17,8 +17,6 @@ if ($acao == "SalvarPerfil") {
         'facebook' => $_POST['facebook'],
     ];
 
-    var_dump($data);
-
     $data = array_diff_assoc($data, $_SESSION['usuario']);
 
     if ($_SESSION['usuario']['cpf'] == $_POST['cpf']) {

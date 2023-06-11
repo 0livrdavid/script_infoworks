@@ -34,24 +34,13 @@
                     <label for="cidade" class="form-label">Cidade:</label>
                     <select id="cidade" name="cidade" class="form-select">
                          <option value="">Selecione</option>
-                         <?php
-                         foreach ($cidades as $obj) {
-                              $selected = "";
-                              if ($obj['id'] == $_SESSION['usuario']['fk_cidade']) $selected = "selected";
-                              echo '<option value="' . $obj['id'] . '" ' . $selected . '>' . $obj['nome'] . '</option>';
-                         } ?>
                     </select>
                </div>
                <div class="col">
                     <label for="estado" class="form-label">Estado:</label>
                     <select id="estado" name="estado" class="form-select">
                          <option value="">Selecione</option>
-                         <?php
-                         foreach ($estados as $obj) {
-                              $selected = "";
-                              if ($obj['sigla'] == $_SESSION['usuario']['fk_estado']) $selected = "selected";
-                              echo '<option value="' . $obj['sigla'] . '" ' . $selected . '>' . $obj['nome'] . '</option>';
-                         } ?>
+                         
                     </select>
                </div>
           </div>

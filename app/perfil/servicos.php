@@ -1,7 +1,7 @@
 <div id="<?php echo $service['id'] ?>" class="row">
     <div class="col section">
         <h4 class="tema"><?php echo $service['fk_idCategory'] ?></h4>
-        <p id="meuParagrafo"><?php echo $service['descricao'] ?></p>
+        <p><?php echo $service['descricao'] ?></p>
         <div style="display: flex; justify-content: space-between; flex-direction: row;">
             <div>
                 <i class="bi bi-star-fill rating-color"></i>

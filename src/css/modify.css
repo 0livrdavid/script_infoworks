@@ -15,3 +15,7 @@
 .note-editing-area {
   flex-grow: 1;
 }
+
+b, strong {
+     font-weight: bold !important;
+ }
