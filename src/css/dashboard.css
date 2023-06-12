@@ -211,7 +211,6 @@
   background-color: rgb(130, 179, 243);
   padding: 1vw;
   gap: 1rem;
-  justify-content: center;
   border-radius: 10px;
   box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.1);
 }

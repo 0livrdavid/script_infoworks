@@ -9,6 +9,8 @@
 <script type="text/javascript" src="../../src/assets/toastr/toastr.js"></script>
 <link rel="stylesheet" type="text/css" href="../../src/assets/toastr/toastr.css">
 
+<script type="text/javascript" src="../../src/assets/sweetalert/sweetalert.js"></script>
+
 <script type="text/javascript" src="../../src/assets/cropper/cropper.min.js"></script>
 <link rel="stylesheet" type="text/css" href="../../src/assets/cropper/cropper.min.css">
 

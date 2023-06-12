@@ -56,5 +56,5 @@
 </div>
 <div class="input-group mb-3">
      <textarea type="text" class="form-control" placeholder="Adicione um comentário..."></textarea>
-     <button class="btn btn-outline-primary" type="button" id="button-addon2">Salvar</button>
+     <button class="btn btn-outline-primary" type="button" id="btnAddComentario" onclick="adicionarComentarioServico(<?php echo $service['id'] ?>, <?php echo $service['idUsuario'] ?>)">Salvar</button>
 </div>

@@ -22,7 +22,6 @@ $(document).ready(function () {
           ]
      });
 
-
      $('#fileInput').on('change', function (e) {
           var files = e.target.files;
           var fileList = $('#fileList');
@@ -130,4 +129,30 @@ function cloneImage(srcElementId, destElementId) {
      var destElement = document.getElementById(destElementId);
 
      destElement.src = srcElement.src;
+}
+
+
+function openModalBoostrap(modal, title = null, functionsTitles = null, functions = null) {
+     var modalElement = document.querySelector("#" + modal);
+     let bootstrapModal = new bootstrap.Modal(document.getElementById(modal));
+     var modalTitleElement = modalElement.querySelector('.modal_title');
+     var modalFooterElement = modalElement.querySelector('.modal_footer');
+
+     (title) && (modalTitleElement.innerText = title);
+
+     if (functions && functions.length > 0) {
+          modalFooterElement.innerHTML = "";
+          functions.forEach((func, index) => {
+               var button = document.createElement('button');
+               button.type = 'button';
+               button.setAttribute('class', "btn btn-primary");
+               button.id = "btnAcaoServico" + index;
+               button.setAttribute('data-bs-dismiss', 'modal')
+               button.innerText = functionsTitles[index];
+               button.setAttribute('onclick', func + "()");
+               modalFooterElement.appendChild(button);
+          });
+     }
+
+     bootstrapModal.show();
 }
