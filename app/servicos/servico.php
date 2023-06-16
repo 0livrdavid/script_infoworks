@@ -25,12 +25,25 @@
      </div>
      <div class="row">
           <div class="col">
-               <?php include './avaliacao.php' ?>
+               <?php
+               $evaluations = sanitize_array(getEvaluations($service['id']));
+               include './avaliacao.php' ?>
           </div>
      </div>
+     <hr>
      <div class="row">
           <div class="col">
-               <?php include './comentarios.php' ?>
+               <?php
+               $comments = sanitize_array(getComments($service['id']));
+
+               if (count($comments)) {
+                    foreach ($comments as $key => $obj) {
+                         $image = getImageProfileUser($obj['idUsuario']);
+                         include "./comentario.php";
+                    }
+               } else { ?>
+                    <h3 style="color: #ffffff">Não existem comentários cadastrados!</h3>
+               <?php } ?>
           </div>
      </div>
 </div>

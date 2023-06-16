@@ -205,6 +205,26 @@ function getCards($filter)
     return bd_iteration($dados);
 }
 
+function getComments($id)
+{
+    $query = "SELECT c.id, c.comentario, c.created_at, u.nome, u.id AS idUsuario
+            FROM `service_comment` AS c
+            JOIN `user` AS u ON u.id = c.fk_idUsuario
+            WHERE c.status = 1 AND c.fk_idService = $id
+            ORDER BY c.created_at DESC";
+    $dados = bd_query($query, $_SESSION['conexao'], 0);
+    return bd_iteration($dados);
+}
+
+function getEvaluations($id)
+{
+    $query = "SELECT e.nota
+            FROM `service_evaluation` AS e
+            WHERE e.status = 1 AND e.fk_idService = $id";
+    $dados = bd_query($query, $_SESSION['conexao'], 0);
+    return bd_iteration($dados);
+}
+
 function getServices()
 {
     $query = "SELECT s.*
@@ -295,3 +315,30 @@ function verificaUsuario($type = 0)
 
     return true;
 }
+
+
+function tempoPassado($dataInicial, $dataFinal = null) {
+     if (!$dataFinal) $dataFinal = date('Y-m-d H:i:s');
+     
+     $segundos = strtotime($dataFinal) - strtotime($dataInicial);
+     $intervalos = array(
+         'ano' => 31536000,
+         'mês' => 2592000,
+         'semana' => 604800,
+         'dia' => 86400,
+         'hora' => 3600,
+         'minuto' => 60,
+         'segundo' => 1
+     );
+ 
+     foreach ($intervalos as $nome => $valor) {
+         if ($segundos >= $valor) {
+             $tempo = floor($segundos / $valor);
+             $texto = $tempo > 1 ? $nome . 's' : $nome;
+             return $tempo . ' ' . $texto . ' atrás';
+         }
+     }
+ 
+     return 'Agora mesmo';
+ }
+ 

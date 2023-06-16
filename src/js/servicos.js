@@ -177,12 +177,14 @@ function adicionarComentarioServico(id, usuario) {
                          'acao': 'AdicionaComentarioServico',
                          'id': id,
                          'usuario': usuario,
+                         'nota': ratingValue,
+                         'comentario': $('#comentario_servico').val()
                     },
-                    success: function (response) {
+                    success: async function (response) {
                          response = JSON.parse(response);
                          if (response.flag) {
-                              Swal.fire('Avaliação enviada!', `O comentário e a avaliação de ${ratingValue} estrela(s) foram armazenadas.`, 'success');
-                              toastr['success'](response.msg);
+                              await Swal.fire('Avaliação enviada!', `O comentário e a avaliação de ${ratingValue} estrela(s) foram armazenadas.`, 'success');
+                              window.location.reload();
                          } else {
                               toastr['warning'](response.msg);
                          }
